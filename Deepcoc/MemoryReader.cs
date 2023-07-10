@@ -36,6 +36,10 @@ namespace Deepcoc
         [DllImport("kernel32.dll")]
         static extern bool ReadProcessMemory(IntPtr handle, ulong address, [Out()] byte[] buffer, int size, out int bytesRead);
         [DllImport("kernel32.dll")]
+        static extern bool WriteProcessMemory(IntPtr handle, IntPtr address, byte[] buffer, int size, IntPtr numBytesWritten);
+        [DllImport("kernel32.dll")]
+        static extern bool WriteProcessMemory(IntPtr handle, ulong address, byte[] buffer, int size, IntPtr numBytesWritten);
+        [DllImport("kernel32.dll")]
         public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
         [DllImport("kernel32.dll")]
         static extern IntPtr OpenProcess(ProcessAccessFlags dwDesiredAccess, [MarshalAs(UnmanagedType.Bool)] bool bInheritHandle, int dwProcessId);
@@ -71,6 +75,10 @@ namespace Deepcoc
             byte[] _result = new byte[16];
             ReadProcessMemory(_handle, (IntPtr)(address + offset), _result, _result.Length, IntPtr.Zero);
             return BitConverter.ToInt32(_result,0);
+        }
+        public void WriteInt(IntPtr address, int value)
+        {
+            WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 4, IntPtr.Zero);
         }
     }
 }
