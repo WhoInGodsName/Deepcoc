@@ -58,7 +58,7 @@ namespace Deepcoc
             {
                 _nextAddress = (IntPtr)BitConverter.ToInt64(_result,0) + offsets[i];
                 ReadProcessMemory(_handle, (IntPtr)_nextAddress, _result, _result.Length, IntPtr.Zero);
-                System.Diagnostics.Debug.WriteLine("addy: " + _nextAddress.ToString("X"));
+                //.Diagnostics.Debug.WriteLine("addy: " + _nextAddress.ToString("X"));
             }
             return _nextAddress;
         }
@@ -67,18 +67,38 @@ namespace Deepcoc
             byte[] _result = new byte[16];
             IntPtr _nextAddress = (IntPtr)(address + offset);
             ReadProcessMemory(_handle, (IntPtr)_nextAddress, _result, _result.Length, IntPtr.Zero);
-            
+            //System.Diagnostics.Debug.WriteLine("addy: " + _nextAddress.ToString("X"));
             return _nextAddress;
         }
+
         public int ReadInt(IntPtr address, int offset)
         {
             byte[] _result = new byte[16];
             ReadProcessMemory(_handle, (IntPtr)(address + offset), _result, _result.Length, IntPtr.Zero);
             return BitConverter.ToInt32(_result,0);
         }
+        public int ReadInt(IntPtr address)
+        {
+            byte[] _result = new byte[16];
+            ReadProcessMemory(_handle, (IntPtr)(address), _result, _result.Length, IntPtr.Zero);
+            return BitConverter.ToInt32(_result, 0);
+        }
+        public float ReadFloat(IntPtr address)
+        {
+            byte[] _result = new byte[16];
+            ReadProcessMemory(_handle, (IntPtr)(address), _result, _result.Length, IntPtr.Zero);
+            //System.Diagnostics.Debug.WriteLine(BitConverter.ToSingle(_result,0).ToString());
+            return BitConverter.ToSingle(_result, 0);
+            
+        }
         public void WriteInt(IntPtr address, int value)
         {
             WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 4, IntPtr.Zero);
+        }
+        public void WriteFloat(IntPtr address, float value)
+        {
+            WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 4, IntPtr.Zero);
+            System.Diagnostics.Debug.WriteLine(value);
         }
     }
 }
