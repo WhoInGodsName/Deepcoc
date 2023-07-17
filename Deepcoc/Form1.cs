@@ -18,7 +18,7 @@ namespace Deepcoc
         public IntPtr xCoord = IntPtr.Zero;
         public IntPtr zCoord = IntPtr.Zero;
 
-        public float[] teleAddresses = new float[3];
+        public float[] teleAddresses = new float[6];
 
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(Keys vKey);
@@ -54,6 +54,9 @@ namespace Deepcoc
 
             Thread DM = new Thread(DownedMovement);
             DM.Start();
+
+            Thread AR = new Thread(AutoReload);
+            AR.Start();
 
             void LockPrimaryAmmo()
             {
@@ -95,7 +98,7 @@ namespace Deepcoc
 
             void Fly()
             {
-                int _units = 5;
+                int _units = 59;
                 while (true)
                 {
 
@@ -110,7 +113,6 @@ namespace Deepcoc
                         mem.WriteFloat(yCoord, _yCoordValue - _units);
                     }
                     Thread.Sleep(100);
-                    _units += 7;
                 }
             }
 
@@ -185,6 +187,23 @@ namespace Deepcoc
 
         }
 
+        private void AutoReload()
+        {
+            while (true)
+            {
+                Thread.Sleep(10000);
+                try
+                {
+                    ReloadAddresses();
+                    System.Diagnostics.Debug.WriteLine("Reloaded");
+                }
+                catch
+                {
+                    System.Diagnostics.Debug.WriteLine("Cant reload");
+                }
+            }   
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -252,6 +271,11 @@ namespace Deepcoc
         {
             MemoryReader mem = new MemoryReader(game);
 
+            ReloadAddresses();
+            teleAddresses[3] = mem.ReadFloat(xCoord);
+            teleAddresses[4] = mem.ReadFloat(yCoord);
+            teleAddresses[5] = mem.ReadFloat(zCoord);
+
             mem.WriteFloat(xCoord, teleAddresses[0] + 1);
             mem.WriteFloat(yCoord, teleAddresses[1] + 1);
             mem.WriteFloat(zCoord, teleAddresses[2] + 1);
@@ -266,6 +290,15 @@ namespace Deepcoc
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+
+            mem.WriteFloat(xCoord, teleAddresses[3] + 1);
+            mem.WriteFloat(yCoord, teleAddresses[4] + 1);
+            mem.WriteFloat(zCoord, teleAddresses[5] + 1);
         }
     }
 }

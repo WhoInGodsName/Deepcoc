@@ -47,13 +47,14 @@
             textBox3 = new TextBox();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
+            button4 = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(466, 18);
+            label1.Location = new Point(453, 26);
             label1.Margin = new Padding(7, 0, 7, 0);
             label1.Name = "label1";
             label1.Size = new Size(349, 39);
@@ -212,7 +213,7 @@
             // button3
             // 
             button3.Font = new Font("Impact", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(963, 223);
+            button3.Location = new Point(963, 207);
             button3.Name = "button3";
             button3.Size = new Size(175, 36);
             button3.TabIndex = 15;
@@ -249,12 +250,24 @@
             textBox5.Size = new Size(96, 23);
             textBox5.TabIndex = 18;
             // 
+            // button4
+            // 
+            button4.Font = new Font("Impact", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.Location = new Point(963, 251);
+            button4.Name = "button4";
+            button4.Size = new Size(175, 36);
+            button4.TabIndex = 19;
+            button4.Text = "Go Back";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(16F, 39F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
             ClientSize = new Size(1288, 620);
+            Controls.Add(button4);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
@@ -304,5 +317,6 @@
         private TextBox textBox3;
         private TextBox textBox4;
         private TextBox textBox5;
+        private Button button4;
     }
 }
