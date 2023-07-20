@@ -2,12 +2,17 @@ using System.Diagnostics;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
+
 
 namespace Deepcoc
 {
 
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
+
         public IntPtr primaryAddress = IntPtr.Zero;
         public IntPtr secondaryAddress = IntPtr.Zero;
 
@@ -20,31 +25,31 @@ namespace Deepcoc
 
         public float[] teleAddresses = new float[6];
 
+
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(Keys vKey);
         public Form1()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red900, Primary.Orange800, Accent.Red700, TextShade.BLACK);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            TextBox.CheckForIllegalCrossThreadCalls = false;
+
             game = Process.GetProcessesByName("FSD-Win64-Shipping").First();
             MemoryReader mem = new MemoryReader(game);
             baseAddress = game.MainModule.BaseAddress;
 
             ReloadAddresses();
 
-            //System.Diagnostics.Debug.WriteLine(address.ToString("X"));
-
-
-            //System.Diagnostics.Debug.WriteLine(_currentAmmo.ToString("X"));
-
-            Thread LA = new Thread(LockSecondaryAmmo);
+            Thread LA = new Thread(LockAmmo);
             LA.Start();
-
-            Thread LAP = new Thread(LockPrimaryAmmo);
-            LAP.Start();
 
             Thread FLY = new Thread(Fly);
             FLY.Start();
@@ -58,38 +63,44 @@ namespace Deepcoc
             Thread AR = new Thread(AutoReload);
             AR.Start();
 
-            void LockPrimaryAmmo()
+            void LockAmmo()
             {
                 while (true)
                 {
-
-                    if (checkBox3.Checked)
+                    //Primary gun
+                    if (materialCheckbox8.Checked)
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(primaryAddress, Offsets.currentAmmo);
                         mem.WriteInt(_currentAmmo, 30);
                     }
-                    if (checkBox4.Checked)
+                    if (materialCheckbox7.Checked)
                     {
                         IntPtr _fireRate = mem.ReadAddress(primaryAddress, Offsets.fireRate);
                         mem.WriteInt(_fireRate, 1);
                     }
-                    //Thread.Sleep(25);
-                }
-            }
 
-            void LockSecondaryAmmo()
-            {
-                while (true)
-                {
-
-                    if (checkBox1.Checked)
+                    //Secondary gun
+                    if (materialCheckbox9.Checked)
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(secondaryAddress, Offsets.currentAmmo);
                         mem.WriteInt(_currentAmmo, 30);
                     }
-                    if (checkBox2.Checked)
+                    if (materialCheckbox10.Checked)
                     {
                         IntPtr _fireRate = mem.ReadAddress(secondaryAddress, Offsets.fireRate);
+                        mem.WriteInt(_fireRate, 1);
+                    }
+
+                    //Fourth gun
+                    if (materialCheckbox13.Checked)
+                    {
+                        IntPtr _currentAmmo = mem.ReadAddress(baseAddress, Offsets.FourthGun);
+                        mem.WriteInt(_currentAmmo, 30);
+                    }
+                    if (materialCheckbox14.Checked)
+                    {
+                        IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.fireRate);
+                        IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.fireRate);
                         mem.WriteInt(_fireRate, 1);
                     }
                     //Thread.Sleep(25);
@@ -199,14 +210,13 @@ namespace Deepcoc
                 }
                 catch
                 {
+                    listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Cant reload addresses");
                     System.Diagnostics.Debug.WriteLine("Cant reload");
                 }
-            }   
+            }
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -232,15 +242,26 @@ namespace Deepcoc
 
         private void ReloadAddresses()
         {
-            game = Process.GetProcessesByName("FSD-Win64-Shipping").First();
-            MemoryReader mem = new MemoryReader(game);
-            baseAddress = game.MainModule.BaseAddress;
+            try
+            {
+                game = Process.GetProcessesByName("FSD-Win64-Shipping").First();
+                MemoryReader mem = new MemoryReader(game);
+                baseAddress = game.MainModule.BaseAddress;
 
-            primaryAddress = mem.ReadAddress(baseAddress, Offsets.PrimaryGun);
-            secondaryAddress = mem.ReadAddress(baseAddress, Offsets.SecondaryGun);
-            yCoord = mem.ReadAddress(baseAddress, Offsets.yCoord);
-            xCoord = mem.ReadAddress(baseAddress, Offsets.xCoord);
-            zCoord = mem.ReadAddress(xCoord, 0x4);
+                primaryAddress = mem.ReadAddress(baseAddress, Offsets.PrimaryGun);
+                secondaryAddress = mem.ReadAddress(baseAddress, Offsets.SecondaryGun);
+                yCoord = mem.ReadAddress(baseAddress, Offsets.yCoord);
+                xCoord = mem.ReadAddress(baseAddress, Offsets.xCoord);
+                zCoord = mem.ReadAddress(xCoord, 0x4);
+
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Reloaded addresses");
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Cant reload addresses");
+                System.Diagnostics.Debug.WriteLine("Cant reload");
+            }
+
         }
 
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
@@ -248,7 +269,7 @@ namespace Deepcoc
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /*private void button2_Click(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
             ReloadAddresses();
@@ -256,7 +277,7 @@ namespace Deepcoc
             teleAddresses[1] = mem.ReadFloat(yCoord);
             teleAddresses[2] = mem.ReadFloat(zCoord);
 
-            textBox3.Text = "x: " + teleAddresses[0].ToString();
+            materialMultiLineTextBox2.Text = "x: " + teleAddresses[0].ToString();
             textBox4.Text = "y: " + teleAddresses[1].ToString();
             textBox5.Text = "z: " + teleAddresses[2].ToString();
 
@@ -279,8 +300,7 @@ namespace Deepcoc
             mem.WriteFloat(xCoord, teleAddresses[0] + 1);
             mem.WriteFloat(yCoord, teleAddresses[1] + 1);
             mem.WriteFloat(zCoord, teleAddresses[2] + 1);
-
-        }
+        }*/
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -291,7 +311,7 @@ namespace Deepcoc
         {
 
         }
-
+        /*
         private void button4_Click_1(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -299,6 +319,57 @@ namespace Deepcoc
             mem.WriteFloat(xCoord, teleAddresses[3] + 1);
             mem.WriteFloat(yCoord, teleAddresses[4] + 1);
             mem.WriteFloat(zCoord, teleAddresses[5] + 1);
+        }*/
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            ReloadAddresses();
+            teleAddresses[0] = mem.ReadFloat(xCoord);
+            teleAddresses[1] = mem.ReadFloat(yCoord);
+            teleAddresses[2] = mem.ReadFloat(zCoord);
+
+            materialMultiLineTextBox2.Text = "x: " + teleAddresses[0].ToString();
+            materialMultiLineTextBox3.Text = "y: " + teleAddresses[1].ToString();
+            materialMultiLineTextBox4.Text = "z: " + teleAddresses[2].ToString();
+
+            foreach (var address in teleAddresses)
+            {
+                System.Diagnostics.Debug.WriteLine("in: " + address);
+            }
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+
+            ReloadAddresses();
+            teleAddresses[3] = mem.ReadFloat(xCoord);
+            teleAddresses[4] = mem.ReadFloat(yCoord);
+            teleAddresses[5] = mem.ReadFloat(zCoord);
+
+            mem.WriteFloat(xCoord, teleAddresses[0] + 1);
+            mem.WriteFloat(yCoord, teleAddresses[1] + 1);
+            mem.WriteFloat(zCoord, teleAddresses[2] + 1);
+        }
+
+        private void materialButton3_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+
+            mem.WriteFloat(xCoord, teleAddresses[3] + 1);
+            mem.WriteFloat(yCoord, teleAddresses[4] + 1);
+            mem.WriteFloat(zCoord, teleAddresses[5] + 1);
+        }
+
+        private void materialTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

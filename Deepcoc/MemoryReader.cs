@@ -58,7 +58,6 @@ namespace Deepcoc
             {
                 _nextAddress = (IntPtr)BitConverter.ToInt64(_result,0) + offsets[i];
                 ReadProcessMemory(_handle, (IntPtr)_nextAddress, _result, _result.Length, IntPtr.Zero);
-                //.Diagnostics.Debug.WriteLine("addy: " + _nextAddress.ToString("X"));
             }
             return _nextAddress;
         }
@@ -67,7 +66,6 @@ namespace Deepcoc
             byte[] _result = new byte[16];
             IntPtr _nextAddress = (IntPtr)(address + offset);
             ReadProcessMemory(_handle, (IntPtr)_nextAddress, _result, _result.Length, IntPtr.Zero);
-            //System.Diagnostics.Debug.WriteLine("addy: " + _nextAddress.ToString("X"));
             return _nextAddress;
         }
 
@@ -87,13 +85,21 @@ namespace Deepcoc
         {
             byte[] _result = new byte[16];
             ReadProcessMemory(_handle, (IntPtr)(address), _result, _result.Length, IntPtr.Zero);
-            //System.Diagnostics.Debug.WriteLine(BitConverter.ToSingle(_result,0).ToString());
-            return BitConverter.ToSingle(_result, 0);
-            
+            return BitConverter.ToSingle(_result, 0);  
+        }
+        public long ReadLong(IntPtr address)
+        {
+            byte[] _result = new byte[8];
+            ReadProcessMemory(_handle, (IntPtr)(address), _result, _result.Length, IntPtr.Zero);
+            return BitConverter.ToInt64(_result, 0);
         }
         public void WriteInt(IntPtr address, int value)
         {
             WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 4, IntPtr.Zero);
+        }
+        public void WriteLong(IntPtr address, long value)
+        {
+            WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 8, IntPtr.Zero);
         }
         public void WriteFloat(IntPtr address, float value)
         {
