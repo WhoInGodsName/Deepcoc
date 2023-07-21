@@ -60,15 +60,6 @@ namespace Deepcoc
             Thread AR = new Thread(AutoReload);
             AR.Start();
 
-            Thread Resources = new Thread(LockResources);
-            Resources.Start();
-
-            void LockResources()
-            {
-
-
-            }
-
             void LockAmmo()
             {
                 while (true)
@@ -215,24 +206,6 @@ namespace Deepcoc
                 }
             }
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -261,26 +234,6 @@ namespace Deepcoc
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Cant reload addresses");
                 System.Diagnostics.Debug.WriteLine("Cant reload");
             }
-
-        }
-
-        private void checkBox6_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -357,8 +310,8 @@ namespace Deepcoc
         {
             MemoryReader mem = new MemoryReader(game);
             SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
-            var infFlare = signatureScan.FindPattern("89 8F 18 02 00 00 48 85", 0);
-            mem.WriteToCave(infFlare, new byte[] { 0x89, 0x8F, 0x18, 0x02, 0x00, 0x00 });
+            var infFlare = signatureScan.FindPattern("89 87 ? ? ? ? 3B 87 ? ? ? ? 7E ? 8B D6 48 8D ? ? ? ? ? E8 ? ? ? ? 48 8B ? ? ? ? ? 48 8B ? ? ? ? ? ? 48 89", 0);
+            mem.WriteToCave(infFlare, new byte[] { 0x89, 0x87, 0xE0, 0x03, 0x00, 0x00 });
 
             System.Diagnostics.Debug.WriteLine("cave: ");
         }
