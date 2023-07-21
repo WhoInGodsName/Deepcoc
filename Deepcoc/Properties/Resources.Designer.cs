@@ -59,5 +59,15 @@ namespace Deepcoc.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_body_armor_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-body-armor-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

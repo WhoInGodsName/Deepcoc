@@ -40,9 +40,15 @@ namespace Deepcoc
         [DllImport("kernel32.dll")]
         static extern bool WriteProcessMemory(IntPtr handle, ulong address, byte[] buffer, int size, IntPtr numBytesWritten);
         [DllImport("kernel32.dll")]
+        static extern bool WriteProcessMemory(IntPtr handle, UIntPtr address, byte[] buffer, int size, IntPtr numBytesWritten);
+        [DllImport("kernel32.dll")]
         public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
         [DllImport("kernel32.dll")]
         static extern IntPtr OpenProcess(ProcessAccessFlags dwDesiredAccess, [MarshalAs(UnmanagedType.Bool)] bool bInheritHandle, int dwProcessId);
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr VirtualAllocEx(IntPtr handle, IntPtr address, int size, uint allocationType, uint flProtect);
+        [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+        public static extern IntPtr VirtualFreeEx(IntPtr handle, UIntPtr address, int size, int freeType);
 
         public MemoryReader(System.Diagnostics.Process process)
         {
@@ -105,6 +111,22 @@ namespace Deepcoc
         {
             WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 4, IntPtr.Zero);
             System.Diagnostics.Debug.WriteLine(value);
+        }
+
+        public IntPtr createCodeCave(int caveSize)
+        {
+            var caveAddress = VirtualAllocEx(_handle, (IntPtr)null, caveSize, 0x1000 | 0x2000, 0x40);
+
+            return caveAddress;
+        }
+        public void WriteToCave(UIntPtr caveAddress, byte[] code)
+        {
+            WriteProcessMemory(_handle, caveAddress, code, code.Length, IntPtr.Zero);
+        }
+
+        public void FreeCave(UIntPtr caveAddress)
+        {
+            var rel = VirtualFreeEx(_handle, caveAddress, 0, 0x00008000);
         }
     }
 }

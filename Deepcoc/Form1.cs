@@ -3,9 +3,10 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 using MaterialSkin;
 using MaterialSkin.Controls;
-
+using SoT_Helper.Services;
 
 namespace Deepcoc
 {
@@ -45,14 +46,10 @@ namespace Deepcoc
             game = Process.GetProcessesByName("FSD-Win64-Shipping").First();
             MemoryReader mem = new MemoryReader(game);
             baseAddress = game.MainModule.BaseAddress;
-
             ReloadAddresses();
 
             Thread LA = new Thread(LockAmmo);
             LA.Start();
-
-            Thread FLY = new Thread(Fly);
-            FLY.Start();
 
             Thread SPD = new Thread(Speed);
             SPD.Start();
@@ -63,10 +60,20 @@ namespace Deepcoc
             Thread AR = new Thread(AutoReload);
             AR.Start();
 
+            Thread Resources = new Thread(LockResources);
+            Resources.Start();
+
+            void LockResources()
+            {
+
+
+            }
+
             void LockAmmo()
             {
                 while (true)
                 {
+
                     //Primary gun
                     if (materialCheckbox8.Checked)
                     {
@@ -107,26 +114,6 @@ namespace Deepcoc
                 }
             }
 
-            void Fly()
-            {
-                int _units = 59;
-                while (true)
-                {
-
-                    if (checkBox5.Checked && GetAsyncKeyState(Keys.Space) < 0)
-                    {
-                        float _yCoordValue = mem.ReadFloat(yCoord);
-                        mem.WriteFloat(yCoord, _yCoordValue + _units);
-                    }
-                    else if (checkBox5.Checked && GetAsyncKeyState(Keys.LControlKey) < 0)
-                    {
-                        float _yCoordValue = mem.ReadFloat(yCoord);
-                        mem.WriteFloat(yCoord, _yCoordValue - _units);
-                    }
-                    Thread.Sleep(100);
-                }
-            }
-
             void Speed()
             {
                 while (true)
@@ -134,10 +121,11 @@ namespace Deepcoc
                     IntPtr _xCoordAddress = mem.ReadAddress(baseAddress, Offsets.xCoord);
                     IntPtr _zCoordAddress = mem.ReadAddress(baseAddress, Offsets.zCoord);
                     int _speed = 25;
+                    int _units = 59;
                     float _firstXVal = mem.ReadFloat(_xCoordAddress);
                     float _firstZVal = mem.ReadFloat(_zCoordAddress);
                     Thread.Sleep(25);
-                    if (checkBox6.Checked && (GetAsyncKeyState(Keys.W) < 0 || GetAsyncKeyState(Keys.S) < 0))
+                    if (materialCheckbox16.Checked && (GetAsyncKeyState(Keys.W) < 0 || GetAsyncKeyState(Keys.S) < 0))
                     {
                         float _xCoordValue = mem.ReadFloat(_xCoordAddress);
                         if (_firstXVal - _xCoordValue > 0)
@@ -150,7 +138,7 @@ namespace Deepcoc
                         }
 
                     }
-                    if (checkBox6.Checked && (GetAsyncKeyState(Keys.A) < 0 || GetAsyncKeyState(Keys.D) < 0))
+                    if (materialCheckbox16.Checked && (GetAsyncKeyState(Keys.A) < 0 || GetAsyncKeyState(Keys.D) < 0))
                     {
                         float _zCoordValue = mem.ReadFloat(_zCoordAddress);
                         if (_firstZVal - _zCoordValue > 0)
@@ -162,6 +150,18 @@ namespace Deepcoc
                             mem.WriteFloat(_zCoordAddress, _zCoordValue + _speed);
                         }
                     }
+
+                    //Fly
+                    if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.Space) < 0)
+                    {
+                        float _yCoordValue = mem.ReadFloat(yCoord);
+                        mem.WriteFloat(yCoord, _yCoordValue + _units);
+                    }
+                    else if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.LControlKey) < 0)
+                    {
+                        float _yCoordValue = mem.ReadFloat(yCoord);
+                        mem.WriteFloat(yCoord, _yCoordValue - _units);
+                    }
                 }
             }
 
@@ -171,23 +171,23 @@ namespace Deepcoc
                 Thread.Sleep(25);
                 while (true)
                 {
-                    if (checkBox7.Checked && GetAsyncKeyState(Keys.W) < 0)
+                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.W) < 0)
                     {
                         float _xCoordValue = mem.ReadFloat(xCoord);
                         mem.WriteFloat(xCoord, _xCoordValue - _speed);
                     }
-                    if (checkBox7.Checked && GetAsyncKeyState(Keys.S) < 0)
+                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.S) < 0)
                     {
                         float _xCoordValue = mem.ReadFloat(xCoord);
                         mem.WriteFloat(xCoord, _xCoordValue + _speed);
                     }
 
-                    if (checkBox7.Checked && GetAsyncKeyState(Keys.A) < 0)
+                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.A) < 0)
                     {
                         float _zCoordValue = mem.ReadFloat(zCoord);
                         mem.WriteFloat(zCoord, _zCoordValue + _speed);
                     }
-                    if (checkBox7.Checked && GetAsyncKeyState(Keys.D) < 0)
+                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.D) < 0)
                     {
                         float _zCoordValue = mem.ReadFloat(zCoord);
                         mem.WriteFloat(zCoord, _zCoordValue - _speed);
@@ -269,39 +269,6 @@ namespace Deepcoc
 
         }
 
-        /*private void button2_Click(object sender, EventArgs e)
-        {
-            MemoryReader mem = new MemoryReader(game);
-            ReloadAddresses();
-            teleAddresses[0] = mem.ReadFloat(xCoord);
-            teleAddresses[1] = mem.ReadFloat(yCoord);
-            teleAddresses[2] = mem.ReadFloat(zCoord);
-
-            materialMultiLineTextBox2.Text = "x: " + teleAddresses[0].ToString();
-            textBox4.Text = "y: " + teleAddresses[1].ToString();
-            textBox5.Text = "z: " + teleAddresses[2].ToString();
-
-            foreach (var address in teleAddresses)
-            {
-                System.Diagnostics.Debug.WriteLine("in: " + address);
-            }
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            MemoryReader mem = new MemoryReader(game);
-
-            ReloadAddresses();
-            teleAddresses[3] = mem.ReadFloat(xCoord);
-            teleAddresses[4] = mem.ReadFloat(yCoord);
-            teleAddresses[5] = mem.ReadFloat(zCoord);
-
-            mem.WriteFloat(xCoord, teleAddresses[0] + 1);
-            mem.WriteFloat(yCoord, teleAddresses[1] + 1);
-            mem.WriteFloat(zCoord, teleAddresses[2] + 1);
-        }*/
-
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
@@ -311,15 +278,6 @@ namespace Deepcoc
         {
 
         }
-        /*
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            MemoryReader mem = new MemoryReader(game);
-
-            mem.WriteFloat(xCoord, teleAddresses[3] + 1);
-            mem.WriteFloat(yCoord, teleAddresses[4] + 1);
-            mem.WriteFloat(zCoord, teleAddresses[5] + 1);
-        }*/
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
@@ -370,6 +328,39 @@ namespace Deepcoc
         private void materialTextBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void materialButton4_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
+            var infDepo = signatureScan.FindPattern("F3 0F 11 51 60 48", 0);
+            System.Diagnostics.Debug.WriteLine("Thingy fuck: " + infDepo.ToString("X"));
+
+            mem.WriteToCave(infDepo, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x48 });
+
+            var cave = mem.createCodeCave(1048);
+            System.Diagnostics.Debug.WriteLine("cave: " + cave.ToString("X"));
+        }
+
+        private void materialButton5_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
+            var infDepo = signatureScan.FindPattern("F3 0F 11 51 48", 0);
+            mem.WriteToCave(infDepo, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x60, 0x48 });
+
+            mem.FreeCave(infDepo);
+        }
+
+        private void materialButton6_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
+            var infFlare = signatureScan.FindPattern("89 8F 18 02 00 00 48 85", 0);
+            mem.WriteToCave(infFlare, new byte[] { 0x89, 0x8F, 0x18, 0x02, 0x00, 0x00 });
+
+            System.Diagnostics.Debug.WriteLine("cave: ");
         }
     }
 }
