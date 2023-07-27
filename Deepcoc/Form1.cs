@@ -89,19 +89,34 @@ namespace Deepcoc
                         mem.WriteInt(_fireRate, 1);
                     }
 
+                    //Third gun
+                    if (materialCheckbox11.Checked)
+                    {
+                        IntPtr _currentAmmo = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
+                        IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, Offsets.currentAmmo);
+                        mem.WriteInt(_lockAmmo, 30);
+                    }
+                    if (materialCheckbox12.Checked)
+                    {
+                        IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
+                        IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.fireRate);
+                        mem.WriteInt(_fireRate, 1);
+                    }
+
                     //Fourth gun
                     if (materialCheckbox13.Checked)
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(baseAddress, Offsets.FourthGun);
-                        mem.WriteInt(_currentAmmo, 30);
+                        IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, Offsets.currentAmmo);
+                        mem.WriteInt(_lockAmmo, 30);
                     }
                     if (materialCheckbox14.Checked)
                     {
-                        IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.fireRate);
+                        IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.FourthGun);
                         IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.fireRate);
                         mem.WriteInt(_fireRate, 1);
                     }
-                    //Thread.Sleep(25);
+                    Thread.Sleep(25);
                 }
             }
 
@@ -111,8 +126,8 @@ namespace Deepcoc
                 {
                     IntPtr _xCoordAddress = mem.ReadAddress(baseAddress, Offsets.xCoord);
                     IntPtr _zCoordAddress = mem.ReadAddress(baseAddress, Offsets.zCoord);
-                    int _speed = 25;
-                    int _units = 59;
+                    int _speed = materialSlider3.Value;
+                    int _units = materialSlider3.Value;
                     float _firstXVal = mem.ReadFloat(_xCoordAddress);
                     float _firstZVal = mem.ReadFloat(_zCoordAddress);
                     Thread.Sleep(25);
@@ -158,10 +173,10 @@ namespace Deepcoc
 
             void DownedMovement()
             {
-                int _speed = 25;
                 Thread.Sleep(25);
                 while (true)
                 {
+                    int _speed = materialSlider2.Value;
                     if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.W) < 0)
                     {
                         float _xCoordValue = mem.ReadFloat(xCoord);
@@ -193,7 +208,7 @@ namespace Deepcoc
         {
             while (true)
             {
-                Thread.Sleep(10000);
+                Thread.Sleep(20000);
                 try
                 {
                     ReloadAddresses();
@@ -205,12 +220,6 @@ namespace Deepcoc
                     System.Diagnostics.Debug.WriteLine("Cant reload");
                 }
             }
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ReloadAddresses();
         }
 
         private void ReloadAddresses()
@@ -240,7 +249,6 @@ namespace Deepcoc
         private void materialButton1_Click(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
-            ReloadAddresses();
             teleAddresses[0] = mem.ReadFloat(xCoord);
             teleAddresses[1] = mem.ReadFloat(yCoord);
             teleAddresses[2] = mem.ReadFloat(zCoord);
@@ -248,18 +256,12 @@ namespace Deepcoc
             materialMultiLineTextBox2.Text = "x: " + teleAddresses[0].ToString();
             materialMultiLineTextBox3.Text = "y: " + teleAddresses[1].ToString();
             materialMultiLineTextBox4.Text = "z: " + teleAddresses[2].ToString();
-
-            foreach (var address in teleAddresses)
-            {
-                System.Diagnostics.Debug.WriteLine("in: " + address);
-            }
         }
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
 
-            ReloadAddresses();
             teleAddresses[3] = mem.ReadFloat(xCoord);
             teleAddresses[4] = mem.ReadFloat(yCoord);
             teleAddresses[5] = mem.ReadFloat(zCoord);
@@ -285,15 +287,26 @@ namespace Deepcoc
 
         private void materialButton4_Click(object sender, EventArgs e)
         {
-            MemoryReader mem = new MemoryReader(game);
-            SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
-            var infDepo = signatureScan.FindPattern("F3 0F 11 51 60 48", 0);
-            System.Diagnostics.Debug.WriteLine("Thingy fuck: " + infDepo.ToString("X"));
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
+                var infDepo = signatureScan.FindPattern("F3 0F 11 51 60 48", 0);
+                System.Diagnostics.Debug.WriteLine("depo: " + infDepo.ToString("X"));
 
-            mem.WriteToCave(infDepo, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x48 });
+                //mem.CreateDetour(infDepo, 5, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x48 }, true);
 
-            var cave = mem.createCodeCave(1048);
-            System.Diagnostics.Debug.WriteLine("cave: " + cave.ToString("X"));
+                mem.WriteToCave(infDepo, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x48 });
+
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposite has been enabled.");
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, $"{DateTime.Now.ToString("HH:mm:ss")} Error: Infinite deposite has attempted to execute but failed.");
+            }
+
+
+
         }
 
         private void materialButton5_Click(object sender, EventArgs e)
@@ -301,19 +314,106 @@ namespace Deepcoc
             MemoryReader mem = new MemoryReader(game);
             SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
             var infDepo = signatureScan.FindPattern("F3 0F 11 51 48", 0);
-            mem.WriteToCave(infDepo, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x60, 0x48 });
 
-            mem.FreeCave(infDepo);
+
+            mem.WriteToCave(infDepo, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x60, 0x48 });
+            listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposite has been disabled.");
+
+            //mem.FreeCave(infDepo);
+        }
+        private void materialButton7_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var ppAddress = mem.ReadAddress(baseAddress, Offsets.perkPoints);
+            mem.WriteInt(ppAddress, 999999999);
         }
 
-        private void materialButton6_Click(object sender, EventArgs e)
+        private void materialButton8_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var scripAddress = mem.ReadAddress(baseAddress, Offsets.scrip);
+            var scripValue = mem.ReadInt(scripAddress);
+
+            mem.WriteInt(scripAddress, scripValue + 5);
+        }
+
+        private void materialButton9_Click(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
             SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
-            var infFlare = signatureScan.FindPattern("89 87 ? ? ? ? 3B 87 ? ? ? ? 7E ? 8B D6 48 8D ? ? ? ? ? E8 ? ? ? ? 48 8B ? ? ? ? ? 48 8B ? ? ? ? ? ? 48 89", 0);
-            mem.WriteToCave(infFlare, new byte[] { 0x89, 0x87, 0xE0, 0x03, 0x00, 0x00 });
+            var infFlare = signatureScan.FindPattern("F3 0F ? ? ? ? ? ? F3 0F ? ? ? ? ? ? F3 0F ? ? 48 8B ? ? ? ? ? 48 8D", 0);
+            mem.WriteToCave(infFlare, new byte[] { 0xF3, 0x0F, 0x11, 0x8E, 0xA8, 0x04, 0x00, 0x00 });
+        }
 
-            System.Diagnostics.Debug.WriteLine("cave: ");
+        private void materialButton10_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
+            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
+            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeZ);
+            mem.WriteFloat(charSizeAddress, materialSlider1.Value);
+            mem.WriteFloat(charSizeAddressX, materialSlider1.Value);
+            mem.WriteFloat(charSizeAddressZ, materialSlider1.Value);
+        }
+
+        private void materialButton12_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
+            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
+            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeZ);
+            mem.WriteFloat(charSizeAddress, 0.5f);
+            mem.WriteFloat(charSizeAddressX, 0.5f);
+            mem.WriteFloat(charSizeAddressZ, 0.5f);
+        }
+
+        private void materialButton11_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
+            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
+            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeZ);
+            mem.WriteFloat(charSizeAddress, 0.1f);
+            mem.WriteFloat(charSizeAddressX, 0.1f);
+            mem.WriteFloat(charSizeAddressZ, 0.1f);
+        }
+
+        private void materialButton13_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
+            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
+            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
+            mem.WriteFloat(charSizeAddress, 2f);
+            mem.WriteFloat(charSizeAddressX, 2f);
+            mem.WriteFloat(charSizeAddressZ, 2f);
+        }
+
+        private void materialButton14_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
+            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
+            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
+            mem.WriteFloat(charSizeAddress, 5f);
+            mem.WriteFloat(charSizeAddressX, 5f);
+            mem.WriteFloat(charSizeAddressZ, 5f);
+        }
+
+        private void materialButton15_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
+            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
+            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeZ);
+            mem.WriteFloat(charSizeAddress, 1f);
+            mem.WriteFloat(charSizeAddressX, 1f);
+            mem.WriteFloat(charSizeAddressZ, 1f);
+        }
+
+        private void materialButton16_Click(object sender, EventArgs e)
+        {
+            ReloadAddresses();
         }
     }
 }

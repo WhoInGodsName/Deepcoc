@@ -201,7 +201,7 @@ namespace SoT_Helper.Services
         }
         #endregion
 
-        public UIntPtr FindPattern(string patternString, int offset)
+        public IntPtr FindPattern(string patternString, int offset)
         {
             //string patternString = "48 8B 05 ? ? ? ? 48 8B 88 ? ? ? ? 48 85 C9 74 06 48 8B 49 70";
             byte[] pattern = patternString.Split(' ')
@@ -227,7 +227,7 @@ namespace SoT_Helper.Services
         /// <param name="strMask">The mask string to compare against.</param>
         /// <param name="nOffset">The offset added to the result address.</param>
         /// <returns>IntPtr - zero if not found, address if found.</returns>
-        public UIntPtr FindPattern(byte[] btPattern, string strMask, uint nOffset)
+        public IntPtr FindPattern(byte[] btPattern, string strMask, uint nOffset)
         {
             try
             {
@@ -235,12 +235,12 @@ namespace SoT_Helper.Services
                 if (m_vDumpedRegion == null || m_vDumpedRegion.Length == 0)
                 {
                     if (!DumpMemory())
-                        return UIntPtr.Zero;
+                        return IntPtr.Zero;
                 }
 
                 // Ensure the mask and pattern lengths match.
                 if (strMask.Length != btPattern.Length)
-                    return UIntPtr.Zero;
+                    return IntPtr.Zero;
 
                 // Loop the region and look for the pattern.
                 for (int x = 0; x < m_vDumpedRegion.Length; x++)
@@ -248,16 +248,16 @@ namespace SoT_Helper.Services
                     if (MaskCheck(x, btPattern, strMask))
                     {
                         // The pattern was found, return it.
-                        return new UIntPtr((ulong)m_vAddress + (ulong)x + nOffset);
+                        return new IntPtr((long)m_vAddress + (long)x + nOffset);
                     }
                 }
 
                 // Pattern was not found.
-                return UIntPtr.Zero;
+                return IntPtr.Zero;
             }
             catch (Exception ex)
             {
-                return UIntPtr.Zero;
+                return IntPtr.Zero;
             }
         }
 
