@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using SoT_Helper.Services;
+using System.Text;
 
 namespace Deepcoc
 {
@@ -23,6 +24,8 @@ namespace Deepcoc
         public IntPtr yCoord = IntPtr.Zero;
         public IntPtr xCoord = IntPtr.Zero;
         public IntPtr zCoord = IntPtr.Zero;
+
+        IntPtr infDepoAddress = IntPtr.Zero;
 
         public float gravOffset = 0;
 
@@ -171,7 +174,7 @@ namespace Deepcoc
                     else if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.LControlKey) < 0)
                     {
                         float _yCoordValue = mem.ReadFloat(yCoord);
-                        mem.WriteFloat(yCoord, _yCoordValue - _units);
+                        mem.WriteFloat(yCoord, _yCoordValue - (_units + 5));
                     }
                 }
             }
@@ -319,12 +322,31 @@ namespace Deepcoc
                 MemoryReader mem = new MemoryReader(game);
                 SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
                 var infDepo = signatureScan.FindPattern("F3 0F 11 51 60 48", 0);
+                infDepoAddress = infDepo;
 
                 Debug.WriteLine(infDepo.ToString("X"));
 
-                //mem.WriteToCave(infDepo, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x48 });
-                
-                IntPtr pTrampoline = mem.CreateDetour(infDepo, (IntPtr)0x7FF663E10000, 14);
+                IntPtr trampolineSourceAddr = (IntPtr)0x7FF663E10000;
+
+                // Calculate the address right after infDepo
+                IntPtr infDepoNextAddr = infDepo + 5; // Assuming the instruction length is 6 bytes (adjust if needed)
+
+                // Calculate the relative offset between infDepoNextAddr and trampolineSourceAddr
+                var relativeOffset = mem.CalculateRelativeOffset(trampolineSourceAddr, infDepoNextAddr);
+
+                // The jump back opcode for 64-bit processes
+                byte[] jumpBackOpCode = new byte[]
+                {
+                    0xE9, // Relative jump opcode (jmp rel32)
+                    (byte)(relativeOffset & 0xFF),
+                    (byte)((relativeOffset >> 8) & 0xFF),
+                    (byte)((relativeOffset >> 16) & 0xFF),
+                    (byte)((relativeOffset >> 24) & 0xFF)
+                };
+
+                Debug.WriteLine(Encoding.UTF8.GetString(jumpBackOpCode));
+
+                IntPtr pTrampoline = mem.CreateDetour(infDepo, trampolineSourceAddr, jumpBackOpCode);
 
                 if (pTrampoline == IntPtr.Zero)
                 {
@@ -333,7 +355,6 @@ namespace Deepcoc
                 }
 
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposit has been enabled.");
-                
             }
             catch
             {
@@ -341,17 +362,16 @@ namespace Deepcoc
             }
         }
 
+
+
         private void materialButton5_Click(object sender, EventArgs e)
         {
-            MemoryReader mem = new MemoryReader(game);
-            SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
-            var infDepo = signatureScan.FindPattern("F3 0F 11 51 48", 0);
+            MemoryReader mem = new MemoryReader(game); 
+            mem.WriteToCave(infDepoAddress, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x60, 0x48});
 
-
-            mem.WriteToCave(infDepo, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x60, 0x48 });
             listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposite has been disabled.");
 
-            //mem.FreeCave(infDepo);
+            mem.FreeCave((UIntPtr)0x7FF663E10000);
         }
         private void materialButton7_Click(object sender, EventArgs e)
         {
