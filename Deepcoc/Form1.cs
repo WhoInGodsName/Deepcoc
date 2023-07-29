@@ -24,6 +24,8 @@ namespace Deepcoc
         public IntPtr xCoord = IntPtr.Zero;
         public IntPtr zCoord = IntPtr.Zero;
 
+        public float gravOffset = 0;
+
         public float[] teleAddresses = new float[6];
 
 
@@ -59,6 +61,9 @@ namespace Deepcoc
 
             Thread AR = new Thread(AutoReload);
             AR.Start();
+
+            Thread GO = new Thread(GravityOffset);
+            GO.Start();
 
             void LockAmmo()
             {
@@ -161,13 +166,35 @@ namespace Deepcoc
                     if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.Space) < 0)
                     {
                         float _yCoordValue = mem.ReadFloat(yCoord);
-                        mem.WriteFloat(yCoord, _yCoordValue + _units);
+                        mem.WriteFloat(yCoord, _yCoordValue + (_units + gravOffset));
                     }
                     else if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.LControlKey) < 0)
                     {
                         float _yCoordValue = mem.ReadFloat(yCoord);
                         mem.WriteFloat(yCoord, _yCoordValue - _units);
                     }
+                }
+            }
+
+            void GravityOffset()
+            {
+                while (true)
+                {
+                    var isGroundedAddress = mem.ReadAddress(baseAddress, Offsets.isGrounded);
+                    var isGrounded = mem.ReadInt(isGroundedAddress);
+
+                    if (isGrounded == 1)
+                    {
+                        gravOffset += 0.59f;
+                        //System.Diagnostics.Debug.WriteLine("in");
+
+                    }
+                    else if (isGrounded == 0)
+                    {
+                        gravOffset = 0;
+                        //System.Diagnostics.Debug.WriteLine("not in");
+                    }
+                    Thread.Sleep(10);
                 }
             }
 
@@ -292,21 +319,26 @@ namespace Deepcoc
                 MemoryReader mem = new MemoryReader(game);
                 SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
                 var infDepo = signatureScan.FindPattern("F3 0F 11 51 60 48", 0);
-                System.Diagnostics.Debug.WriteLine("depo: " + infDepo.ToString("X"));
 
-                //mem.CreateDetour(infDepo, 5, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x48 }, true);
+                Debug.WriteLine(infDepo.ToString("X"));
 
-                mem.WriteToCave(infDepo, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x48 });
+                //mem.WriteToCave(infDepo, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x48 });
+                
+                IntPtr pTrampoline = mem.CreateDetour(infDepo, (IntPtr)0x7FF663E10000, 14);
 
-                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposite has been enabled.");
+                if (pTrampoline == IntPtr.Zero)
+                {
+                    listBox1.Items.Insert(0, $"{DateTime.Now.ToString("HH:mm:ss")} Error: Failed to create the detour.");
+                    return;
+                }
+
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposit has been enabled.");
+                
             }
             catch
             {
-                listBox1.Items.Insert(0, $"{DateTime.Now.ToString("HH:mm:ss")} Error: Infinite deposite has attempted to execute but failed.");
+                listBox1.Items.Insert(0, $"{DateTime.Now.ToString("HH:mm:ss")} Error: Infinite deposit has attempted to execute but failed.");
             }
-
-
-
         }
 
         private void materialButton5_Click(object sender, EventArgs e)
@@ -345,75 +377,83 @@ namespace Deepcoc
             mem.WriteToCave(infFlare, new byte[] { 0xF3, 0x0F, 0x11, 0x8E, 0xA8, 0x04, 0x00, 0x00 });
         }
 
-        private void materialButton10_Click(object sender, EventArgs e)
+        private void ChangeSize(float scale = 0, MaterialSlider slider = null)
         {
             MemoryReader mem = new MemoryReader(game);
+
             var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
             var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
             var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeZ);
-            mem.WriteFloat(charSizeAddress, materialSlider1.Value);
-            mem.WriteFloat(charSizeAddressX, materialSlider1.Value);
-            mem.WriteFloat(charSizeAddressZ, materialSlider1.Value);
+
+            if (slider != null)
+            {
+                mem.WriteFloat(charSizeAddress, slider.Value);
+                mem.WriteFloat(charSizeAddressX, slider.Value);
+                mem.WriteFloat(charSizeAddressZ, slider.Value);
+            }
+            else
+            {
+                mem.WriteFloat(charSizeAddress, scale);
+                mem.WriteFloat(charSizeAddressX, scale);
+                mem.WriteFloat(charSizeAddressZ, scale);
+            }
+
+        }
+
+        private void materialButton10_Click(object sender, EventArgs e)
+        {
+            ChangeSize(0, materialSlider1);
         }
 
         private void materialButton12_Click(object sender, EventArgs e)
         {
-            MemoryReader mem = new MemoryReader(game);
-            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
-            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
-            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeZ);
-            mem.WriteFloat(charSizeAddress, 0.5f);
-            mem.WriteFloat(charSizeAddressX, 0.5f);
-            mem.WriteFloat(charSizeAddressZ, 0.5f);
+            ChangeSize(0.5f);
         }
 
         private void materialButton11_Click(object sender, EventArgs e)
         {
-            MemoryReader mem = new MemoryReader(game);
-            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
-            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
-            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeZ);
-            mem.WriteFloat(charSizeAddress, 0.1f);
-            mem.WriteFloat(charSizeAddressX, 0.1f);
-            mem.WriteFloat(charSizeAddressZ, 0.1f);
+            ChangeSize(0.1f);
         }
 
         private void materialButton13_Click(object sender, EventArgs e)
         {
-            MemoryReader mem = new MemoryReader(game);
-            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
-            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
-            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
-            mem.WriteFloat(charSizeAddress, 2f);
-            mem.WriteFloat(charSizeAddressX, 2f);
-            mem.WriteFloat(charSizeAddressZ, 2f);
+            ChangeSize(2f);
         }
 
         private void materialButton14_Click(object sender, EventArgs e)
         {
-            MemoryReader mem = new MemoryReader(game);
-            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
-            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
-            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
-            mem.WriteFloat(charSizeAddress, 5f);
-            mem.WriteFloat(charSizeAddressX, 5f);
-            mem.WriteFloat(charSizeAddressZ, 5f);
+            ChangeSize(5f);
         }
 
         private void materialButton15_Click(object sender, EventArgs e)
         {
-            MemoryReader mem = new MemoryReader(game);
-            var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
-            var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
-            var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeZ);
-            mem.WriteFloat(charSizeAddress, 1f);
-            mem.WriteFloat(charSizeAddressX, 1f);
-            mem.WriteFloat(charSizeAddressZ, 1f);
+            ChangeSize(1f);
         }
 
         private void materialButton16_Click(object sender, EventArgs e)
         {
             ReloadAddresses();
+        }
+
+        private void materialButton6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var charSizeAddress = mem.ReadAddress(baseAddress, Offsets.characterSizeY);
+                var charSizeAddressX = mem.ReadAddress(baseAddress, Offsets.characterSizeX);
+                var charSizeAddressZ = mem.ReadAddress(baseAddress, Offsets.characterSizeZ);
+
+                mem.WriteFloat(charSizeAddress, (float)Convert.ToDouble(materialMultiLineTextBox5.Text));
+                mem.WriteFloat(charSizeAddressX, (float)Convert.ToDouble(materialMultiLineTextBox1.Text));
+                mem.WriteFloat(charSizeAddressZ, (float)Convert.ToDouble(materialMultiLineTextBox6.Text));
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
+
+            }
+
         }
     }
 }

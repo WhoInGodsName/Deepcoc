@@ -37,12 +37,25 @@ namespace Deepcoc
         public static extern IntPtr VirtualAllocEx(IntPtr handle, IntPtr address, int size, uint allocationType, uint flProtect);
         [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
         public static extern IntPtr VirtualFreeEx(IntPtr handle, UIntPtr address, int size, int freeType);
+        [DllImport("kernel32.dll")]
+        static extern IntPtr VirtualAlloc(IntPtr lpAddress, int dwSize, uint flAllocationType, uint flProtect);
+        [DllImport("kernel32.dll")]
+        static extern bool VirtualProtectEx(IntPtr hProcess, IntPtr lpAddress, int dwSize, uint flNewProtect, out uint lpflOldProtect);
+
+        [DllImport("kernel32.dll")]
+        static extern bool VirtualProtect(IntPtr lpAddress, int dwSize, uint flNewProtect, out uint lpflOldProtect);
 
         public MemoryReader(System.Diagnostics.Process process)
         {
             _process = process;
             _handle = OpenProcess(ProcessAccessFlags.All, false, process.Id);
         }
+
+        public bool SetMemoryProtection(IntPtr address, int size, uint protectionFlags)
+        {
+            return VirtualProtectEx(_handle, address, size, protectionFlags, out _);
+        }
+
         public IntPtr ReadAddress(IntPtr address, int[] offsets)
         {
             byte[] _result = new byte[16];
@@ -107,9 +120,9 @@ namespace Deepcoc
             System.Diagnostics.Debug.WriteLine(value);
         }
 
-        public IntPtr CreateCodeCave(int caveSize)
+        public IntPtr CreateCodeCave(IntPtr lpAddress, int caveSize)
         {
-            IntPtr caveAddress = VirtualAllocEx(_handle, IntPtr.Zero, caveSize, 0x1000 | 0x2000, 0x40);
+            IntPtr caveAddress = VirtualAllocEx(_handle, IntPtr.Zero, caveSize, 0x1000 | 0x2000 | 0x00100000, 0x40);
             return caveAddress;
         }
         public IntPtr WriteToCave(IntPtr caveAddress, byte[] code)
@@ -125,12 +138,13 @@ namespace Deepcoc
 
         public byte[] CalculateJump(IntPtr jumpAddress, IntPtr instruction, int instructionLength)
         {
-            long jumpOperand = jumpAddress.ToInt64() - (instruction.ToInt64() + instructionLength + 5);
-            byte[] jumpBytes = BitConverter.GetBytes((int)jumpOperand);
+            long jumpOperand = jumpAddress.ToInt64() - (instruction.ToInt64() + instructionLength + 14);
+            byte[] jumpBytes = BitConverter.GetBytes(jumpOperand);
 
-            byte[] result = new byte[5];
-            result[0] = 0xE9; // JMP opcode
-            Buffer.BlockCopy(jumpBytes, 0, result, 1, 4); // Copy the jump operand after the JMP opcode
+            byte[] result = new byte[14];
+            result[0] = 0xFF; // JMP opcode (FF25 in x86_64)
+            result[1] = 0x25; // ModR/M byte for indirect jump in x86_64
+            Buffer.BlockCopy(jumpBytes, 0, result, 2, 8); // Copy the jump operand after the ModR/M byte
 
             return result;
         }
@@ -142,41 +156,62 @@ namespace Deepcoc
             WriteProcessMemory(_handle, instruction, bytes, bytes.Length, IntPtr.Zero);
         }
 
-        public void CreateDetour(IntPtr instruction, int instructionLength, byte[] injectedInstructions = null, bool jumpBack = true)
+        public IntPtr CreateDetour(IntPtr pSource, IntPtr pDestination, int dwLen)
         {
-            byte[] originalInstructions = ReadBytes(instruction, instructionLength);
+            int minLen = 14;
 
-            // Create a code cave and write the original instructions to it
-            IntPtr codeCaveAddress = CreateCodeCave(instructionLength);
-            System.Diagnostics.Debug.WriteLine(codeCaveAddress.ToString("X"));
+            if (dwLen < minLen)
+                return IntPtr.Zero;
 
-            WriteToCave(codeCaveAddress, originalInstructions);
-
-            if (injectedInstructions != null)
+            // Check if the target address is writable
+            uint oldProtect = 0;
+            if (!SetMemoryProtection(pSource, dwLen, 0x40))
             {
-                // Write the injected instructions to the code cave
-                WriteToCave(codeCaveAddress, injectedInstructions);
-
-                if (jumpBack)
-                {
-                    // Calculate the jump offset to return to the original flow of execution
-                    long jumpBackOffset = (codeCaveAddress.ToInt64() + injectedInstructions.Length) - (instruction.ToInt64() + instructionLength + 5);
-                    byte[] jumpBackBytes = BitConverter.GetBytes((int)jumpBackOffset);
-
-                    // Inject the jump offset directly into the original instruction
-                    WriteProcessMemory(_handle, instruction, new byte[] { 0xE9 }, 1, IntPtr.Zero); // JMP opcode
-                    WriteProcessMemory(_handle, instruction + 1, jumpBackBytes, 4, IntPtr.Zero);
-                }
+                // Failed to set the memory protection, handle the error appropriately
+                return IntPtr.Zero;
             }
 
-            // Calculate the jump offset to the code cave
-            long jumpOffset = codeCaveAddress.ToInt64() - (instruction.ToInt64() + instructionLength + 5);
-            byte[] jumpBytes = BitConverter.GetBytes((int)jumpOffset);
+            byte[] stub = new byte[]
+            {
+                0xFF, 0x25, 0x00, 0x00, 0x00, 0x00, // jmp qword ptr [$+6]
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 // ptr
+            };
 
-            // Modify the original instruction to jump to the code cave
-            WriteProcessMemory(_handle, instruction, new byte[] { 0xE9 }, 1, IntPtr.Zero); // JMP opcode
-            WriteProcessMemory(_handle, instruction + 1, jumpBytes, 4, IntPtr.Zero);
+            // Allocate memory for the detour
+            IntPtr pTrampoline = VirtualAllocEx(_handle, IntPtr.Zero, dwLen + stub.Length, 0x1000 | 0x2000, 0x40);
+
+            if (pTrampoline == IntPtr.Zero)
+                return IntPtr.Zero;
+
+            byte[] originalBytes = new byte[dwLen];
+            ReadProcessMemory(_handle, pSource, originalBytes, dwLen, IntPtr.Zero);
+
+            // Trampoline
+            long retto = pSource.ToInt64() + dwLen;
+            Buffer.BlockCopy(BitConverter.GetBytes(retto), 0, stub, 6, 8);
+            WriteProcessMemory(_handle, pTrampoline, originalBytes, dwLen, IntPtr.Zero);
+            WriteProcessMemory(_handle, pTrampoline + dwLen, stub, stub.Length, IntPtr.Zero);
+
+            // Original
+            long destinationAddr = pDestination.ToInt64();
+            Buffer.BlockCopy(BitConverter.GetBytes(destinationAddr), 0, stub, 6, 8);
+            WriteProcessMemory(_handle, pSource, stub, stub.Length, IntPtr.Zero);
+
+            // Fill with NOPs
+            byte[] nops = new byte[dwLen - minLen];
+            for (int i = 0; i < nops.Length; i++)
+            {
+                nops[i] = 0x90; // NOP opcode
+            }
+            WriteProcessMemory(_handle, pSource + minLen, nops, nops.Length, IntPtr.Zero);
+
+            // Restore memory protection
+            VirtualProtect(pSource, dwLen, oldProtect, out _);
+
+            return pTrampoline;
         }
+
+
 
 
     }

@@ -39,6 +39,11 @@
             materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
+            materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
+            materialButton6 = new MaterialSkin.Controls.MaterialButton();
+            materialMultiLineTextBox6 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            materialMultiLineTextBox5 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            materialMultiLineTextBox1 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             materialButton16 = new MaterialSkin.Controls.MaterialButton();
             materialButton15 = new MaterialSkin.Controls.MaterialButton();
             materialButton14 = new MaterialSkin.Controls.MaterialButton();
@@ -234,6 +239,11 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(materialLabel15);
+            tabPage1.Controls.Add(materialButton6);
+            tabPage1.Controls.Add(materialMultiLineTextBox6);
+            tabPage1.Controls.Add(materialMultiLineTextBox5);
+            tabPage1.Controls.Add(materialMultiLineTextBox1);
             tabPage1.Controls.Add(materialButton16);
             tabPage1.Controls.Add(materialButton15);
             tabPage1.Controls.Add(materialButton14);
@@ -279,6 +289,83 @@
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // materialLabel15
+            // 
+            materialLabel15.AutoSize = true;
+            materialLabel15.Depth = 0;
+            materialLabel15.FlatStyle = FlatStyle.Popup;
+            materialLabel15.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel15.ForeColor = Color.Maroon;
+            materialLabel15.Location = new Point(835, 433);
+            materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel15.Name = "materialLabel15";
+            materialLabel15.Size = new Size(135, 19);
+            materialLabel15.TabIndex = 99;
+            materialLabel15.Text = "CUSTOM SCALING";
+            // 
+            // materialButton6
+            // 
+            materialButton6.AutoSize = false;
+            materialButton6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton6.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton6.Depth = 0;
+            materialButton6.HighEmphasis = true;
+            materialButton6.Icon = null;
+            materialButton6.Location = new Point(1135, 455);
+            materialButton6.Margin = new Padding(4, 6, 4, 6);
+            materialButton6.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton6.Name = "materialButton6";
+            materialButton6.NoAccentTextColor = Color.Empty;
+            materialButton6.Size = new Size(133, 30);
+            materialButton6.TabIndex = 98;
+            materialButton6.Text = "CHANGE";
+            materialButton6.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton6.UseAccentColor = false;
+            materialButton6.UseVisualStyleBackColor = true;
+            materialButton6.Click += materialButton6_Click;
+            // 
+            // materialMultiLineTextBox6
+            // 
+            materialMultiLineTextBox6.BackColor = Color.FromArgb(255, 255, 255);
+            materialMultiLineTextBox6.BorderStyle = BorderStyle.FixedSingle;
+            materialMultiLineTextBox6.Depth = 0;
+            materialMultiLineTextBox6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMultiLineTextBox6.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialMultiLineTextBox6.Location = new Point(1035, 455);
+            materialMultiLineTextBox6.MouseState = MaterialSkin.MouseState.HOVER;
+            materialMultiLineTextBox6.Name = "materialMultiLineTextBox6";
+            materialMultiLineTextBox6.Size = new Size(93, 30);
+            materialMultiLineTextBox6.TabIndex = 97;
+            materialMultiLineTextBox6.Text = "";
+            // 
+            // materialMultiLineTextBox5
+            // 
+            materialMultiLineTextBox5.BackColor = Color.FromArgb(255, 255, 255);
+            materialMultiLineTextBox5.BorderStyle = BorderStyle.FixedSingle;
+            materialMultiLineTextBox5.Depth = 0;
+            materialMultiLineTextBox5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMultiLineTextBox5.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialMultiLineTextBox5.Location = new Point(936, 455);
+            materialMultiLineTextBox5.MouseState = MaterialSkin.MouseState.HOVER;
+            materialMultiLineTextBox5.Name = "materialMultiLineTextBox5";
+            materialMultiLineTextBox5.Size = new Size(93, 30);
+            materialMultiLineTextBox5.TabIndex = 96;
+            materialMultiLineTextBox5.Text = "";
+            // 
+            // materialMultiLineTextBox1
+            // 
+            materialMultiLineTextBox1.BackColor = Color.FromArgb(255, 255, 255);
+            materialMultiLineTextBox1.BorderStyle = BorderStyle.FixedSingle;
+            materialMultiLineTextBox1.Depth = 0;
+            materialMultiLineTextBox1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMultiLineTextBox1.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialMultiLineTextBox1.Location = new Point(837, 455);
+            materialMultiLineTextBox1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialMultiLineTextBox1.Name = "materialMultiLineTextBox1";
+            materialMultiLineTextBox1.Size = new Size(93, 30);
+            materialMultiLineTextBox1.TabIndex = 95;
+            materialMultiLineTextBox1.Text = "";
+            // 
             // materialButton16
             // 
             materialButton16.AutoSize = false;
@@ -308,7 +395,7 @@
             materialButton15.Depth = 0;
             materialButton15.HighEmphasis = true;
             materialButton15.Icon = null;
-            materialButton15.Location = new Point(998, 303);
+            materialButton15.Location = new Point(999, 284);
             materialButton15.Margin = new Padding(4, 6, 4, 6);
             materialButton15.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton15.Name = "materialButton15";
@@ -329,7 +416,7 @@
             materialButton14.Depth = 0;
             materialButton14.HighEmphasis = true;
             materialButton14.Icon = null;
-            materialButton14.Location = new Point(1162, 303);
+            materialButton14.Location = new Point(1163, 284);
             materialButton14.Margin = new Padding(4, 6, 4, 6);
             materialButton14.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton14.Name = "materialButton14";
@@ -350,7 +437,7 @@
             materialButton13.Depth = 0;
             materialButton13.HighEmphasis = true;
             materialButton13.Icon = null;
-            materialButton13.Location = new Point(1080, 303);
+            materialButton13.Location = new Point(1081, 284);
             materialButton13.Margin = new Padding(4, 6, 4, 6);
             materialButton13.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton13.Name = "materialButton13";
@@ -371,7 +458,7 @@
             materialButton12.Depth = 0;
             materialButton12.HighEmphasis = true;
             materialButton12.Icon = null;
-            materialButton12.Location = new Point(916, 303);
+            materialButton12.Location = new Point(917, 284);
             materialButton12.Margin = new Padding(4, 6, 4, 6);
             materialButton12.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton12.Name = "materialButton12";
@@ -392,7 +479,7 @@
             materialButton11.Depth = 0;
             materialButton11.HighEmphasis = true;
             materialButton11.Icon = null;
-            materialButton11.Location = new Point(834, 303);
+            materialButton11.Location = new Point(835, 284);
             materialButton11.Margin = new Padding(4, 6, 4, 6);
             materialButton11.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton11.Name = "materialButton11";
@@ -413,7 +500,7 @@
             materialButton10.Depth = 0;
             materialButton10.HighEmphasis = true;
             materialButton10.Icon = null;
-            materialButton10.Location = new Point(834, 418);
+            materialButton10.Location = new Point(835, 379);
             materialButton10.Margin = new Padding(4, 6, 4, 6);
             materialButton10.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton10.Name = "materialButton10";
@@ -430,7 +517,7 @@
             // 
             materialSlider1.Depth = 0;
             materialSlider1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialSlider1.Location = new Point(834, 369);
+            materialSlider1.Location = new Point(835, 330);
             materialSlider1.MouseState = MaterialSkin.MouseState.HOVER;
             materialSlider1.Name = "materialSlider1";
             materialSlider1.RangeMax = 10;
@@ -446,7 +533,7 @@
             materialLabel14.FlatStyle = FlatStyle.Popup;
             materialLabel14.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel14.ForeColor = Color.Maroon;
-            materialLabel14.Location = new Point(834, 278);
+            materialLabel14.Location = new Point(835, 259);
             materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel14.Name = "materialLabel14";
             materialLabel14.Size = new Size(185, 19);
@@ -508,6 +595,8 @@
             materialSlider3.Location = new Point(12, 218);
             materialSlider3.MouseState = MaterialSkin.MouseState.HOVER;
             materialSlider3.Name = "materialSlider3";
+            materialSlider3.RangeMax = 20;
+            materialSlider3.RangeMin = 1;
             materialSlider3.Size = new Size(277, 40);
             materialSlider3.TabIndex = 82;
             materialSlider3.Text = "Fly Speed";
@@ -864,7 +953,7 @@
             listBox1.ItemHeight = 14;
             listBox1.Location = new Point(302, 173);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(446, 284);
+            listBox1.Size = new Size(446, 312);
             listBox1.TabIndex = 57;
             // 
             // tabPage3
@@ -986,7 +1075,7 @@
             Font = new Font("Impact", 24F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(7);
             Name = "Form1";
-            Text = "DEEPCOC MAPHATDIC 1.0.3";
+            Text = "DEEPCOC MAPHATDIC 1.1.0";
             Load += Form1_Load;
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
@@ -1052,5 +1141,9 @@
         private MaterialSkin.Controls.MaterialButton materialButton14;
         private MaterialSkin.Controls.MaterialButton materialButton15;
         private MaterialSkin.Controls.MaterialButton materialButton16;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox6;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel15;
+        private MaterialSkin.Controls.MaterialButton materialButton6;
     }
 }
