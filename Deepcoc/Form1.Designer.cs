@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabPage2 = new TabPage();
+            materialButton17 = new MaterialSkin.Controls.MaterialButton();
             materialButton8 = new MaterialSkin.Controls.MaterialButton();
             materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
             materialButton7 = new MaterialSkin.Controls.MaterialButton();
@@ -95,6 +96,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(materialButton17);
             tabPage2.Controls.Add(materialButton8);
             tabPage2.Controls.Add(materialLabel13);
             tabPage2.Controls.Add(materialButton7);
@@ -109,6 +111,27 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Resources";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // materialButton17
+            // 
+            materialButton17.AutoSize = false;
+            materialButton17.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton17.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton17.Depth = 0;
+            materialButton17.HighEmphasis = true;
+            materialButton17.Icon = null;
+            materialButton17.Location = new Point(15, 141);
+            materialButton17.Margin = new Padding(4, 6, 4, 6);
+            materialButton17.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton17.Name = "materialButton17";
+            materialButton17.NoAccentTextColor = Color.Empty;
+            materialButton17.Size = new Size(149, 36);
+            materialButton17.TabIndex = 81;
+            materialButton17.Text = "SHOPPING SPREE!";
+            materialButton17.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton17.UseAccentColor = false;
+            materialButton17.UseVisualStyleBackColor = true;
+            materialButton17.Click += materialButton17_Click;
             // 
             // materialButton8
             // 
@@ -595,7 +618,6 @@
             materialSlider3.Location = new Point(12, 218);
             materialSlider3.MouseState = MaterialSkin.MouseState.HOVER;
             materialSlider3.Name = "materialSlider3";
-            materialSlider3.RangeMax = 20;
             materialSlider3.RangeMin = 1;
             materialSlider3.Size = new Size(277, 40);
             materialSlider3.TabIndex = 82;
@@ -1075,7 +1097,7 @@
             Font = new Font("Impact", 24F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(7);
             Name = "Form1";
-            Text = "DEEPCOC MAPHATDIC 1.1.0";
+            Text = "DEEPCOC MAPHATDIC 1.1.2";
             Load += Form1_Load;
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
@@ -1145,5 +1167,6 @@
         private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox5;
         private MaterialSkin.Controls.MaterialLabel materialLabel15;
         private MaterialSkin.Controls.MaterialButton materialButton6;
+        private MaterialSkin.Controls.MaterialButton materialButton17;
     }
 }

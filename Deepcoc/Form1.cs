@@ -134,47 +134,72 @@ namespace Deepcoc
                 {
                     IntPtr _xCoordAddress = mem.ReadAddress(baseAddress, Offsets.xCoord);
                     IntPtr _zCoordAddress = mem.ReadAddress(baseAddress, Offsets.zCoord);
-                    int _speed = materialSlider3.Value;
+                    int _speed = materialSlider2.Value;
                     int _units = materialSlider3.Value;
                     float _firstXVal = mem.ReadFloat(_xCoordAddress);
                     float _firstZVal = mem.ReadFloat(_zCoordAddress);
-                    Thread.Sleep(25);
-                    if (materialCheckbox16.Checked && (GetAsyncKeyState(Keys.W) < 0 || GetAsyncKeyState(Keys.S) < 0))
+
+                    var isGroundedAddress = mem.ReadAddress(baseAddress, Offsets.isGrounded);
+                    var isGrounded = mem.ReadInt(isGroundedAddress);
+                    Thread.Sleep(10);
+                    var velY = mem.ReadAddress(baseAddress, Offsets.velocityY);
+                    var velX = mem.ReadAddress(baseAddress, Offsets.velocityX);
+                    var velZ = mem.ReadAddress(baseAddress, Offsets.velocityZ);
+
+                    var velVector3 = mem.ReadVector3(velX, velY, velZ);
+
+                    if (materialCheckbox16.Checked)
                     {
-                        float _xCoordValue = mem.ReadFloat(_xCoordAddress);
-                        if (_firstXVal - _xCoordValue > 0)
+                        if (GetAsyncKeyState(Keys.W) < 0 || GetAsyncKeyState(Keys.A) < 0 || GetAsyncKeyState(Keys.S) < 0 || GetAsyncKeyState(Keys.D) < 0)
                         {
-                            mem.WriteFloat(_xCoordAddress, _xCoordValue - _speed);
+                            if (velVector3.X > 0)
+                            {
+                                mem.WriteFloat(velX, velVector3.X + _speed);
+                            }
+                            if (velVector3.X < 0)
+                            {
+                                mem.WriteFloat(velX, velVector3.X - _speed);
+                            }
+
+                            if (velVector3.Z > 0)
+                            {
+                                mem.WriteFloat(velZ, velVector3.Z + _speed);
+                            }
+                            if (velVector3.Z < 0)
+                            {
+                                mem.WriteFloat(velZ, velVector3.Z - _speed);
+                            }
                         }
                         else
                         {
-                            mem.WriteFloat(_xCoordAddress, _xCoordValue + _speed);
+                            mem.WriteFloat(velX, 0);
+                            mem.WriteFloat(velZ, 0);
+
                         }
 
                     }
-                    if (materialCheckbox16.Checked && (GetAsyncKeyState(Keys.A) < 0 || GetAsyncKeyState(Keys.D) < 0))
-                    {
-                        float _zCoordValue = mem.ReadFloat(_zCoordAddress);
-                        if (_firstZVal - _zCoordValue > 0)
-                        {
-                            mem.WriteFloat(_zCoordAddress, _zCoordValue - _speed);
-                        }
-                        else
-                        {
-                            mem.WriteFloat(_zCoordAddress, _zCoordValue + _speed);
-                        }
-                    }
+
+
 
                     //Fly
+
+
+
+                    if (materialCheckbox15.Checked && isGrounded != 0)
+                    {
+                        mem.WriteFloat(velY, 0);
+                    }
+
                     if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.Space) < 0)
                     {
                         float _yCoordValue = mem.ReadFloat(yCoord);
-                        mem.WriteFloat(yCoord, _yCoordValue + (_units + gravOffset));
+                        mem.WriteFloat(yCoord, _yCoordValue + (_units));
+
                     }
                     else if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.LControlKey) < 0)
                     {
                         float _yCoordValue = mem.ReadFloat(yCoord);
-                        mem.WriteFloat(yCoord, _yCoordValue - (_units + 5));
+                        mem.WriteFloat(yCoord, _yCoordValue - (_units));
                     }
                 }
             }
@@ -366,8 +391,8 @@ namespace Deepcoc
 
         private void materialButton5_Click(object sender, EventArgs e)
         {
-            MemoryReader mem = new MemoryReader(game); 
-            mem.WriteToCave(infDepoAddress, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x60, 0x48});
+            MemoryReader mem = new MemoryReader(game);
+            mem.WriteToCave(infDepoAddress, new byte[] { 0xF3, 0x0F, 0x11, 0x51, 0x60, 0x48 });
 
             listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposite has been disabled.");
 
@@ -474,6 +499,45 @@ namespace Deepcoc
 
             }
 
+        }
+
+        private void materialButton17_Click(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
+            var freeShopping = signatureScan.FindPattern("89 83 ? ? ? ? 89 44 ? ? E8 ? ? ? ? 48 8B ? E8 ? ? ? ? 8B 83", 0);
+
+            Debug.WriteLine(freeShopping.ToString("X"));
+
+            IntPtr trampolineSourceAddr = (IntPtr)0x7FF663E10000;
+
+            // Calculate the address right after infDepo
+            IntPtr infDepoNextAddr = freeShopping + 5; // Assuming the instruction length is 6 bytes (adjust if needed)
+
+            // Calculate the relative offset between infDepoNextAddr and trampolineSourceAddr
+            var relativeOffset = mem.CalculateRelativeOffset(trampolineSourceAddr, infDepoNextAddr);
+
+            // The jump back opcode for 64-bit processes
+            byte[] jumpBackOpCode = new byte[]
+            {
+                    0xE9, // Relative jump opcode (jmp rel32)
+                    (byte)(relativeOffset & 0xFF),
+                    (byte)((relativeOffset >> 8) & 0xFF),
+                    (byte)((relativeOffset >> 16) & 0xFF),
+                    (byte)((relativeOffset >> 24) & 0xFF),
+                    0x90
+            };
+
+            Debug.WriteLine(Encoding.UTF8.GetString(jumpBackOpCode));
+            IntPtr pTrampoline = mem.CreateDetour(freeShopping, trampolineSourceAddr, jumpBackOpCode);
+
+            if (pTrampoline == IntPtr.Zero)
+            {
+                listBox1.Items.Insert(0, $"{DateTime.Now.ToString("HH:mm:ss")} Error: Failed to create the detour.");
+                return;
+            }
+
+            listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposit has been enabled.");
         }
     }
 }

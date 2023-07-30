@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Numerics;
+using System.Runtime.InteropServices;
 
 namespace Deepcoc
 {
@@ -121,6 +122,17 @@ namespace Deepcoc
             ReadProcessMemory(_handle, address, _result, _result.Length, IntPtr.Zero);
             return _result;
         }
+        public Vector3 ReadVector3(IntPtr x, IntPtr y, IntPtr z)
+        {
+            Vector3 _result = new Vector3();
+
+            _result.X = ReadFloat(x);
+            _result.Y = ReadFloat(y);
+            _result.Z = ReadFloat(z);
+
+            return _result;
+            
+        }
 
         public void WriteInt(IntPtr address, int value)
         {
@@ -177,7 +189,7 @@ namespace Deepcoc
             int minLen = 5; // Minimum length for a relative jump instruction
             int dwLen = Math.Max(minLen, newInstruction.Length); // Adjusting dwLen to consider the new instruction
 
-            CreateCodeCave(pDestination, 145);
+            var pTrampoline = CreateCodeCave(pDestination, 145);
 
             // Check if the target address is writable
             uint oldProtect = 0;
@@ -186,9 +198,6 @@ namespace Deepcoc
                 // Failed to set the memory protection, handle the error appropriately
                 return IntPtr.Zero;
             }
-
-            // Allocate memory for the detour
-            IntPtr pTrampoline = VirtualAllocEx(_handle, IntPtr.Zero, dwLen + minLen, 0x1000 | 0x2000, 0x40);
 
             if (pTrampoline == IntPtr.Zero)
                 return IntPtr.Zero;
@@ -200,20 +209,8 @@ namespace Deepcoc
             byte[] trampoline = new byte[dwLen + minLen];
             Buffer.BlockCopy(originalBytes, 0, trampoline, 0, dwLen);
 
-            // Calculate the relative offset for the jump back to the original code
-            long jumpBackOperand = pSource.ToInt64() + dwLen - (pTrampoline.ToInt64() + dwLen) - 5; // 5 bytes for the E9 opcode and relative offset
-            byte[] jumpBackBytes = BitConverter.GetBytes((int)jumpBackOperand);
-
-            // Write the relative jump back to the trampoline
-            trampoline[dwLen] = 0xE9; // JMP opcode (E9 in x86)
-            Buffer.BlockCopy(jumpBackBytes, 0, trampoline, dwLen + 1, 4); // Copy the 4-byte relative offset after the JMP opcode
-
             // Write the trampoline to the allocated memory
             WriteProcessMemory(_handle, pTrampoline, trampoline, trampoline.Length, IntPtr.Zero);
-
-            // Calculate the relative offset for the return jump back to the source
-            long returnJumpOperand = pTrampoline.ToInt64() - (pSource.ToInt64() + dwLen) - 5;
-            byte[] returnJumpBytes = BitConverter.GetBytes((int)returnJumpOperand);
 
             // Write the new instruction (the jump to the destination) at the source address
             byte[] jumpInstruction = CalculateJump(pDestination, pSource);
@@ -226,10 +223,5 @@ namespace Deepcoc
 
             return pTrampoline;
         }
-
-
-
-
-
     }
 }
