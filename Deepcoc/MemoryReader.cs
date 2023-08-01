@@ -130,8 +130,7 @@ namespace Deepcoc
             _result.Y = ReadFloat(y);
             _result.Z = ReadFloat(z);
 
-            return _result;
-            
+            return _result;     
         }
 
         public void WriteInt(IntPtr address, int value)

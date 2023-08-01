@@ -179,12 +179,7 @@ namespace Deepcoc
 
                     }
 
-
-
                     //Fly
-
-
-
                     if (materialCheckbox15.Checked && isGrounded != 0)
                     {
                         mem.WriteFloat(velY, 0);
@@ -351,7 +346,7 @@ namespace Deepcoc
 
                 Debug.WriteLine(infDepo.ToString("X"));
 
-                IntPtr trampolineSourceAddr = (IntPtr)0x7FF663E10000;
+                IntPtr trampolineSourceAddr = (IntPtr)0x7FF719E70000;
 
                 // Calculate the address right after infDepo
                 IntPtr infDepoNextAddr = infDepo + 5; // Assuming the instruction length is 6 bytes (adjust if needed)
@@ -379,7 +374,7 @@ namespace Deepcoc
                     return;
                 }
 
-                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposit has been enabled.");
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + $" Success: Infinite deposit has been enabled. {infDepo.ToString("X")} -> {trampolineSourceAddr.ToString("X")}");
             }
             catch
             {
@@ -396,7 +391,7 @@ namespace Deepcoc
 
             listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposite has been disabled.");
 
-            mem.FreeCave((UIntPtr)0x7FF663E10000);
+            mem.FreeCave((UIntPtr)0x7FF719E70000);
         }
         private void materialButton7_Click(object sender, EventArgs e)
         {
@@ -509,7 +504,7 @@ namespace Deepcoc
 
             Debug.WriteLine(freeShopping.ToString("X"));
 
-            IntPtr trampolineSourceAddr = (IntPtr)0x7FF663E10000;
+            IntPtr trampolineSourceAddr = (IntPtr)0x7FF719E70000;
 
             // Calculate the address right after infDepo
             IntPtr infDepoNextAddr = freeShopping + 5; // Assuming the instruction length is 6 bytes (adjust if needed)
@@ -538,6 +533,94 @@ namespace Deepcoc
             }
 
             listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposit has been enabled.");
+        }
+
+        private void materialLabel16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialButton18_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var minThrowStrengthAddress = mem.ReadAddress(baseAddress, Offsets.throwMinForce);
+                var maxThrowStrengthAddress = mem.ReadAddress(baseAddress, Offsets.throwMaxForce);
+
+                Debug.WriteLine("meow: " + mem.ReadFloat(minThrowStrengthAddress));
+                Debug.WriteLine(mem.ReadFloat(maxThrowStrengthAddress));
+
+                mem.WriteFloat(minThrowStrengthAddress, (float)Convert.ToDouble(materialMultiLineTextBox7.Text));
+                mem.WriteFloat(maxThrowStrengthAddress, (float)Convert.ToDouble(materialMultiLineTextBox7.Text));
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
+            }
+        }
+
+        private void materialButton19_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var fovAddress = mem.ReadAddress(baseAddress, Offsets.FOV);
+                mem.WriteFloat(fovAddress, (float)Convert.ToDouble(materialMultiLineTextBox8.Text));
+
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
+            }
+        }
+
+        private void materialButton20_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var runSpeedAddress = mem.ReadAddress(baseAddress, Offsets.runSpeed);
+                var walkSpeedAddress = mem.ReadAddress(baseAddress, Offsets.walkSpeed);
+                var decellerationAddress = mem.ReadAddress(baseAddress, Offsets.deceleration);
+
+                mem.WriteFloat(runSpeedAddress, (float)Convert.ToDouble(materialMultiLineTextBox9.Text));
+                mem.WriteFloat(walkSpeedAddress, (float)Convert.ToDouble(materialMultiLineTextBox9.Text));
+                mem.WriteFloat(decellerationAddress, (float)Convert.ToDouble(materialMultiLineTextBox11.Text));
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
+            }
+        }
+
+        private void materialCheckbox1_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var cameraModeAddress = mem.ReadAddress(baseAddress, Offsets.cameraMode);
+            if (materialCheckbox1.Checked)
+            {
+                mem.WriteInt(cameraModeAddress, 2);
+            }
+            else
+            {
+                mem.WriteInt(cameraModeAddress, 0);
+            }
+        }
+
+        private void materialButton21_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var gravityScaleAddress = mem.ReadAddress(baseAddress, Offsets.gravityScale);
+
+                mem.WriteFloat(gravityScaleAddress, (float)Convert.ToDouble(materialMultiLineTextBox10.Text));
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
+            }
         }
     }
 }
