@@ -26,6 +26,7 @@ namespace Deepcoc
         public IntPtr zCoord = IntPtr.Zero;
 
         IntPtr infDepoAddress = IntPtr.Zero;
+        IntPtr trampolineAddress = IntPtr.Zero;
 
         public float gravOffset = 0;
 
@@ -345,8 +346,14 @@ namespace Deepcoc
                 infDepoAddress = infDepo;
 
                 Debug.WriteLine(infDepo.ToString("X"));
+                IntPtr trampolineSourceAddr = mem.CreateCodeCave(infDepo + 0x15D6C00, 145);
+                if (trampolineSourceAddr == IntPtr.Zero)
+                {
+                    trampolineSourceAddr = mem.CreateCodeCave(infDepo - 0x15D6C00, 145);
+                }
+                Debug.WriteLine(trampolineSourceAddr.ToString("X"));
+                trampolineAddress = trampolineSourceAddr;
 
-                IntPtr trampolineSourceAddr = (IntPtr)0x7FF719E70000;
 
                 // Calculate the address right after infDepo
                 IntPtr infDepoNextAddr = infDepo + 5; // Assuming the instruction length is 6 bytes (adjust if needed)
@@ -381,9 +388,6 @@ namespace Deepcoc
                 listBox1.Items.Insert(0, $"{DateTime.Now.ToString("HH:mm:ss")} Error: Infinite deposit has attempted to execute but failed.");
             }
         }
-
-
-
         private void materialButton5_Click(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -391,8 +395,9 @@ namespace Deepcoc
 
             listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposite has been disabled.");
 
-            mem.FreeCave((UIntPtr)0x7FF719E70000);
+            mem.FreeCave(trampolineAddress);
         }
+
         private void materialButton7_Click(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -436,6 +441,61 @@ namespace Deepcoc
                 mem.WriteFloat(charSizeAddress, scale);
                 mem.WriteFloat(charSizeAddressX, scale);
                 mem.WriteFloat(charSizeAddressZ, scale);
+            }
+
+        }
+
+        private void Dance(byte danceMove)
+        {
+            var mem = new MemoryReader(game);
+            var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
+            var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
+            var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
+
+            mem.WriteByte(isDancingAddress, 1);
+            mem.WriteByte(inDanceRangeAddress, 1);
+            mem.WriteByte(danceMoveAddress, 255);
+            Thread.Sleep(100);
+
+            switch (danceMove)
+            {
+                case 0:
+                    mem.WriteByte(danceMoveAddress, 0);
+                    break;
+                case 1:
+                    mem.WriteByte(danceMoveAddress, 1);
+                    break;
+                case 2:
+                    mem.WriteByte(danceMoveAddress, 2);
+                    break;
+                case 3:
+                    mem.WriteByte(danceMoveAddress, 3);
+                    break;
+                case 4:
+                    mem.WriteByte(danceMoveAddress, 4);
+                    break;
+                case 5:
+                    mem.WriteByte(danceMoveAddress, 5);
+                    break;
+                case 6:
+                    mem.WriteByte(danceMoveAddress, 6);
+                    break;
+                case 7:
+                    mem.WriteByte(danceMoveAddress, 7);
+                    break;
+                case 8:
+                    mem.WriteByte(danceMoveAddress, 8);
+                    break;
+                case 9:
+                    mem.WriteByte(danceMoveAddress, 9);
+                    break;
+                case 10:
+                    mem.WriteByte(danceMoveAddress, 10);
+                    break;
+                case 11:
+                    mem.WriteByte(inDanceRangeAddress, 0);
+                    break;
+
             }
 
         }
@@ -504,7 +564,7 @@ namespace Deepcoc
 
             Debug.WriteLine(freeShopping.ToString("X"));
 
-            IntPtr trampolineSourceAddr = (IntPtr)0x7FF719E70000;
+            IntPtr trampolineSourceAddr = (IntPtr)0x7FF7E93A0000;
 
             // Calculate the address right after infDepo
             IntPtr infDepoNextAddr = freeShopping + 5; // Assuming the instruction length is 6 bytes (adjust if needed)
@@ -534,6 +594,7 @@ namespace Deepcoc
 
             listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Infinite deposit has been enabled.");
         }
+
 
         private void materialLabel16_Click(object sender, EventArgs e)
         {
@@ -597,15 +658,28 @@ namespace Deepcoc
         private void materialCheckbox1_CheckedChanged(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
-            var cameraModeAddress = mem.ReadAddress(baseAddress, Offsets.cameraMode);
+
             if (materialCheckbox1.Checked)
             {
-                mem.WriteInt(cameraModeAddress, 2);
+                var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
+                var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
+                var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
+                //mem.WriteByte(danceMoveAddress, 255);
+                mem.WriteByte(isDancingAddress, 1);
+                mem.WriteByte(inDanceRangeAddress, 1);
+                Thread.Sleep(100);
+                mem.WriteByte(danceMoveAddress, 255);
             }
             else
             {
-                mem.WriteInt(cameraModeAddress, 0);
+                var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
+                var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
+                var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
+                mem.WriteByte(isDancingAddress, 0);
+                mem.WriteByte(inDanceRangeAddress, 0);
+                mem.WriteByte(danceMoveAddress, 255);
             }
+
         }
 
         private void materialButton21_Click(object sender, EventArgs e)
@@ -621,6 +695,61 @@ namespace Deepcoc
             {
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
             }
+        }
+
+        private void materialButton22_Click(object sender, EventArgs e)
+        {
+            Dance(1);
+        }
+
+        private void materialButton23_Click(object sender, EventArgs e)
+        {
+            Dance(2);
+        }
+
+        private void materialButton24_Click(object sender, EventArgs e)
+        {
+            Dance(3);
+        }
+
+        private void materialButton25_Click(object sender, EventArgs e)
+        {
+            Dance(4);
+        }
+
+        private void materialButton26_Click(object sender, EventArgs e)
+        {
+            Dance(5);
+        }
+
+        private void materialButton27_Click(object sender, EventArgs e)
+        {
+            Dance(6);
+        }
+
+        private void materialButton28_Click(object sender, EventArgs e)
+        {
+            Dance(7);
+        }
+
+        private void materialButton29_Click(object sender, EventArgs e)
+        {
+            Dance(8);
+        }
+
+        private void materialButton30_Click(object sender, EventArgs e)
+        {
+            Dance(9);
+        }
+
+        private void materialButton31_Click(object sender, EventArgs e)
+        {
+            Dance(10);
+        }
+
+        private void materialButton32_Click(object sender, EventArgs e)
+        {
+            Dance(11);
         }
     }
 }

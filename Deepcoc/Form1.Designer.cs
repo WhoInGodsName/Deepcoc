@@ -31,21 +31,9 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabPage2 = new TabPage();
-            materialLabel20 = new MaterialSkin.Controls.MaterialLabel();
-            materialMultiLineTextBox11 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             materialButton21 = new MaterialSkin.Controls.MaterialButton();
             materialMultiLineTextBox10 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             materialLabel19 = new MaterialSkin.Controls.MaterialLabel();
-            materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
-            materialButton20 = new MaterialSkin.Controls.MaterialButton();
-            materialMultiLineTextBox9 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
-            materialButton18 = new MaterialSkin.Controls.MaterialButton();
-            materialMultiLineTextBox7 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            materialLabel16 = new MaterialSkin.Controls.MaterialLabel();
-            materialMultiLineTextBox8 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            materialButton19 = new MaterialSkin.Controls.MaterialButton();
-            materialLabel17 = new MaterialSkin.Controls.MaterialLabel();
             materialButton17 = new MaterialSkin.Controls.MaterialButton();
             materialButton8 = new MaterialSkin.Controls.MaterialButton();
             materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
@@ -55,20 +43,7 @@
             materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
-            materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
-            materialButton6 = new MaterialSkin.Controls.MaterialButton();
-            materialMultiLineTextBox6 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            materialMultiLineTextBox5 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            materialMultiLineTextBox1 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             materialButton16 = new MaterialSkin.Controls.MaterialButton();
-            materialButton15 = new MaterialSkin.Controls.MaterialButton();
-            materialButton14 = new MaterialSkin.Controls.MaterialButton();
-            materialButton13 = new MaterialSkin.Controls.MaterialButton();
-            materialButton12 = new MaterialSkin.Controls.MaterialButton();
-            materialButton11 = new MaterialSkin.Controls.MaterialButton();
-            materialButton10 = new MaterialSkin.Controls.MaterialButton();
-            materialSlider1 = new MaterialSkin.Controls.MaterialSlider();
-            materialLabel14 = new MaterialSkin.Controls.MaterialLabel();
             materialCheckbox17 = new MaterialSkin.Controls.MaterialCheckbox();
             materialCheckbox16 = new MaterialSkin.Controls.MaterialCheckbox();
             materialCheckbox15 = new MaterialSkin.Controls.MaterialCheckbox();
@@ -103,29 +78,69 @@
             materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             imageList1 = new ImageList(components);
+            tabPage4 = new TabPage();
+            materialButton32 = new MaterialSkin.Controls.MaterialButton();
+            materialButton31 = new MaterialSkin.Controls.MaterialButton();
+            materialButton30 = new MaterialSkin.Controls.MaterialButton();
+            materialButton29 = new MaterialSkin.Controls.MaterialButton();
+            materialButton28 = new MaterialSkin.Controls.MaterialButton();
+            materialButton27 = new MaterialSkin.Controls.MaterialButton();
+            materialButton26 = new MaterialSkin.Controls.MaterialButton();
+            materialButton25 = new MaterialSkin.Controls.MaterialButton();
+            materialButton24 = new MaterialSkin.Controls.MaterialButton();
+            materialButton23 = new MaterialSkin.Controls.MaterialButton();
+            materialButton22 = new MaterialSkin.Controls.MaterialButton();
+            materialLabel21 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
+            materialButton6 = new MaterialSkin.Controls.MaterialButton();
+            materialMultiLineTextBox6 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            materialMultiLineTextBox5 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            materialMultiLineTextBox1 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            materialButton15 = new MaterialSkin.Controls.MaterialButton();
+            materialButton14 = new MaterialSkin.Controls.MaterialButton();
+            materialButton13 = new MaterialSkin.Controls.MaterialButton();
+            materialButton12 = new MaterialSkin.Controls.MaterialButton();
+            materialButton11 = new MaterialSkin.Controls.MaterialButton();
+            materialButton10 = new MaterialSkin.Controls.MaterialButton();
+            materialSlider1 = new MaterialSkin.Controls.MaterialSlider();
+            materialLabel14 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel20 = new MaterialSkin.Controls.MaterialLabel();
+            materialMultiLineTextBox11 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
+            materialButton20 = new MaterialSkin.Controls.MaterialButton();
+            materialMultiLineTextBox9 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
+            materialButton18 = new MaterialSkin.Controls.MaterialButton();
+            materialMultiLineTextBox7 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            materialLabel16 = new MaterialSkin.Controls.MaterialLabel();
+            materialMultiLineTextBox8 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            materialButton19 = new MaterialSkin.Controls.MaterialButton();
+            materialLabel17 = new MaterialSkin.Controls.MaterialLabel();
             tabPage2.SuspendLayout();
             materialTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage3.SuspendLayout();
+            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(materialLabel20);
-            tabPage2.Controls.Add(materialMultiLineTextBox11);
+            tabPage2.Controls.Add(materialLabel15);
+            tabPage2.Controls.Add(materialButton6);
+            tabPage2.Controls.Add(materialMultiLineTextBox6);
+            tabPage2.Controls.Add(materialMultiLineTextBox5);
+            tabPage2.Controls.Add(materialMultiLineTextBox1);
+            tabPage2.Controls.Add(materialButton15);
+            tabPage2.Controls.Add(materialButton14);
+            tabPage2.Controls.Add(materialButton13);
+            tabPage2.Controls.Add(materialButton12);
+            tabPage2.Controls.Add(materialButton11);
+            tabPage2.Controls.Add(materialButton10);
+            tabPage2.Controls.Add(materialSlider1);
+            tabPage2.Controls.Add(materialLabel14);
             tabPage2.Controls.Add(materialButton21);
             tabPage2.Controls.Add(materialMultiLineTextBox10);
             tabPage2.Controls.Add(materialLabel19);
-            tabPage2.Controls.Add(materialCheckbox1);
-            tabPage2.Controls.Add(materialButton20);
-            tabPage2.Controls.Add(materialMultiLineTextBox9);
-            tabPage2.Controls.Add(materialLabel18);
-            tabPage2.Controls.Add(materialButton18);
-            tabPage2.Controls.Add(materialMultiLineTextBox7);
-            tabPage2.Controls.Add(materialLabel16);
-            tabPage2.Controls.Add(materialMultiLineTextBox8);
-            tabPage2.Controls.Add(materialButton19);
-            tabPage2.Controls.Add(materialLabel17);
             tabPage2.Controls.Add(materialButton17);
             tabPage2.Controls.Add(materialButton8);
             tabPage2.Controls.Add(materialLabel13);
@@ -137,38 +152,10 @@
             tabPage2.Location = new Point(4, 39);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1284, 531);
+            tabPage2.Size = new Size(1284, 542);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Resources + Other";
             tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // materialLabel20
-            // 
-            materialLabel20.AutoSize = true;
-            materialLabel20.Depth = 0;
-            materialLabel20.FlatStyle = FlatStyle.Popup;
-            materialLabel20.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel20.ForeColor = Color.Maroon;
-            materialLabel20.Location = new Point(617, 78);
-            materialLabel20.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel20.Name = "materialLabel20";
-            materialLabel20.Size = new Size(89, 19);
-            materialLabel20.TabIndex = 117;
-            materialLabel20.Text = "Deceleration";
-            // 
-            // materialMultiLineTextBox11
-            // 
-            materialMultiLineTextBox11.BackColor = Color.FromArgb(255, 255, 255);
-            materialMultiLineTextBox11.BorderStyle = BorderStyle.FixedSingle;
-            materialMultiLineTextBox11.Depth = 0;
-            materialMultiLineTextBox11.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialMultiLineTextBox11.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialMultiLineTextBox11.Location = new Point(617, 102);
-            materialMultiLineTextBox11.MouseState = MaterialSkin.MouseState.HOVER;
-            materialMultiLineTextBox11.Name = "materialMultiLineTextBox11";
-            materialMultiLineTextBox11.Size = new Size(93, 30);
-            materialMultiLineTextBox11.TabIndex = 116;
-            materialMultiLineTextBox11.Text = "";
             // 
             // materialButton21
             // 
@@ -218,170 +205,6 @@
             materialLabel19.Size = new Size(122, 19);
             materialLabel19.TabIndex = 113;
             materialLabel19.Text = "GRAVITY SCALE ";
-            // 
-            // materialCheckbox1
-            // 
-            materialCheckbox1.AutoSize = true;
-            materialCheckbox1.Depth = 0;
-            materialCheckbox1.Location = new Point(240, 127);
-            materialCheckbox1.Margin = new Padding(0);
-            materialCheckbox1.MouseLocation = new Point(-1, -1);
-            materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCheckbox1.Name = "materialCheckbox1";
-            materialCheckbox1.ReadOnly = false;
-            materialCheckbox1.Ripple = true;
-            materialCheckbox1.Size = new Size(125, 37);
-            materialCheckbox1.TabIndex = 112;
-            materialCheckbox1.Text = "Third Person";
-            materialCheckbox1.UseVisualStyleBackColor = true;
-            materialCheckbox1.CheckedChanged += materialCheckbox1_CheckedChanged;
-            // 
-            // materialButton20
-            // 
-            materialButton20.AutoSize = false;
-            materialButton20.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton20.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton20.Depth = 0;
-            materialButton20.HighEmphasis = true;
-            materialButton20.Icon = null;
-            materialButton20.Location = new Point(617, 140);
-            materialButton20.Margin = new Padding(4, 6, 4, 6);
-            materialButton20.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton20.Name = "materialButton20";
-            materialButton20.NoAccentTextColor = Color.Empty;
-            materialButton20.Size = new Size(133, 37);
-            materialButton20.TabIndex = 111;
-            materialButton20.Text = "CHANGE";
-            materialButton20.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton20.UseAccentColor = false;
-            materialButton20.UseVisualStyleBackColor = true;
-            materialButton20.Click += materialButton20_Click;
-            // 
-            // materialMultiLineTextBox9
-            // 
-            materialMultiLineTextBox9.BackColor = Color.FromArgb(255, 255, 255);
-            materialMultiLineTextBox9.BorderStyle = BorderStyle.FixedSingle;
-            materialMultiLineTextBox9.Depth = 0;
-            materialMultiLineTextBox9.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialMultiLineTextBox9.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialMultiLineTextBox9.Location = new Point(617, 45);
-            materialMultiLineTextBox9.MouseState = MaterialSkin.MouseState.HOVER;
-            materialMultiLineTextBox9.Name = "materialMultiLineTextBox9";
-            materialMultiLineTextBox9.Size = new Size(93, 30);
-            materialMultiLineTextBox9.TabIndex = 110;
-            materialMultiLineTextBox9.Text = "";
-            // 
-            // materialLabel18
-            // 
-            materialLabel18.AutoSize = true;
-            materialLabel18.Depth = 0;
-            materialLabel18.FlatStyle = FlatStyle.Popup;
-            materialLabel18.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel18.ForeColor = Color.Maroon;
-            materialLabel18.Location = new Point(617, 18);
-            materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel18.Name = "materialLabel18";
-            materialLabel18.Size = new Size(85, 19);
-            materialLabel18.TabIndex = 109;
-            materialLabel18.Text = "RUN SPEED";
-            // 
-            // materialButton18
-            // 
-            materialButton18.AutoSize = false;
-            materialButton18.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton18.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton18.Depth = 0;
-            materialButton18.HighEmphasis = true;
-            materialButton18.Icon = null;
-            materialButton18.Location = new Point(416, 84);
-            materialButton18.Margin = new Padding(4, 6, 4, 6);
-            materialButton18.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton18.Name = "materialButton18";
-            materialButton18.NoAccentTextColor = Color.Empty;
-            materialButton18.Size = new Size(133, 37);
-            materialButton18.TabIndex = 108;
-            materialButton18.Text = "CHANGE";
-            materialButton18.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton18.UseAccentColor = false;
-            materialButton18.UseVisualStyleBackColor = true;
-            materialButton18.Click += materialButton18_Click_1;
-            // 
-            // materialMultiLineTextBox7
-            // 
-            materialMultiLineTextBox7.BackColor = Color.FromArgb(255, 255, 255);
-            materialMultiLineTextBox7.BorderStyle = BorderStyle.FixedSingle;
-            materialMultiLineTextBox7.Depth = 0;
-            materialMultiLineTextBox7.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialMultiLineTextBox7.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialMultiLineTextBox7.Location = new Point(416, 45);
-            materialMultiLineTextBox7.MouseState = MaterialSkin.MouseState.HOVER;
-            materialMultiLineTextBox7.Name = "materialMultiLineTextBox7";
-            materialMultiLineTextBox7.Size = new Size(93, 30);
-            materialMultiLineTextBox7.TabIndex = 107;
-            materialMultiLineTextBox7.Text = "";
-            // 
-            // materialLabel16
-            // 
-            materialLabel16.AutoSize = true;
-            materialLabel16.Depth = 0;
-            materialLabel16.FlatStyle = FlatStyle.Popup;
-            materialLabel16.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel16.ForeColor = Color.Maroon;
-            materialLabel16.Location = new Point(416, 18);
-            materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel16.Name = "materialLabel16";
-            materialLabel16.Size = new Size(143, 19);
-            materialLabel16.TabIndex = 106;
-            materialLabel16.Text = "THROW STRENGTH";
-            // 
-            // materialMultiLineTextBox8
-            // 
-            materialMultiLineTextBox8.BackColor = Color.FromArgb(255, 255, 255);
-            materialMultiLineTextBox8.BorderStyle = BorderStyle.FixedSingle;
-            materialMultiLineTextBox8.Depth = 0;
-            materialMultiLineTextBox8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialMultiLineTextBox8.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialMultiLineTextBox8.Location = new Point(240, 45);
-            materialMultiLineTextBox8.MouseState = MaterialSkin.MouseState.HOVER;
-            materialMultiLineTextBox8.Name = "materialMultiLineTextBox8";
-            materialMultiLineTextBox8.Size = new Size(93, 30);
-            materialMultiLineTextBox8.TabIndex = 105;
-            materialMultiLineTextBox8.Text = "";
-            // 
-            // materialButton19
-            // 
-            materialButton19.AutoSize = false;
-            materialButton19.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton19.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton19.Depth = 0;
-            materialButton19.HighEmphasis = true;
-            materialButton19.Icon = null;
-            materialButton19.Location = new Point(240, 84);
-            materialButton19.Margin = new Padding(4, 6, 4, 6);
-            materialButton19.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton19.Name = "materialButton19";
-            materialButton19.NoAccentTextColor = Color.Empty;
-            materialButton19.Size = new Size(133, 37);
-            materialButton19.TabIndex = 104;
-            materialButton19.Text = "CHANGE";
-            materialButton19.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton19.UseAccentColor = false;
-            materialButton19.UseVisualStyleBackColor = true;
-            materialButton19.Click += materialButton19_Click;
-            // 
-            // materialLabel17
-            // 
-            materialLabel17.AutoSize = true;
-            materialLabel17.Depth = 0;
-            materialLabel17.FlatStyle = FlatStyle.Popup;
-            materialLabel17.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel17.ForeColor = Color.Maroon;
-            materialLabel17.Location = new Point(240, 18);
-            materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel17.Name = "materialLabel17";
-            materialLabel17.Size = new Size(31, 19);
-            materialLabel17.TabIndex = 103;
-            materialLabel17.Text = "FOV";
             // 
             // materialButton17
             // 
@@ -519,6 +342,7 @@
             materialTabControl1.Controls.Add(tabPage1);
             materialTabControl1.Controls.Add(tabPage2);
             materialTabControl1.Controls.Add(tabPage3);
+            materialTabControl1.Controls.Add(tabPage4);
             materialTabControl1.Depth = 0;
             materialTabControl1.Dock = DockStyle.Fill;
             materialTabControl1.Font = new Font("Impact", 8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -528,25 +352,24 @@
             materialTabControl1.Multiline = true;
             materialTabControl1.Name = "materialTabControl1";
             materialTabControl1.SelectedIndex = 0;
-            materialTabControl1.Size = new Size(1292, 574);
+            materialTabControl1.Size = new Size(1292, 585);
             materialTabControl1.TabIndex = 30;
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(materialLabel15);
-            tabPage1.Controls.Add(materialButton6);
-            tabPage1.Controls.Add(materialMultiLineTextBox6);
-            tabPage1.Controls.Add(materialMultiLineTextBox5);
-            tabPage1.Controls.Add(materialMultiLineTextBox1);
+            tabPage1.Controls.Add(materialLabel20);
+            tabPage1.Controls.Add(materialMultiLineTextBox11);
+            tabPage1.Controls.Add(materialCheckbox1);
+            tabPage1.Controls.Add(materialButton20);
+            tabPage1.Controls.Add(materialMultiLineTextBox9);
+            tabPage1.Controls.Add(materialLabel18);
+            tabPage1.Controls.Add(materialButton18);
+            tabPage1.Controls.Add(materialMultiLineTextBox7);
+            tabPage1.Controls.Add(materialLabel16);
+            tabPage1.Controls.Add(materialMultiLineTextBox8);
+            tabPage1.Controls.Add(materialButton19);
+            tabPage1.Controls.Add(materialLabel17);
             tabPage1.Controls.Add(materialButton16);
-            tabPage1.Controls.Add(materialButton15);
-            tabPage1.Controls.Add(materialButton14);
-            tabPage1.Controls.Add(materialButton13);
-            tabPage1.Controls.Add(materialButton12);
-            tabPage1.Controls.Add(materialButton11);
-            tabPage1.Controls.Add(materialButton10);
-            tabPage1.Controls.Add(materialSlider1);
-            tabPage1.Controls.Add(materialLabel14);
             tabPage1.Controls.Add(materialCheckbox17);
             tabPage1.Controls.Add(materialCheckbox16);
             tabPage1.Controls.Add(materialCheckbox15);
@@ -578,87 +401,10 @@
             tabPage1.Location = new Point(4, 39);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1284, 531);
+            tabPage1.Size = new Size(1284, 542);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // materialLabel15
-            // 
-            materialLabel15.AutoSize = true;
-            materialLabel15.Depth = 0;
-            materialLabel15.FlatStyle = FlatStyle.Popup;
-            materialLabel15.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel15.ForeColor = Color.Maroon;
-            materialLabel15.Location = new Point(835, 433);
-            materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel15.Name = "materialLabel15";
-            materialLabel15.Size = new Size(135, 19);
-            materialLabel15.TabIndex = 99;
-            materialLabel15.Text = "CUSTOM SCALING";
-            // 
-            // materialButton6
-            // 
-            materialButton6.AutoSize = false;
-            materialButton6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton6.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton6.Depth = 0;
-            materialButton6.HighEmphasis = true;
-            materialButton6.Icon = null;
-            materialButton6.Location = new Point(1135, 455);
-            materialButton6.Margin = new Padding(4, 6, 4, 6);
-            materialButton6.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton6.Name = "materialButton6";
-            materialButton6.NoAccentTextColor = Color.Empty;
-            materialButton6.Size = new Size(133, 30);
-            materialButton6.TabIndex = 98;
-            materialButton6.Text = "CHANGE";
-            materialButton6.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton6.UseAccentColor = false;
-            materialButton6.UseVisualStyleBackColor = true;
-            materialButton6.Click += materialButton6_Click;
-            // 
-            // materialMultiLineTextBox6
-            // 
-            materialMultiLineTextBox6.BackColor = Color.FromArgb(255, 255, 255);
-            materialMultiLineTextBox6.BorderStyle = BorderStyle.FixedSingle;
-            materialMultiLineTextBox6.Depth = 0;
-            materialMultiLineTextBox6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialMultiLineTextBox6.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialMultiLineTextBox6.Location = new Point(1035, 455);
-            materialMultiLineTextBox6.MouseState = MaterialSkin.MouseState.HOVER;
-            materialMultiLineTextBox6.Name = "materialMultiLineTextBox6";
-            materialMultiLineTextBox6.Size = new Size(93, 30);
-            materialMultiLineTextBox6.TabIndex = 97;
-            materialMultiLineTextBox6.Text = "";
-            // 
-            // materialMultiLineTextBox5
-            // 
-            materialMultiLineTextBox5.BackColor = Color.FromArgb(255, 255, 255);
-            materialMultiLineTextBox5.BorderStyle = BorderStyle.FixedSingle;
-            materialMultiLineTextBox5.Depth = 0;
-            materialMultiLineTextBox5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialMultiLineTextBox5.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialMultiLineTextBox5.Location = new Point(936, 455);
-            materialMultiLineTextBox5.MouseState = MaterialSkin.MouseState.HOVER;
-            materialMultiLineTextBox5.Name = "materialMultiLineTextBox5";
-            materialMultiLineTextBox5.Size = new Size(93, 30);
-            materialMultiLineTextBox5.TabIndex = 96;
-            materialMultiLineTextBox5.Text = "";
-            // 
-            // materialMultiLineTextBox1
-            // 
-            materialMultiLineTextBox1.BackColor = Color.FromArgb(255, 255, 255);
-            materialMultiLineTextBox1.BorderStyle = BorderStyle.FixedSingle;
-            materialMultiLineTextBox1.Depth = 0;
-            materialMultiLineTextBox1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialMultiLineTextBox1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialMultiLineTextBox1.Location = new Point(837, 455);
-            materialMultiLineTextBox1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialMultiLineTextBox1.Name = "materialMultiLineTextBox1";
-            materialMultiLineTextBox1.Size = new Size(93, 30);
-            materialMultiLineTextBox1.TabIndex = 95;
-            materialMultiLineTextBox1.Text = "";
             // 
             // materialButton16
             // 
@@ -680,159 +426,6 @@
             materialButton16.UseAccentColor = false;
             materialButton16.UseVisualStyleBackColor = true;
             materialButton16.Click += materialButton16_Click;
-            // 
-            // materialButton15
-            // 
-            materialButton15.AutoSize = false;
-            materialButton15.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton15.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton15.Depth = 0;
-            materialButton15.HighEmphasis = true;
-            materialButton15.Icon = null;
-            materialButton15.Location = new Point(999, 284);
-            materialButton15.Margin = new Padding(4, 6, 4, 6);
-            materialButton15.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton15.Name = "materialButton15";
-            materialButton15.NoAccentTextColor = Color.Empty;
-            materialButton15.Size = new Size(74, 37);
-            materialButton15.TabIndex = 93;
-            materialButton15.Text = "x1";
-            materialButton15.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton15.UseAccentColor = false;
-            materialButton15.UseVisualStyleBackColor = true;
-            materialButton15.Click += materialButton15_Click;
-            // 
-            // materialButton14
-            // 
-            materialButton14.AutoSize = false;
-            materialButton14.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton14.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton14.Depth = 0;
-            materialButton14.HighEmphasis = true;
-            materialButton14.Icon = null;
-            materialButton14.Location = new Point(1163, 284);
-            materialButton14.Margin = new Padding(4, 6, 4, 6);
-            materialButton14.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton14.Name = "materialButton14";
-            materialButton14.NoAccentTextColor = Color.Empty;
-            materialButton14.Size = new Size(74, 37);
-            materialButton14.TabIndex = 92;
-            materialButton14.Text = "x5";
-            materialButton14.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton14.UseAccentColor = false;
-            materialButton14.UseVisualStyleBackColor = true;
-            materialButton14.Click += materialButton14_Click;
-            // 
-            // materialButton13
-            // 
-            materialButton13.AutoSize = false;
-            materialButton13.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton13.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton13.Depth = 0;
-            materialButton13.HighEmphasis = true;
-            materialButton13.Icon = null;
-            materialButton13.Location = new Point(1081, 284);
-            materialButton13.Margin = new Padding(4, 6, 4, 6);
-            materialButton13.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton13.Name = "materialButton13";
-            materialButton13.NoAccentTextColor = Color.Empty;
-            materialButton13.Size = new Size(74, 37);
-            materialButton13.TabIndex = 91;
-            materialButton13.Text = "x2";
-            materialButton13.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton13.UseAccentColor = false;
-            materialButton13.UseVisualStyleBackColor = true;
-            materialButton13.Click += materialButton13_Click;
-            // 
-            // materialButton12
-            // 
-            materialButton12.AutoSize = false;
-            materialButton12.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton12.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton12.Depth = 0;
-            materialButton12.HighEmphasis = true;
-            materialButton12.Icon = null;
-            materialButton12.Location = new Point(917, 284);
-            materialButton12.Margin = new Padding(4, 6, 4, 6);
-            materialButton12.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton12.Name = "materialButton12";
-            materialButton12.NoAccentTextColor = Color.Empty;
-            materialButton12.Size = new Size(74, 37);
-            materialButton12.TabIndex = 90;
-            materialButton12.Text = "x0.5";
-            materialButton12.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton12.UseAccentColor = false;
-            materialButton12.UseVisualStyleBackColor = true;
-            materialButton12.Click += materialButton12_Click;
-            // 
-            // materialButton11
-            // 
-            materialButton11.AutoSize = false;
-            materialButton11.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton11.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton11.Depth = 0;
-            materialButton11.HighEmphasis = true;
-            materialButton11.Icon = null;
-            materialButton11.Location = new Point(835, 284);
-            materialButton11.Margin = new Padding(4, 6, 4, 6);
-            materialButton11.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton11.Name = "materialButton11";
-            materialButton11.NoAccentTextColor = Color.Empty;
-            materialButton11.Size = new Size(74, 37);
-            materialButton11.TabIndex = 89;
-            materialButton11.Text = "x0.1";
-            materialButton11.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton11.UseAccentColor = false;
-            materialButton11.UseVisualStyleBackColor = true;
-            materialButton11.Click += materialButton11_Click;
-            // 
-            // materialButton10
-            // 
-            materialButton10.AutoSize = false;
-            materialButton10.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton10.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton10.Depth = 0;
-            materialButton10.HighEmphasis = true;
-            materialButton10.Icon = null;
-            materialButton10.Location = new Point(835, 379);
-            materialButton10.Margin = new Padding(4, 6, 4, 6);
-            materialButton10.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton10.Name = "materialButton10";
-            materialButton10.NoAccentTextColor = Color.Empty;
-            materialButton10.Size = new Size(133, 37);
-            materialButton10.TabIndex = 88;
-            materialButton10.Text = "CHANGE";
-            materialButton10.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton10.UseAccentColor = false;
-            materialButton10.UseVisualStyleBackColor = true;
-            materialButton10.Click += materialButton10_Click;
-            // 
-            // materialSlider1
-            // 
-            materialSlider1.Depth = 0;
-            materialSlider1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialSlider1.Location = new Point(835, 330);
-            materialSlider1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialSlider1.Name = "materialSlider1";
-            materialSlider1.RangeMax = 10;
-            materialSlider1.Size = new Size(277, 40);
-            materialSlider1.TabIndex = 87;
-            materialSlider1.Text = "Size";
-            materialSlider1.Value = 1;
-            // 
-            // materialLabel14
-            // 
-            materialLabel14.AutoSize = true;
-            materialLabel14.Depth = 0;
-            materialLabel14.FlatStyle = FlatStyle.Popup;
-            materialLabel14.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel14.ForeColor = Color.Maroon;
-            materialLabel14.Location = new Point(835, 259);
-            materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel14.Name = "materialLabel14";
-            materialLabel14.Size = new Size(185, 19);
-            materialLabel14.TabIndex = 86;
-            materialLabel14.Text = "CHARACTERSIZE (scaled)";
             // 
             // materialCheckbox17
             // 
@@ -1260,7 +853,7 @@
             tabPage3.Location = new Point(4, 39);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1284, 531);
+            tabPage3.Size = new Size(1284, 542);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Class specific";
             tabPage3.UseVisualStyleBackColor = true;
@@ -1356,19 +949,703 @@
             imageList1.Images.SetKeyName(0, "icons8-pickaxe-64.png");
             imageList1.Images.SetKeyName(1, "icons8-commodity-64.png");
             imageList1.Images.SetKeyName(2, "icons8-body-armor-64.png");
+            imageList1.Images.SetKeyName(3, "icons8-categorize-64.png");
+            imageList1.Images.SetKeyName(4, "icons8-view-more-64.png");
+            // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(materialButton32);
+            tabPage4.Controls.Add(materialButton31);
+            tabPage4.Controls.Add(materialButton30);
+            tabPage4.Controls.Add(materialButton29);
+            tabPage4.Controls.Add(materialButton28);
+            tabPage4.Controls.Add(materialButton27);
+            tabPage4.Controls.Add(materialButton26);
+            tabPage4.Controls.Add(materialButton25);
+            tabPage4.Controls.Add(materialButton24);
+            tabPage4.Controls.Add(materialButton23);
+            tabPage4.Controls.Add(materialButton22);
+            tabPage4.Controls.Add(materialLabel21);
+            tabPage4.ImageKey = "icons8-view-more-64.png";
+            tabPage4.Location = new Point(4, 39);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(1284, 542);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Misc";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // materialButton32
+            // 
+            materialButton32.AutoSize = false;
+            materialButton32.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton32.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton32.Depth = 0;
+            materialButton32.HighEmphasis = true;
+            materialButton32.Icon = null;
+            materialButton32.Location = new Point(138, 489);
+            materialButton32.Margin = new Padding(4, 6, 4, 6);
+            materialButton32.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton32.Name = "materialButton32";
+            materialButton32.NoAccentTextColor = Color.Empty;
+            materialButton32.Size = new Size(124, 36);
+            materialButton32.TabIndex = 82;
+            materialButton32.Text = "Stop Dancing";
+            materialButton32.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton32.UseAccentColor = false;
+            materialButton32.UseVisualStyleBackColor = true;
+            materialButton32.Click += materialButton32_Click;
+            // 
+            // materialButton31
+            // 
+            materialButton31.AutoSize = false;
+            materialButton31.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton31.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton31.Depth = 0;
+            materialButton31.HighEmphasis = true;
+            materialButton31.Icon = null;
+            materialButton31.Location = new Point(6, 489);
+            materialButton31.Margin = new Padding(4, 6, 4, 6);
+            materialButton31.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton31.Name = "materialButton31";
+            materialButton31.NoAccentTextColor = Color.Empty;
+            materialButton31.Size = new Size(124, 36);
+            materialButton31.TabIndex = 81;
+            materialButton31.Text = "Hand clapper";
+            materialButton31.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton31.UseAccentColor = false;
+            materialButton31.UseVisualStyleBackColor = true;
+            materialButton31.Click += materialButton31_Click;
+            // 
+            // materialButton30
+            // 
+            materialButton30.AutoSize = false;
+            materialButton30.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton30.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton30.Depth = 0;
+            materialButton30.HighEmphasis = true;
+            materialButton30.Icon = null;
+            materialButton30.Location = new Point(7, 444);
+            materialButton30.Margin = new Padding(4, 6, 4, 6);
+            materialButton30.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton30.Name = "materialButton30";
+            materialButton30.NoAccentTextColor = Color.Empty;
+            materialButton30.Size = new Size(124, 36);
+            materialButton30.TabIndex = 80;
+            materialButton30.Text = "Knee slapper";
+            materialButton30.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton30.UseAccentColor = false;
+            materialButton30.UseVisualStyleBackColor = true;
+            materialButton30.Click += materialButton30_Click;
+            // 
+            // materialButton29
+            // 
+            materialButton29.AutoSize = false;
+            materialButton29.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton29.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton29.Depth = 0;
+            materialButton29.HighEmphasis = true;
+            materialButton29.Icon = null;
+            materialButton29.Location = new Point(6, 396);
+            materialButton29.Margin = new Padding(4, 6, 4, 6);
+            materialButton29.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton29.Name = "materialButton29";
+            materialButton29.NoAccentTextColor = Color.Empty;
+            materialButton29.Size = new Size(124, 36);
+            materialButton29.TabIndex = 79;
+            materialButton29.Text = "Cute";
+            materialButton29.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton29.UseAccentColor = false;
+            materialButton29.UseVisualStyleBackColor = true;
+            materialButton29.Click += materialButton29_Click;
+            // 
+            // materialButton28
+            // 
+            materialButton28.AutoSize = false;
+            materialButton28.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton28.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton28.Depth = 0;
+            materialButton28.HighEmphasis = true;
+            materialButton28.Icon = null;
+            materialButton28.Location = new Point(7, 348);
+            materialButton28.Margin = new Padding(4, 6, 4, 6);
+            materialButton28.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton28.Name = "materialButton28";
+            materialButton28.NoAccentTextColor = Color.Empty;
+            materialButton28.Size = new Size(124, 36);
+            materialButton28.TabIndex = 78;
+            materialButton28.Text = "Pull";
+            materialButton28.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton28.UseAccentColor = false;
+            materialButton28.UseVisualStyleBackColor = true;
+            materialButton28.Click += materialButton28_Click;
+            // 
+            // materialButton27
+            // 
+            materialButton27.AutoSize = false;
+            materialButton27.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton27.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton27.Depth = 0;
+            materialButton27.HighEmphasis = true;
+            materialButton27.Icon = null;
+            materialButton27.Location = new Point(7, 300);
+            materialButton27.Margin = new Padding(4, 6, 4, 6);
+            materialButton27.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton27.Name = "materialButton27";
+            materialButton27.NoAccentTextColor = Color.Empty;
+            materialButton27.Size = new Size(124, 36);
+            materialButton27.TabIndex = 77;
+            materialButton27.Text = "MC style 2";
+            materialButton27.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton27.UseAccentColor = false;
+            materialButton27.UseVisualStyleBackColor = true;
+            materialButton27.Click += materialButton27_Click;
+            // 
+            // materialButton26
+            // 
+            materialButton26.AutoSize = false;
+            materialButton26.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton26.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton26.Depth = 0;
+            materialButton26.HighEmphasis = true;
+            materialButton26.Icon = null;
+            materialButton26.Location = new Point(7, 252);
+            materialButton26.Margin = new Padding(4, 6, 4, 6);
+            materialButton26.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton26.Name = "materialButton26";
+            materialButton26.NoAccentTextColor = Color.Empty;
+            materialButton26.Size = new Size(124, 36);
+            materialButton26.TabIndex = 76;
+            materialButton26.Text = "MC style";
+            materialButton26.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton26.UseAccentColor = false;
+            materialButton26.UseVisualStyleBackColor = true;
+            materialButton26.Click += materialButton26_Click;
+            // 
+            // materialButton25
+            // 
+            materialButton25.AutoSize = false;
+            materialButton25.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton25.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton25.Depth = 0;
+            materialButton25.HighEmphasis = true;
+            materialButton25.Icon = null;
+            materialButton25.Location = new Point(7, 204);
+            materialButton25.Margin = new Padding(4, 6, 4, 6);
+            materialButton25.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton25.Name = "materialButton25";
+            materialButton25.NoAccentTextColor = Color.Empty;
+            materialButton25.Size = new Size(124, 36);
+            materialButton25.TabIndex = 75;
+            materialButton25.Text = "Floss";
+            materialButton25.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton25.UseAccentColor = false;
+            materialButton25.UseVisualStyleBackColor = true;
+            materialButton25.Click += materialButton25_Click;
+            // 
+            // materialButton24
+            // 
+            materialButton24.AutoSize = false;
+            materialButton24.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton24.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton24.Depth = 0;
+            materialButton24.HighEmphasis = true;
+            materialButton24.Icon = null;
+            materialButton24.Location = new Point(7, 156);
+            materialButton24.Margin = new Padding(4, 6, 4, 6);
+            materialButton24.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton24.Name = "materialButton24";
+            materialButton24.NoAccentTextColor = Color.Empty;
+            materialButton24.Size = new Size(124, 36);
+            materialButton24.TabIndex = 74;
+            materialButton24.Text = "Headbang";
+            materialButton24.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton24.UseAccentColor = false;
+            materialButton24.UseVisualStyleBackColor = true;
+            materialButton24.Click += materialButton24_Click;
+            // 
+            // materialButton23
+            // 
+            materialButton23.AutoSize = false;
+            materialButton23.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton23.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton23.Depth = 0;
+            materialButton23.HighEmphasis = true;
+            materialButton23.Icon = null;
+            materialButton23.Location = new Point(7, 108);
+            materialButton23.Margin = new Padding(4, 6, 4, 6);
+            materialButton23.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton23.Name = "materialButton23";
+            materialButton23.NoAccentTextColor = Color.Empty;
+            materialButton23.Size = new Size(124, 36);
+            materialButton23.TabIndex = 73;
+            materialButton23.Text = "Russian";
+            materialButton23.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton23.UseAccentColor = false;
+            materialButton23.UseVisualStyleBackColor = true;
+            materialButton23.Click += materialButton23_Click;
+            // 
+            // materialButton22
+            // 
+            materialButton22.AutoSize = false;
+            materialButton22.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton22.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton22.Depth = 0;
+            materialButton22.HighEmphasis = true;
+            materialButton22.Icon = null;
+            materialButton22.Location = new Point(7, 60);
+            materialButton22.Margin = new Padding(4, 6, 4, 6);
+            materialButton22.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton22.Name = "materialButton22";
+            materialButton22.NoAccentTextColor = Color.Empty;
+            materialButton22.Size = new Size(124, 36);
+            materialButton22.TabIndex = 72;
+            materialButton22.Text = "Russian";
+            materialButton22.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton22.UseAccentColor = false;
+            materialButton22.UseVisualStyleBackColor = true;
+            materialButton22.Click += materialButton22_Click;
+            // 
+            // materialLabel21
+            // 
+            materialLabel21.AutoSize = true;
+            materialLabel21.Depth = 0;
+            materialLabel21.FlatStyle = FlatStyle.Popup;
+            materialLabel21.Font = new Font("Roboto", 34F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel21.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            materialLabel21.ForeColor = Color.Maroon;
+            materialLabel21.ImageIndex = 2;
+            materialLabel21.ImageList = imageList1;
+            materialLabel21.Location = new Point(6, 13);
+            materialLabel21.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel21.Name = "materialLabel21";
+            materialLabel21.Size = new Size(112, 41);
+            materialLabel21.TabIndex = 68;
+            materialLabel21.Text = "EMOTE";
+            // 
+            // materialLabel15
+            // 
+            materialLabel15.AutoSize = true;
+            materialLabel15.Depth = 0;
+            materialLabel15.FlatStyle = FlatStyle.Popup;
+            materialLabel15.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel15.ForeColor = Color.Maroon;
+            materialLabel15.Location = new Point(237, 184);
+            materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel15.Name = "materialLabel15";
+            materialLabel15.Size = new Size(135, 19);
+            materialLabel15.TabIndex = 130;
+            materialLabel15.Text = "CUSTOM SCALING";
+            // 
+            // materialButton6
+            // 
+            materialButton6.AutoSize = false;
+            materialButton6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton6.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton6.Depth = 0;
+            materialButton6.HighEmphasis = true;
+            materialButton6.Icon = null;
+            materialButton6.Location = new Point(537, 206);
+            materialButton6.Margin = new Padding(4, 6, 4, 6);
+            materialButton6.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton6.Name = "materialButton6";
+            materialButton6.NoAccentTextColor = Color.Empty;
+            materialButton6.Size = new Size(133, 30);
+            materialButton6.TabIndex = 129;
+            materialButton6.Text = "CHANGE";
+            materialButton6.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton6.UseAccentColor = false;
+            materialButton6.UseVisualStyleBackColor = true;
+            // 
+            // materialMultiLineTextBox6
+            // 
+            materialMultiLineTextBox6.BackColor = Color.FromArgb(255, 255, 255);
+            materialMultiLineTextBox6.BorderStyle = BorderStyle.FixedSingle;
+            materialMultiLineTextBox6.Depth = 0;
+            materialMultiLineTextBox6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMultiLineTextBox6.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialMultiLineTextBox6.Location = new Point(437, 206);
+            materialMultiLineTextBox6.MouseState = MaterialSkin.MouseState.HOVER;
+            materialMultiLineTextBox6.Name = "materialMultiLineTextBox6";
+            materialMultiLineTextBox6.Size = new Size(93, 30);
+            materialMultiLineTextBox6.TabIndex = 128;
+            materialMultiLineTextBox6.Text = "";
+            // 
+            // materialMultiLineTextBox5
+            // 
+            materialMultiLineTextBox5.BackColor = Color.FromArgb(255, 255, 255);
+            materialMultiLineTextBox5.BorderStyle = BorderStyle.FixedSingle;
+            materialMultiLineTextBox5.Depth = 0;
+            materialMultiLineTextBox5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMultiLineTextBox5.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialMultiLineTextBox5.Location = new Point(338, 206);
+            materialMultiLineTextBox5.MouseState = MaterialSkin.MouseState.HOVER;
+            materialMultiLineTextBox5.Name = "materialMultiLineTextBox5";
+            materialMultiLineTextBox5.Size = new Size(93, 30);
+            materialMultiLineTextBox5.TabIndex = 127;
+            materialMultiLineTextBox5.Text = "";
+            // 
+            // materialMultiLineTextBox1
+            // 
+            materialMultiLineTextBox1.BackColor = Color.FromArgb(255, 255, 255);
+            materialMultiLineTextBox1.BorderStyle = BorderStyle.FixedSingle;
+            materialMultiLineTextBox1.Depth = 0;
+            materialMultiLineTextBox1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMultiLineTextBox1.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialMultiLineTextBox1.Location = new Point(239, 206);
+            materialMultiLineTextBox1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialMultiLineTextBox1.Name = "materialMultiLineTextBox1";
+            materialMultiLineTextBox1.Size = new Size(93, 30);
+            materialMultiLineTextBox1.TabIndex = 126;
+            materialMultiLineTextBox1.Text = "";
+            // 
+            // materialButton15
+            // 
+            materialButton15.AutoSize = false;
+            materialButton15.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton15.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton15.Depth = 0;
+            materialButton15.HighEmphasis = true;
+            materialButton15.Icon = null;
+            materialButton15.Location = new Point(401, 35);
+            materialButton15.Margin = new Padding(4, 6, 4, 6);
+            materialButton15.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton15.Name = "materialButton15";
+            materialButton15.NoAccentTextColor = Color.Empty;
+            materialButton15.Size = new Size(74, 37);
+            materialButton15.TabIndex = 125;
+            materialButton15.Text = "x1";
+            materialButton15.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton15.UseAccentColor = false;
+            materialButton15.UseVisualStyleBackColor = true;
+            // 
+            // materialButton14
+            // 
+            materialButton14.AutoSize = false;
+            materialButton14.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton14.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton14.Depth = 0;
+            materialButton14.HighEmphasis = true;
+            materialButton14.Icon = null;
+            materialButton14.Location = new Point(565, 35);
+            materialButton14.Margin = new Padding(4, 6, 4, 6);
+            materialButton14.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton14.Name = "materialButton14";
+            materialButton14.NoAccentTextColor = Color.Empty;
+            materialButton14.Size = new Size(74, 37);
+            materialButton14.TabIndex = 124;
+            materialButton14.Text = "x5";
+            materialButton14.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton14.UseAccentColor = false;
+            materialButton14.UseVisualStyleBackColor = true;
+            // 
+            // materialButton13
+            // 
+            materialButton13.AutoSize = false;
+            materialButton13.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton13.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton13.Depth = 0;
+            materialButton13.HighEmphasis = true;
+            materialButton13.Icon = null;
+            materialButton13.Location = new Point(483, 35);
+            materialButton13.Margin = new Padding(4, 6, 4, 6);
+            materialButton13.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton13.Name = "materialButton13";
+            materialButton13.NoAccentTextColor = Color.Empty;
+            materialButton13.Size = new Size(74, 37);
+            materialButton13.TabIndex = 123;
+            materialButton13.Text = "x2";
+            materialButton13.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton13.UseAccentColor = false;
+            materialButton13.UseVisualStyleBackColor = true;
+            // 
+            // materialButton12
+            // 
+            materialButton12.AutoSize = false;
+            materialButton12.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton12.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton12.Depth = 0;
+            materialButton12.HighEmphasis = true;
+            materialButton12.Icon = null;
+            materialButton12.Location = new Point(319, 35);
+            materialButton12.Margin = new Padding(4, 6, 4, 6);
+            materialButton12.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton12.Name = "materialButton12";
+            materialButton12.NoAccentTextColor = Color.Empty;
+            materialButton12.Size = new Size(74, 37);
+            materialButton12.TabIndex = 122;
+            materialButton12.Text = "x0.5";
+            materialButton12.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton12.UseAccentColor = false;
+            materialButton12.UseVisualStyleBackColor = true;
+            // 
+            // materialButton11
+            // 
+            materialButton11.AutoSize = false;
+            materialButton11.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton11.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton11.Depth = 0;
+            materialButton11.HighEmphasis = true;
+            materialButton11.Icon = null;
+            materialButton11.Location = new Point(237, 35);
+            materialButton11.Margin = new Padding(4, 6, 4, 6);
+            materialButton11.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton11.Name = "materialButton11";
+            materialButton11.NoAccentTextColor = Color.Empty;
+            materialButton11.Size = new Size(74, 37);
+            materialButton11.TabIndex = 121;
+            materialButton11.Text = "x0.1";
+            materialButton11.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton11.UseAccentColor = false;
+            materialButton11.UseVisualStyleBackColor = true;
+            // 
+            // materialButton10
+            // 
+            materialButton10.AutoSize = false;
+            materialButton10.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton10.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton10.Depth = 0;
+            materialButton10.HighEmphasis = true;
+            materialButton10.Icon = null;
+            materialButton10.Location = new Point(237, 130);
+            materialButton10.Margin = new Padding(4, 6, 4, 6);
+            materialButton10.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton10.Name = "materialButton10";
+            materialButton10.NoAccentTextColor = Color.Empty;
+            materialButton10.Size = new Size(133, 37);
+            materialButton10.TabIndex = 120;
+            materialButton10.Text = "CHANGE";
+            materialButton10.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton10.UseAccentColor = false;
+            materialButton10.UseVisualStyleBackColor = true;
+            // 
+            // materialSlider1
+            // 
+            materialSlider1.Depth = 0;
+            materialSlider1.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialSlider1.Location = new Point(237, 81);
+            materialSlider1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialSlider1.Name = "materialSlider1";
+            materialSlider1.RangeMax = 10;
+            materialSlider1.Size = new Size(277, 40);
+            materialSlider1.TabIndex = 119;
+            materialSlider1.Text = "Size";
+            materialSlider1.Value = 1;
+            // 
+            // materialLabel14
+            // 
+            materialLabel14.AutoSize = true;
+            materialLabel14.Depth = 0;
+            materialLabel14.FlatStyle = FlatStyle.Popup;
+            materialLabel14.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel14.ForeColor = Color.Maroon;
+            materialLabel14.Location = new Point(237, 10);
+            materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel14.Name = "materialLabel14";
+            materialLabel14.Size = new Size(185, 19);
+            materialLabel14.TabIndex = 118;
+            materialLabel14.Text = "CHARACTERSIZE (scaled)";
+            // 
+            // materialLabel20
+            // 
+            materialLabel20.AutoSize = true;
+            materialLabel20.Depth = 0;
+            materialLabel20.FlatStyle = FlatStyle.Popup;
+            materialLabel20.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel20.ForeColor = Color.Maroon;
+            materialLabel20.Location = new Point(1150, 340);
+            materialLabel20.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel20.Name = "materialLabel20";
+            materialLabel20.Size = new Size(89, 19);
+            materialLabel20.TabIndex = 129;
+            materialLabel20.Text = "Deceleration";
+            // 
+            // materialMultiLineTextBox11
+            // 
+            materialMultiLineTextBox11.BackColor = Color.FromArgb(255, 255, 255);
+            materialMultiLineTextBox11.BorderStyle = BorderStyle.FixedSingle;
+            materialMultiLineTextBox11.Depth = 0;
+            materialMultiLineTextBox11.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMultiLineTextBox11.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialMultiLineTextBox11.Location = new Point(1150, 364);
+            materialMultiLineTextBox11.MouseState = MaterialSkin.MouseState.HOVER;
+            materialMultiLineTextBox11.Name = "materialMultiLineTextBox11";
+            materialMultiLineTextBox11.Size = new Size(93, 30);
+            materialMultiLineTextBox11.TabIndex = 128;
+            materialMultiLineTextBox11.Text = "";
+            // 
+            // materialCheckbox1
+            // 
+            materialCheckbox1.AutoSize = true;
+            materialCheckbox1.Depth = 0;
+            materialCheckbox1.Location = new Point(855, 389);
+            materialCheckbox1.Margin = new Padding(0);
+            materialCheckbox1.MouseLocation = new Point(-1, -1);
+            materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox1.Name = "materialCheckbox1";
+            materialCheckbox1.ReadOnly = false;
+            materialCheckbox1.Ripple = true;
+            materialCheckbox1.Size = new Size(125, 37);
+            materialCheckbox1.TabIndex = 127;
+            materialCheckbox1.Text = "Third Person";
+            materialCheckbox1.UseVisualStyleBackColor = true;
+            // 
+            // materialButton20
+            // 
+            materialButton20.AutoSize = false;
+            materialButton20.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton20.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton20.Depth = 0;
+            materialButton20.HighEmphasis = true;
+            materialButton20.Icon = null;
+            materialButton20.Location = new Point(1150, 402);
+            materialButton20.Margin = new Padding(4, 6, 4, 6);
+            materialButton20.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton20.Name = "materialButton20";
+            materialButton20.NoAccentTextColor = Color.Empty;
+            materialButton20.Size = new Size(93, 37);
+            materialButton20.TabIndex = 126;
+            materialButton20.Text = "CHANGE";
+            materialButton20.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton20.UseAccentColor = false;
+            materialButton20.UseVisualStyleBackColor = true;
+            // 
+            // materialMultiLineTextBox9
+            // 
+            materialMultiLineTextBox9.BackColor = Color.FromArgb(255, 255, 255);
+            materialMultiLineTextBox9.BorderStyle = BorderStyle.FixedSingle;
+            materialMultiLineTextBox9.Depth = 0;
+            materialMultiLineTextBox9.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMultiLineTextBox9.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialMultiLineTextBox9.Location = new Point(1150, 307);
+            materialMultiLineTextBox9.MouseState = MaterialSkin.MouseState.HOVER;
+            materialMultiLineTextBox9.Name = "materialMultiLineTextBox9";
+            materialMultiLineTextBox9.Size = new Size(93, 30);
+            materialMultiLineTextBox9.TabIndex = 125;
+            materialMultiLineTextBox9.Text = "";
+            // 
+            // materialLabel18
+            // 
+            materialLabel18.AutoSize = true;
+            materialLabel18.Depth = 0;
+            materialLabel18.FlatStyle = FlatStyle.Popup;
+            materialLabel18.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel18.ForeColor = Color.Maroon;
+            materialLabel18.Location = new Point(1150, 280);
+            materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel18.Name = "materialLabel18";
+            materialLabel18.Size = new Size(85, 19);
+            materialLabel18.TabIndex = 124;
+            materialLabel18.Text = "RUN SPEED";
+            // 
+            // materialButton18
+            // 
+            materialButton18.AutoSize = false;
+            materialButton18.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton18.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton18.Depth = 0;
+            materialButton18.HighEmphasis = true;
+            materialButton18.Icon = null;
+            materialButton18.Location = new Point(988, 346);
+            materialButton18.Margin = new Padding(4, 6, 4, 6);
+            materialButton18.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton18.Name = "materialButton18";
+            materialButton18.NoAccentTextColor = Color.Empty;
+            materialButton18.Size = new Size(93, 37);
+            materialButton18.TabIndex = 123;
+            materialButton18.Text = "CHANGE";
+            materialButton18.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton18.UseAccentColor = false;
+            materialButton18.UseVisualStyleBackColor = true;
+            // 
+            // materialMultiLineTextBox7
+            // 
+            materialMultiLineTextBox7.BackColor = Color.FromArgb(255, 255, 255);
+            materialMultiLineTextBox7.BorderStyle = BorderStyle.FixedSingle;
+            materialMultiLineTextBox7.Depth = 0;
+            materialMultiLineTextBox7.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMultiLineTextBox7.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialMultiLineTextBox7.Location = new Point(988, 307);
+            materialMultiLineTextBox7.MouseState = MaterialSkin.MouseState.HOVER;
+            materialMultiLineTextBox7.Name = "materialMultiLineTextBox7";
+            materialMultiLineTextBox7.Size = new Size(93, 30);
+            materialMultiLineTextBox7.TabIndex = 122;
+            materialMultiLineTextBox7.Text = "";
+            // 
+            // materialLabel16
+            // 
+            materialLabel16.AutoSize = true;
+            materialLabel16.Depth = 0;
+            materialLabel16.FlatStyle = FlatStyle.Popup;
+            materialLabel16.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel16.ForeColor = Color.Maroon;
+            materialLabel16.Location = new Point(988, 280);
+            materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel16.Name = "materialLabel16";
+            materialLabel16.Size = new Size(143, 19);
+            materialLabel16.TabIndex = 121;
+            materialLabel16.Text = "THROW STRENGTH";
+            // 
+            // materialMultiLineTextBox8
+            // 
+            materialMultiLineTextBox8.BackColor = Color.FromArgb(255, 255, 255);
+            materialMultiLineTextBox8.BorderStyle = BorderStyle.FixedSingle;
+            materialMultiLineTextBox8.Depth = 0;
+            materialMultiLineTextBox8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialMultiLineTextBox8.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialMultiLineTextBox8.Location = new Point(852, 307);
+            materialMultiLineTextBox8.MouseState = MaterialSkin.MouseState.HOVER;
+            materialMultiLineTextBox8.Name = "materialMultiLineTextBox8";
+            materialMultiLineTextBox8.Size = new Size(93, 30);
+            materialMultiLineTextBox8.TabIndex = 120;
+            materialMultiLineTextBox8.Text = "";
+            // 
+            // materialButton19
+            // 
+            materialButton19.AutoSize = false;
+            materialButton19.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton19.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton19.Depth = 0;
+            materialButton19.HighEmphasis = true;
+            materialButton19.Icon = null;
+            materialButton19.Location = new Point(852, 346);
+            materialButton19.Margin = new Padding(4, 6, 4, 6);
+            materialButton19.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton19.Name = "materialButton19";
+            materialButton19.NoAccentTextColor = Color.Empty;
+            materialButton19.Size = new Size(93, 37);
+            materialButton19.TabIndex = 119;
+            materialButton19.Text = "CHANGE";
+            materialButton19.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton19.UseAccentColor = false;
+            materialButton19.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel17
+            // 
+            materialLabel17.AutoSize = true;
+            materialLabel17.Depth = 0;
+            materialLabel17.FlatStyle = FlatStyle.Popup;
+            materialLabel17.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel17.ForeColor = Color.Maroon;
+            materialLabel17.Location = new Point(852, 280);
+            materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel17.Name = "materialLabel17";
+            materialLabel17.Size = new Size(31, 19);
+            materialLabel17.TabIndex = 118;
+            materialLabel17.Text = "FOV";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(16F, 39F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
-            ClientSize = new Size(1298, 641);
+            ClientSize = new Size(1298, 652);
             Controls.Add(materialTabControl1);
             DrawerTabControl = materialTabControl1;
             Font = new Font("Impact", 24F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(7);
             Name = "Form1";
-            Text = "DEEPCOC MAPHATDIC 1.2.0";
+            Text = "NEMESIS 1.2.1";
             Load += Form1_Load;
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
@@ -1377,6 +1654,8 @@
             tabPage1.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1389,7 +1668,6 @@
         private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox4;
         private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox3;
         private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox2;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox1;
         private MaterialSkin.Controls.MaterialButton materialButton2;
         private MaterialSkin.Controls.MaterialButton materialButton3;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
@@ -1425,34 +1703,48 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel13;
         private MaterialSkin.Controls.MaterialButton materialButton8;
         private MaterialSkin.Controls.MaterialButton materialButton9;
-        private MaterialSkin.Controls.MaterialLabel materialLabel14;
-        private MaterialSkin.Controls.MaterialButton materialButton10;
-        private MaterialSkin.Controls.MaterialSlider materialSlider1;
-        private MaterialSkin.Controls.MaterialButton materialButton12;
-        private MaterialSkin.Controls.MaterialButton materialButton11;
-        private MaterialSkin.Controls.MaterialButton materialButton13;
-        private MaterialSkin.Controls.MaterialButton materialButton14;
-        private MaterialSkin.Controls.MaterialButton materialButton15;
         private MaterialSkin.Controls.MaterialButton materialButton16;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox6;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox5;
-        private MaterialSkin.Controls.MaterialLabel materialLabel15;
-        private MaterialSkin.Controls.MaterialButton materialButton6;
         private MaterialSkin.Controls.MaterialButton materialButton17;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox8;
-        private MaterialSkin.Controls.MaterialButton materialButton19;
-        private MaterialSkin.Controls.MaterialLabel materialLabel17;
-        private MaterialSkin.Controls.MaterialButton materialButton18;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox7;
-        private MaterialSkin.Controls.MaterialLabel materialLabel16;
-        private MaterialSkin.Controls.MaterialButton materialButton20;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox9;
-        private MaterialSkin.Controls.MaterialLabel materialLabel18;
-        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
         private MaterialSkin.Controls.MaterialButton materialButton21;
         private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox10;
         private MaterialSkin.Controls.MaterialLabel materialLabel19;
+        private TabPage tabPage4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel21;
+        private MaterialSkin.Controls.MaterialButton materialButton24;
+        private MaterialSkin.Controls.MaterialButton materialButton23;
+        private MaterialSkin.Controls.MaterialButton materialButton22;
+        private MaterialSkin.Controls.MaterialButton materialButton31;
+        private MaterialSkin.Controls.MaterialButton materialButton30;
+        private MaterialSkin.Controls.MaterialButton materialButton29;
+        private MaterialSkin.Controls.MaterialButton materialButton28;
+        private MaterialSkin.Controls.MaterialButton materialButton27;
+        private MaterialSkin.Controls.MaterialButton materialButton26;
+        private MaterialSkin.Controls.MaterialButton materialButton25;
+        private MaterialSkin.Controls.MaterialButton materialButton32;
+        private MaterialSkin.Controls.MaterialLabel materialLabel15;
+        private MaterialSkin.Controls.MaterialButton materialButton6;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox6;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox5;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox1;
+        private MaterialSkin.Controls.MaterialButton materialButton15;
+        private MaterialSkin.Controls.MaterialButton materialButton14;
+        private MaterialSkin.Controls.MaterialButton materialButton13;
+        private MaterialSkin.Controls.MaterialButton materialButton12;
+        private MaterialSkin.Controls.MaterialButton materialButton11;
+        private MaterialSkin.Controls.MaterialButton materialButton10;
+        private MaterialSkin.Controls.MaterialSlider materialSlider1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel14;
         private MaterialSkin.Controls.MaterialLabel materialLabel20;
         private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox11;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
+        private MaterialSkin.Controls.MaterialButton materialButton20;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox9;
+        private MaterialSkin.Controls.MaterialLabel materialLabel18;
+        private MaterialSkin.Controls.MaterialButton materialButton18;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox7;
+        private MaterialSkin.Controls.MaterialLabel materialLabel16;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox8;
+        private MaterialSkin.Controls.MaterialButton materialButton19;
+        private MaterialSkin.Controls.MaterialLabel materialLabel17;
     }
 }

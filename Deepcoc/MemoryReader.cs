@@ -45,7 +45,7 @@ namespace Deepcoc
         public static extern IntPtr VirtualAllocEx(IntPtr handle, IntPtr address, int size, uint allocationType, uint flProtect);
 
         [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
-        public static extern IntPtr VirtualFreeEx(IntPtr handle, UIntPtr address, int size, int freeType);
+        public static extern IntPtr VirtualFreeEx(IntPtr handle, IntPtr address, int size, int freeType);
 
         [DllImport("kernel32.dll")]
         static extern IntPtr VirtualAlloc(IntPtr hProcess, IntPtr lpAddress, int dwSize, uint flAllocationType, uint flProtect);
@@ -148,6 +148,10 @@ namespace Deepcoc
             WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 4, IntPtr.Zero);
             System.Diagnostics.Debug.WriteLine(value);
         }
+        public void WriteByte(IntPtr address, byte value)
+        {
+            WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 1, IntPtr.Zero);
+        }
 
         public IntPtr CreateCodeCave(IntPtr lpAddress, int caveSize)
         {
@@ -161,7 +165,7 @@ namespace Deepcoc
             return caveAddress;
         }
 
-        public void FreeCave(UIntPtr caveAddress)
+        public void FreeCave(IntPtr caveAddress)
         {
             var rel = VirtualFreeEx(_handle, caveAddress, 0, 0x00008000);
         }
@@ -188,7 +192,7 @@ namespace Deepcoc
             int minLen = 5; // Minimum length for a relative jump instruction
             int dwLen = Math.Max(minLen, newInstruction.Length); // Adjusting dwLen to consider the new instruction
 
-            var pTrampoline = CreateCodeCave(pDestination, 145);
+            var pTrampoline = pDestination;
 
             // Check if the target address is writable
             uint oldProtect = 0;
