@@ -63,6 +63,16 @@ namespace Deepcoc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap A48192A7_0F0A_4F34_BC15_9E1D78F4F244 {
+            get {
+                object obj = ResourceManager.GetObject("A48192A7-0F0A-4F34-BC15-9E1D78F4F244", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_body_armor_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-body-armor-64", resourceCulture);

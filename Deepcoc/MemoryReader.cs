@@ -88,10 +88,10 @@ namespace Deepcoc
             return _nextAddress;
         }
 
-        public int ReadInt(IntPtr address, int offset)
+        public int ReadInt(IntPtr address, long offset)
         {
             byte[] _result = new byte[16];
-            ReadProcessMemory(_handle, (IntPtr)(address + offset), _result, _result.Length, IntPtr.Zero);
+            ReadProcessMemory(_handle, (IntPtr)((long)address + (long)offset), _result, _result.Length, IntPtr.Zero);
             return BitConverter.ToInt32(_result, 0);
         }
 

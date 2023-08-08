@@ -121,4 +121,7 @@
   <data name="icons8-body-armor-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-body-armor-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="A48192A7-0F0A-4F34-BC15-9E1D78F4F244" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\A48192A7-0F0A-4F34-BC15-9E1D78F4F244.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

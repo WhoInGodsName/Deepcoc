@@ -27,6 +27,7 @@ namespace Deepcoc
 
         IntPtr infDepoAddress = IntPtr.Zero;
         IntPtr trampolineAddress = IntPtr.Zero;
+        int fireRate = 1;
 
         public float gravOffset = 0;
 
@@ -59,9 +60,9 @@ namespace Deepcoc
 
             Thread SPD = new Thread(Speed);
             SPD.Start();
-
+            /*
             Thread DM = new Thread(DownedMovement);
-            DM.Start();
+            DM.Start();*/
 
             Thread AR = new Thread(AutoReload);
             AR.Start();
@@ -69,33 +70,56 @@ namespace Deepcoc
             Thread GO = new Thread(GravityOffset);
             GO.Start();
 
+            Thread EDS = new Thread(DeathStare);
+            EDS.Start();
+
             void LockAmmo()
             {
                 while (true)
                 {
 
+                    try
+                    {
+                        if (materialMultiLineTextBox12.Text != "")
+                        {
+                            fireRate = Convert.ToInt32(materialMultiLineTextBox12.Text);
+                            //listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + $" Success: firerate is set to {fireRate}.");
+                        }
+                    }
+                    catch
+                    {
+                        listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid int for custom firerate.");
+                    }
+                    //Gunner specific
+                    if (materialCheckbox18.Checked)
+                    {
+                        var overheatAddress = mem.ReadAddress(baseAddress, Offsets.primaryOverheat);
+                        Thread.Sleep(5);
+                        mem.WriteFloat(overheatAddress, 0);
+                    }
+
                     //Primary gun
                     if (materialCheckbox8.Checked)
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(primaryAddress, Offsets.currentAmmo);
-                        mem.WriteInt(_currentAmmo, 30);
+                        mem.WriteInt(_currentAmmo, 1000);
                     }
                     if (materialCheckbox7.Checked)
                     {
                         IntPtr _fireRate = mem.ReadAddress(primaryAddress, Offsets.fireRate);
-                        mem.WriteInt(_fireRate, 1);
+                        mem.WriteInt(_fireRate, fireRate);
                     }
 
                     //Secondary gun
                     if (materialCheckbox9.Checked)
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(secondaryAddress, Offsets.currentAmmo);
-                        mem.WriteInt(_currentAmmo, 30);
+                        mem.WriteInt(_currentAmmo, 100);
                     }
                     if (materialCheckbox10.Checked)
                     {
                         IntPtr _fireRate = mem.ReadAddress(secondaryAddress, Offsets.fireRate);
-                        mem.WriteInt(_fireRate, 1);
+                        mem.WriteInt(_fireRate, fireRate);
                     }
 
                     //Third gun
@@ -103,13 +127,13 @@ namespace Deepcoc
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
                         IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, Offsets.currentAmmo);
-                        mem.WriteInt(_lockAmmo, 30);
+                        mem.WriteInt(_lockAmmo, 100);
                     }
                     if (materialCheckbox12.Checked)
                     {
                         IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
                         IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.fireRate);
-                        mem.WriteInt(_fireRate, 1);
+                        mem.WriteInt(_fireRate, fireRate);
                     }
 
                     //Fourth gun
@@ -117,14 +141,16 @@ namespace Deepcoc
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(baseAddress, Offsets.FourthGun);
                         IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, Offsets.currentAmmo);
-                        mem.WriteInt(_lockAmmo, 30);
+                        mem.WriteInt(_lockAmmo, 100);
                     }
                     if (materialCheckbox14.Checked)
                     {
                         IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.FourthGun);
                         IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.fireRate);
-                        mem.WriteInt(_fireRate, 1);
+                        mem.WriteInt(_fireRate, fireRate);
                     }
+
+
                     Thread.Sleep(25);
                 }
             }
@@ -142,62 +168,58 @@ namespace Deepcoc
 
                     var isGroundedAddress = mem.ReadAddress(baseAddress, Offsets.isGrounded);
                     var isGrounded = mem.ReadInt(isGroundedAddress);
-                    Thread.Sleep(10);
+                    //Thread.Sleep(10);
                     var velY = mem.ReadAddress(baseAddress, Offsets.velocityY);
                     var velX = mem.ReadAddress(baseAddress, Offsets.velocityX);
                     var velZ = mem.ReadAddress(baseAddress, Offsets.velocityZ);
 
                     var velVector3 = mem.ReadVector3(velX, velY, velZ);
 
-                    if (materialCheckbox16.Checked)
-                    {
-                        if (GetAsyncKeyState(Keys.W) < 0 || GetAsyncKeyState(Keys.A) < 0 || GetAsyncKeyState(Keys.S) < 0 || GetAsyncKeyState(Keys.D) < 0)
-                        {
-                            if (velVector3.X > 0)
-                            {
-                                mem.WriteFloat(velX, velVector3.X + _speed);
-                            }
-                            if (velVector3.X < 0)
-                            {
-                                mem.WriteFloat(velX, velVector3.X - _speed);
-                            }
-
-                            if (velVector3.Z > 0)
-                            {
-                                mem.WriteFloat(velZ, velVector3.Z + _speed);
-                            }
-                            if (velVector3.Z < 0)
-                            {
-                                mem.WriteFloat(velZ, velVector3.Z - _speed);
-                            }
-                        }
-                        else
-                        {
-                            mem.WriteFloat(velX, 0);
-                            mem.WriteFloat(velZ, 0);
-
-                        }
-
-                    }
-
                     //Fly
                     if (materialCheckbox15.Checked && isGrounded != 0)
                     {
-                        mem.WriteFloat(velY, 0);
+                        mem.WriteFloat(velY, 50);
                     }
 
                     if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.Space) < 0)
                     {
                         float _yCoordValue = mem.ReadFloat(yCoord);
                         mem.WriteFloat(yCoord, _yCoordValue + (_units));
+                        mem.WriteFloat(velY, 50);
 
                     }
-                    else if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.LControlKey) < 0)
+                    else if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.LShiftKey) < 0)
                     {
                         float _yCoordValue = mem.ReadFloat(yCoord);
                         mem.WriteFloat(yCoord, _yCoordValue - (_units));
                     }
+
+                    //Downed meme
+                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.W) < 0)
+                    {
+                        float _xCoordValue = mem.ReadFloat(xCoord);
+                        mem.WriteFloat(xCoord, _xCoordValue - _speed);
+                    }
+                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.S) < 0)
+                    {
+                        float _xCoordValue = mem.ReadFloat(xCoord);
+                        mem.WriteFloat(xCoord, _xCoordValue + _speed);
+                    }
+
+                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.A) < 0)
+                    {
+                        float _zCoordValue = mem.ReadFloat(zCoord);
+                        mem.WriteFloat(zCoord, _zCoordValue + _speed);
+                    }
+                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.D) < 0)
+                    {
+                        float _zCoordValue = mem.ReadFloat(zCoord);
+                        mem.WriteFloat(zCoord, _zCoordValue - _speed);
+                    }
+                    Thread.Sleep(10);
+                    Thread.Sleep(25);
                 }
+
             }
 
             void GravityOffset()
@@ -221,7 +243,7 @@ namespace Deepcoc
                     Thread.Sleep(10);
                 }
             }
-
+            /*
             void DownedMovement()
             {
                 Thread.Sleep(25);
@@ -251,6 +273,42 @@ namespace Deepcoc
                     }
                     Thread.Sleep(10);
                 }
+            }*/
+
+            void DeathStare()
+            {
+                while (true)
+                {
+                    if (materialCheckbox4.Checked)
+                    {
+                        try
+                        {
+                            var sightComponentAddress = mem.ReadAddress(baseAddress, Offsets.SightComponent);
+                            var enemyPawnAddress = mem.ReadAddress(sightComponentAddress, Offsets.EnemyPawn);
+                            var enemyMaxHealthAddress = mem.ReadAddress(baseAddress, Offsets.enemmMaxHealth);
+                            var enemyDamage = mem.ReadAddress(baseAddress, Offsets.enemyDamage);
+                            var enemyCourageAddress = mem.ReadAddress(baseAddress, Offsets.enemyCourage);
+                            var enemyTimeDialationAddress = mem.ReadAddress(baseAddress, Offsets.enemyTimeScale);
+
+                            //Debug.WriteLine(mem.ReadFloat(enemyMaxHealthAddress));
+                            if (enemyMaxHealthAddress != IntPtr.Zero && mem.ReadFloat(enemyMaxHealthAddress) > 1)
+                            {
+                                mem.WriteFloat(enemyCourageAddress, 0);
+                                mem.WriteFloat(enemyTimeDialationAddress, 0);
+                                //mem.WriteFloat(enemyMaxHealthAddress, 0);
+                                Thread.Sleep(20);
+                                //mem.WriteFloat(enemyDamage, 10000);
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        Thread.Sleep(20);
+                    }
+
+                }
+
             }
 
         }
@@ -448,94 +506,39 @@ namespace Deepcoc
         private void Dance(byte danceMove)
         {
             var mem = new MemoryReader(game);
-            var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
-            var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
-            var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
+            
+            //var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
 
-            mem.WriteByte(isDancingAddress, 1);
-            mem.WriteByte(inDanceRangeAddress, 1);
-            mem.WriteByte(danceMoveAddress, 255);
-            Thread.Sleep(100);
+            
 
-            switch (danceMove)
+            if (danceMove < 11 && danceMove > 0)
             {
-                case 0:
-                    mem.WriteByte(danceMoveAddress, 0);
-                    break;
-                case 1:
-                    mem.WriteByte(danceMoveAddress, 1);
-                    break;
-                case 2:
-                    mem.WriteByte(danceMoveAddress, 2);
-                    break;
-                case 3:
-                    mem.WriteByte(danceMoveAddress, 3);
-                    break;
-                case 4:
-                    mem.WriteByte(danceMoveAddress, 4);
-                    break;
-                case 5:
-                    mem.WriteByte(danceMoveAddress, 5);
-                    break;
-                case 6:
-                    mem.WriteByte(danceMoveAddress, 6);
-                    break;
-                case 7:
-                    mem.WriteByte(danceMoveAddress, 7);
-                    break;
-                case 8:
-                    mem.WriteByte(danceMoveAddress, 8);
-                    break;
-                case 9:
-                    mem.WriteByte(danceMoveAddress, 9);
-                    break;
-                case 10:
-                    mem.WriteByte(danceMoveAddress, 10);
-                    break;
-                case 11:
-                    mem.WriteByte(inDanceRangeAddress, 0);
-                    break;
 
+                var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
+                var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
+                var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
+
+                mem.WriteByte(inDanceRangeAddress, 1);
+                mem.WriteByte(isDancingAddress, 1);
+                mem.WriteByte(danceMoveAddress, 255);
+                Thread.Sleep(10);
+                mem.WriteByte(danceMoveAddress, danceMove);
             }
+            else if (danceMove == 11)
+            {
+                var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
+                var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
 
+                mem.WriteByte(inDanceRangeAddress, 0);
+            }
+            Thread.Sleep(100);
         }
 
-        private void materialButton10_Click(object sender, EventArgs e)
+        private void materialButton10_Click_1(object sender, EventArgs e)
         {
             ChangeSize(0, materialSlider1);
         }
-
-        private void materialButton12_Click(object sender, EventArgs e)
-        {
-            ChangeSize(0.5f);
-        }
-
-        private void materialButton11_Click(object sender, EventArgs e)
-        {
-            ChangeSize(0.1f);
-        }
-
-        private void materialButton13_Click(object sender, EventArgs e)
-        {
-            ChangeSize(2f);
-        }
-
-        private void materialButton14_Click(object sender, EventArgs e)
-        {
-            ChangeSize(5f);
-        }
-
-        private void materialButton15_Click(object sender, EventArgs e)
-        {
-            ChangeSize(1f);
-        }
-
-        private void materialButton16_Click(object sender, EventArgs e)
-        {
-            ReloadAddresses();
-        }
-
-        private void materialButton6_Click(object sender, EventArgs e)
+        private void materialButton6_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -553,7 +556,36 @@ namespace Deepcoc
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
 
             }
+        }
 
+        private void materialButton11_Click_1(object sender, EventArgs e)
+        {
+            ChangeSize(0.1f);
+        }
+
+        private void materialButton12_Click_1(object sender, EventArgs e)
+        {
+            ChangeSize(0.5f);
+        }
+
+        private void materialButton15_Click_1(object sender, EventArgs e)
+        {
+            ChangeSize(1f);
+        }
+
+        private void materialButton13_Click_1(object sender, EventArgs e)
+        {
+            ChangeSize(2f);
+        }
+
+        private void materialButton14_Click_1(object sender, EventArgs e)
+        {
+            ChangeSize(5f);
+        }
+
+        private void materialButton16_Click(object sender, EventArgs e)
+        {
+            ReloadAddresses();
         }
 
         private void materialButton17_Click(object sender, EventArgs e)
@@ -601,7 +633,7 @@ namespace Deepcoc
 
         }
 
-        private void materialButton18_Click_1(object sender, EventArgs e)
+        private void materialButton18_Click(object sender, EventArgs e)
         {
             try
             {
@@ -621,7 +653,7 @@ namespace Deepcoc
             }
         }
 
-        private void materialButton19_Click(object sender, EventArgs e)
+        private void materialButton19_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -636,7 +668,7 @@ namespace Deepcoc
             }
         }
 
-        private void materialButton20_Click(object sender, EventArgs e)
+        private void materialButton20_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -653,33 +685,6 @@ namespace Deepcoc
             {
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
             }
-        }
-
-        private void materialCheckbox1_CheckedChanged(object sender, EventArgs e)
-        {
-            MemoryReader mem = new MemoryReader(game);
-
-            if (materialCheckbox1.Checked)
-            {
-                var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
-                var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
-                var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
-                //mem.WriteByte(danceMoveAddress, 255);
-                mem.WriteByte(isDancingAddress, 1);
-                mem.WriteByte(inDanceRangeAddress, 1);
-                Thread.Sleep(100);
-                mem.WriteByte(danceMoveAddress, 255);
-            }
-            else
-            {
-                var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
-                var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
-                var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
-                mem.WriteByte(isDancingAddress, 0);
-                mem.WriteByte(inDanceRangeAddress, 0);
-                mem.WriteByte(danceMoveAddress, 255);
-            }
-
         }
 
         private void materialButton21_Click(object sender, EventArgs e)
@@ -748,6 +753,294 @@ namespace Deepcoc
         }
 
         private void materialButton32_Click(object sender, EventArgs e)
+        {
+            Dance(11);
+        }
+
+        private void materialSlider1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialCheckbox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialCheckbox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fullAutoPrimary_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var primaryFullAutoAddress = mem.ReadAddress(baseAddress, Offsets.primaryGunFullAuto);
+                Debug.WriteLine(primaryFullAutoAddress.ToString("X"));
+                if (fullAutoPrimary.Checked)
+                {
+                    mem.WriteByte(primaryFullAutoAddress, 1);
+                }
+                else
+                {
+                    mem.WriteByte(primaryFullAutoAddress, 0);
+                }
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Illegal change.");
+            }
+
+        }
+
+        private void materialCheckbox2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            IntPtr secondaryGunAddress = mem.ReadAddress(baseAddress, Offsets.SecondayGunFullAuto);
+            Thread.Sleep(10);
+            IntPtr burstCountAddress = mem.ReadAddress(baseAddress, Offsets.SecondayGunBurst);
+
+            Debug.WriteLine(secondaryGunAddress.ToString("X"));
+            if (materialCheckbox2.Checked)
+            {
+                mem.WriteInt(burstCountAddress, 10);
+                mem.WriteByte(secondaryGunAddress, 1);
+            }
+            else
+            {
+                mem.WriteByte(secondaryGunAddress, 0);
+                mem.WriteInt(burstCountAddress, 0);
+            }
+        }
+
+        public float priorMin = 0f;
+        public float priorMax = 0f;
+        private void materialCheckbox3_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var recoilMinAddress = mem.ReadAddress(baseAddress, Offsets.SecondayGunRecoilMin);
+                var recoilMaxAddress = mem.ReadAddress(baseAddress, Offsets.SecondayGunRecoilMax);
+
+
+
+                if (materialCheckbox3.Checked)
+                {
+                    priorMin = mem.ReadFloat(recoilMinAddress);
+                    priorMax = mem.ReadFloat(recoilMaxAddress);
+
+                    mem.WriteFloat(recoilMinAddress, 0);
+                    mem.WriteFloat(recoilMaxAddress, 0);
+                }
+                else
+                {
+                    mem.WriteFloat(recoilMinAddress, priorMin);
+                    mem.WriteFloat(recoilMaxAddress, priorMax);
+                }
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Illegal read/write for recoil.");
+            }
+
+        }
+
+        private void materialCheckbox9_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialCheckbox5_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var noClipAddress = mem.ReadAddress(baseAddress, Offsets.noClip);
+
+            if (materialCheckbox5.Checked)
+            {
+                mem.WriteInt(noClipAddress, 0);
+                materialCheckbox15.Checked = true;
+            }
+            else
+            {
+                mem.WriteInt(noClipAddress, 1);
+            }
+
+        }
+
+        private void materialCheckbox6_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var flareAddress = mem.ReadAddress(baseAddress, Offsets.flares);
+
+            if (materialCheckbox6.Checked)
+            {
+                mem.WriteInt(flareAddress, 99999999);
+            }
+            else
+            {
+                mem.WriteInt(flareAddress, 4);
+            }
+        }
+
+        private void materialCheckbox16_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var flareAddress = mem.ReadAddress(baseAddress, Offsets.flareCooldown);
+
+            if (materialCheckbox16.Checked)
+            {
+                mem.WriteFloat(flareAddress, 0);
+            }
+            else
+            {
+                mem.WriteFloat(flareAddress, 0.2f);
+            }
+        }
+
+        private void materialCheckbox18_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialCheckbox19_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            IntPtr secondaryGunAddress = mem.ReadAddress(baseAddress, Offsets.ThirdGunFullAuto);
+            Thread.Sleep(10);
+            IntPtr burstCountAddress = mem.ReadAddress(baseAddress, Offsets.ThirdGunBurst);
+
+            Debug.WriteLine(secondaryGunAddress.ToString("X"));
+            if (materialCheckbox19.Checked)
+            {
+                mem.WriteInt(burstCountAddress, 10);
+                mem.WriteByte(secondaryGunAddress, 1);
+            }
+            else
+            {
+                mem.WriteByte(secondaryGunAddress, 0);
+                mem.WriteInt(burstCountAddress, 0);
+            }
+        }
+
+        private void materialCheckbox21_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialButton33_Click(object sender, EventArgs e)
+        {
+            materialCheckbox1.Checked = false;
+            materialCheckbox2.Checked = false;
+            materialCheckbox3.Checked = false;
+            materialCheckbox4.Checked = false;
+            materialCheckbox5.Checked = false;
+            materialCheckbox6.Checked = false;
+            materialCheckbox7.Checked = false;
+            materialCheckbox8.Checked = false;
+            materialCheckbox9.Checked = false;
+            materialCheckbox10.Checked = false;
+            materialCheckbox11.Checked = false;
+            materialCheckbox12.Checked = false;
+            materialCheckbox13.Checked = false;
+            materialCheckbox14.Checked = false;
+            materialCheckbox15.Checked = false;
+            materialCheckbox16.Checked = false;
+            materialCheckbox17.Checked = false;
+            materialCheckbox18.Checked = false;
+            materialCheckbox19.Checked = false;
+            materialCheckbox20.Checked = false;
+
+        }
+
+        private void materialCheckbox20_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var recoilMinAddress = mem.ReadAddress(baseAddress, Offsets.ThirdGunRecoilMin);
+                var recoilMaxAddress = mem.ReadAddress(baseAddress, Offsets.ThirdGunRecoilMax);
+
+
+
+                if (materialCheckbox3.Checked)
+                {
+                    priorMin = mem.ReadFloat(recoilMinAddress);
+                    priorMax = mem.ReadFloat(recoilMaxAddress);
+
+                    mem.WriteFloat(recoilMinAddress, 0);
+                    mem.WriteFloat(recoilMaxAddress, 0);
+                }
+                else
+                {
+                    mem.WriteFloat(recoilMinAddress, priorMin);
+                    mem.WriteFloat(recoilMaxAddress, priorMax);
+                }
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Illegal read/write for recoil.");
+            }
+        }
+
+        private void materialLabel1_Click(object sender, EventArgs e)
+        {
+            Dance(1);
+        }
+
+        private void materialButton22_Click_1(object sender, EventArgs e)
+        {
+            Dance(1);
+        }
+
+        private void materialButton23_Click_1(object sender, EventArgs e)
+        {
+            Dance(2);
+        }
+
+        private void materialButton24_Click_1(object sender, EventArgs e)
+        {
+            Dance(3);
+        }
+
+        private void materialButton25_Click_1(object sender, EventArgs e)
+        {
+            Dance(4);
+        }
+
+        private void materialButton26_Click_1(object sender, EventArgs e)
+        {
+            Dance(5);
+        }
+
+        private void materialButton27_Click_1(object sender, EventArgs e)
+        {
+            Dance(6);
+        }
+
+        private void materialButton28_Click_1(object sender, EventArgs e)
+        {
+            Dance(7);
+        }
+
+        private void materialButton29_Click_1(object sender, EventArgs e)
+        {
+            Dance(8);
+        }
+
+        private void materialButton30_Click_1(object sender, EventArgs e)
+        {
+            Dance(9);
+        }
+
+        private void materialButton31_Click_1(object sender, EventArgs e)
+        {
+            Dance(10);
+        }
+
+        private void materialButton32_Click_1(object sender, EventArgs e)
         {
             Dance(11);
         }
