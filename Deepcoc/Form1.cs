@@ -514,8 +514,12 @@ namespace Deepcoc
             if (danceMove < 11 && danceMove > 0)
             {
 
-                var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
+                
                 var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
+                mem.WriteByte(inDanceRangeAddress, 0);
+                Thread.Sleep(10);
+
+                var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
                 var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
 
                 mem.WriteByte(inDanceRangeAddress, 1);
@@ -527,7 +531,6 @@ namespace Deepcoc
             else if (danceMove == 11)
             {
                 var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
-                var danceMoveAddress = mem.ReadAddress(baseAddress, Offsets.danceMove);
 
                 mem.WriteByte(inDanceRangeAddress, 0);
             }
