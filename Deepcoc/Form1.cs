@@ -43,7 +43,7 @@ namespace Deepcoc
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red900, Primary.Orange800, Accent.Red700, TextShade.BLACK);
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Orange900, Primary.Orange800, Primary.Red800, Accent.Orange700, TextShade.BLACK);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -67,8 +67,8 @@ namespace Deepcoc
             Thread AR = new Thread(AutoReload);
             AR.Start();
 
-            Thread GO = new Thread(GravityOffset);
-            GO.Start();
+            Thread RE = new Thread(Resources);
+            RE.Start();
 
             Thread EDS = new Thread(DeathStare);
             EDS.Start();
@@ -222,58 +222,76 @@ namespace Deepcoc
 
             }
 
-            void GravityOffset()
+            void Resources()
             {
                 while (true)
                 {
-                    var isGroundedAddress = mem.ReadAddress(baseAddress, Offsets.isGrounded);
-                    var isGrounded = mem.ReadInt(isGroundedAddress);
+                    var slot1Address = mem.ReadAddress(baseAddress, Offsets.slot1Molly);
+                    var slot2Address = mem.ReadAddress(baseAddress, Offsets.slot2Molly);
+                    var slot3Address = mem.ReadAddress(baseAddress, Offsets.slot3Molly);
+                    var slot4Address = mem.ReadAddress(baseAddress, Offsets.slot4Molly);
+                    var slot5Address = mem.ReadAddress(baseAddress, Offsets.slot5Molly);
+                    var slot6Address = mem.ReadAddress(baseAddress, Offsets.slot6Molly);
 
-                    if (isGrounded == 1)
-                    {
-                        gravOffset += 0.59f;
-                        //System.Diagnostics.Debug.WriteLine("in");
+                    float prev1 = mem.ReadFloat(slot1Address);
+                    float prev2 = mem.ReadFloat(slot2Address);
+                    float prev3 = mem.ReadFloat(slot3Address);
+                    float prev4 = mem.ReadFloat(slot4Address);
+                    float prev5 = mem.ReadFloat(slot5Address);
+                    float prev6 = mem.ReadFloat(slot6Address);
 
-                    }
-                    else if (isGrounded == 0)
+                    materialMultiLineTextBox13.Text = prev1.ToString();
+                    materialMultiLineTextBox14.Text = prev2.ToString();
+                    materialMultiLineTextBox15.Text = prev3.ToString();
+                    materialMultiLineTextBox16.Text = prev4.ToString();
+                    materialMultiLineTextBox17.Text = prev5.ToString();
+                    materialMultiLineTextBox18.Text = prev6.ToString();
+                    Thread.Sleep(10000);
+
+                    if ((float)Convert.ToDouble(materialMultiLineTextBox13.Text) != prev1)
                     {
-                        gravOffset = 0;
-                        //System.Diagnostics.Debug.WriteLine("not in");
+                        var current = mem.ReadAddress(baseAddress, Offsets.slot1MollyCurrent);
+                        mem.WriteFloat(slot1Address, (float)Convert.ToDouble(materialMultiLineTextBox13.Text));
+                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox13.Text));
+                        materialMultiLineTextBox13.Text = mem.ReadFloat(slot1Address).ToString();
                     }
-                    Thread.Sleep(10);
+                    if ((float)Convert.ToDouble(materialMultiLineTextBox14.Text) != prev2)
+                    {
+                        var current = mem.ReadAddress(baseAddress, Offsets.slot2MollyCurrent);
+                        mem.WriteFloat(slot2Address, (float)Convert.ToDouble(materialMultiLineTextBox14.Text));
+                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox14.Text));
+                        materialMultiLineTextBox14.Text = mem.ReadFloat(slot2Address).ToString();
+                    }
+                    if ((float)Convert.ToDouble(materialMultiLineTextBox15.Text) != prev3)
+                    {
+                        var current = mem.ReadAddress(baseAddress, Offsets.slot3MollyCurrent);
+                        mem.WriteFloat(slot3Address, (float)Convert.ToDouble(materialMultiLineTextBox15.Text));
+                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox15.Text));
+                        materialMultiLineTextBox15.Text = mem.ReadFloat(slot3Address).ToString();
+                    }
+                    if ((float)Convert.ToDouble(materialMultiLineTextBox16.Text) != prev4)
+                    {
+                        var current = mem.ReadAddress(baseAddress, Offsets.slot4MollyCurrent);
+                        mem.WriteFloat(slot4Address, (float)Convert.ToDouble(materialMultiLineTextBox16.Text));
+                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox16.Text));
+                        materialMultiLineTextBox16.Text = mem.ReadFloat(slot4Address).ToString();
+                    }
+                    if ((float)Convert.ToDouble(materialMultiLineTextBox17.Text) != prev5)
+                    {
+                        var current = mem.ReadAddress(baseAddress, Offsets.slot5MollyCurrent);
+                        mem.WriteFloat(slot5Address, (float)Convert.ToDouble(materialMultiLineTextBox17.Text));
+                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox17.Text));
+                        materialMultiLineTextBox17.Text = mem.ReadFloat(slot5Address).ToString();
+                    }
+                    if ((float)Convert.ToDouble(materialMultiLineTextBox18.Text) != prev6)
+                    {
+                        var current = mem.ReadAddress(baseAddress, Offsets.slot6MollyCurrent);
+                        mem.WriteFloat(slot6Address, (float)Convert.ToDouble(materialMultiLineTextBox18.Text));
+                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox18.Text));
+                        materialMultiLineTextBox18.Text = mem.ReadFloat(slot6Address).ToString();
+                    }
                 }
             }
-            /*
-            void DownedMovement()
-            {
-                Thread.Sleep(25);
-                while (true)
-                {
-                    int _speed = materialSlider2.Value;
-                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.W) < 0)
-                    {
-                        float _xCoordValue = mem.ReadFloat(xCoord);
-                        mem.WriteFloat(xCoord, _xCoordValue - _speed);
-                    }
-                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.S) < 0)
-                    {
-                        float _xCoordValue = mem.ReadFloat(xCoord);
-                        mem.WriteFloat(xCoord, _xCoordValue + _speed);
-                    }
-
-                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.A) < 0)
-                    {
-                        float _zCoordValue = mem.ReadFloat(zCoord);
-                        mem.WriteFloat(zCoord, _zCoordValue + _speed);
-                    }
-                    if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.D) < 0)
-                    {
-                        float _zCoordValue = mem.ReadFloat(zCoord);
-                        mem.WriteFloat(zCoord, _zCoordValue - _speed);
-                    }
-                    Thread.Sleep(10);
-                }
-            }*/
 
             void DeathStare()
             {
@@ -472,14 +490,6 @@ namespace Deepcoc
             mem.WriteInt(scripAddress, scripValue + 5);
         }
 
-        private void materialButton9_Click(object sender, EventArgs e)
-        {
-            MemoryReader mem = new MemoryReader(game);
-            SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
-            var infFlare = signatureScan.FindPattern("F3 0F ? ? ? ? ? ? F3 0F ? ? ? ? ? ? F3 0F ? ? 48 8B ? ? ? ? ? 48 8D", 0);
-            mem.WriteToCave(infFlare, new byte[] { 0xF3, 0x0F, 0x11, 0x8E, 0xA8, 0x04, 0x00, 0x00 });
-        }
-
         private void ChangeSize(float scale = 0, MaterialSlider slider = null)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -506,15 +516,15 @@ namespace Deepcoc
         private void Dance(byte danceMove)
         {
             var mem = new MemoryReader(game);
-            
+
             //var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
 
-            
+
 
             if (danceMove < 11 && danceMove > 0)
             {
 
-                
+
                 var inDanceRangeAddress = mem.ReadAddress(baseAddress, Offsets.inDanceRange);
                 mem.WriteByte(inDanceRangeAddress, 0);
                 Thread.Sleep(10);
@@ -703,61 +713,6 @@ namespace Deepcoc
             {
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
             }
-        }
-
-        private void materialButton22_Click(object sender, EventArgs e)
-        {
-            Dance(1);
-        }
-
-        private void materialButton23_Click(object sender, EventArgs e)
-        {
-            Dance(2);
-        }
-
-        private void materialButton24_Click(object sender, EventArgs e)
-        {
-            Dance(3);
-        }
-
-        private void materialButton25_Click(object sender, EventArgs e)
-        {
-            Dance(4);
-        }
-
-        private void materialButton26_Click(object sender, EventArgs e)
-        {
-            Dance(5);
-        }
-
-        private void materialButton27_Click(object sender, EventArgs e)
-        {
-            Dance(6);
-        }
-
-        private void materialButton28_Click(object sender, EventArgs e)
-        {
-            Dance(7);
-        }
-
-        private void materialButton29_Click(object sender, EventArgs e)
-        {
-            Dance(8);
-        }
-
-        private void materialButton30_Click(object sender, EventArgs e)
-        {
-            Dance(9);
-        }
-
-        private void materialButton31_Click(object sender, EventArgs e)
-        {
-            Dance(10);
-        }
-
-        private void materialButton32_Click(object sender, EventArgs e)
-        {
-            Dance(11);
         }
 
         private void materialSlider1_Click(object sender, EventArgs e)

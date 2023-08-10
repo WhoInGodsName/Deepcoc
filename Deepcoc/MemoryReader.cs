@@ -83,7 +83,7 @@ namespace Deepcoc
         public IntPtr ReadAddress(IntPtr address, int offset)
         {
             byte[] _result = new byte[16];
-            IntPtr _nextAddress = (IntPtr)(address + offset);
+            IntPtr _nextAddress = IntPtr.Add(address, offset);
             ReadProcessMemory(_handle, (IntPtr)_nextAddress, _result, _result.Length, IntPtr.Zero);
             return _nextAddress;
         }
