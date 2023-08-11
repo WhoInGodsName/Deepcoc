@@ -216,8 +216,8 @@ namespace Deepcoc
                         float _zCoordValue = mem.ReadFloat(zCoord);
                         mem.WriteFloat(zCoord, _zCoordValue - _speed);
                     }
-                    Thread.Sleep(10);
-                    Thread.Sleep(25);
+                    //Thread.Sleep(10);
+                    Thread.Sleep(5);
                 }
 
             }
