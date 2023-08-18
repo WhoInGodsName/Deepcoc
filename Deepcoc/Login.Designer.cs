@@ -37,6 +37,8 @@
             materialMaskedTextBox3 = new MaterialSkin.Controls.MaterialMaskedTextBox();
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
             materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            materialMultiLineTextBox21 = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             SuspendLayout();
             // 
             // materialLabel1
@@ -250,11 +252,49 @@
             materialButton2.UseVisualStyleBackColor = true;
             materialButton2.Click += materialButton2_Click;
             // 
+            // materialMultiLineTextBox21
+            // 
+            materialMultiLineTextBox21.AnimateReadOnly = false;
+            materialMultiLineTextBox21.BackgroundImageLayout = ImageLayout.None;
+            materialMultiLineTextBox21.CharacterCasing = CharacterCasing.Normal;
+            materialMultiLineTextBox21.Depth = 0;
+            materialMultiLineTextBox21.HideSelection = true;
+            materialMultiLineTextBox21.Location = new Point(306, 128);
+            materialMultiLineTextBox21.MaxLength = 32767;
+            materialMultiLineTextBox21.MouseState = MaterialSkin.MouseState.OUT;
+            materialMultiLineTextBox21.Name = "materialMultiLineTextBox21";
+            materialMultiLineTextBox21.PasswordChar = '\0';
+            materialMultiLineTextBox21.ReadOnly = true;
+            materialMultiLineTextBox21.ScrollBars = ScrollBars.None;
+            materialMultiLineTextBox21.SelectedText = "";
+            materialMultiLineTextBox21.SelectionLength = 0;
+            materialMultiLineTextBox21.SelectionStart = 0;
+            materialMultiLineTextBox21.ShortcutsEnabled = true;
+            materialMultiLineTextBox21.Size = new Size(403, 258);
+            materialMultiLineTextBox21.TabIndex = 9;
+            materialMultiLineTextBox21.TabStop = false;
+            materialMultiLineTextBox21.TextAlign = HorizontalAlignment.Left;
+            materialMultiLineTextBox21.UseSystemPasswordChar = false;
+            // 
+            // materialLabel5
+            // 
+            materialLabel5.AutoSize = true;
+            materialLabel5.Depth = 0;
+            materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel5.Location = new Point(306, 106);
+            materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel5.Name = "materialLabel5";
+            materialLabel5.Size = new Size(90, 19);
+            materialLabel5.TabIndex = 10;
+            materialLabel5.Text = "Update 1.2.4";
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(338, 469);
+            ClientSize = new Size(770, 469);
+            Controls.Add(materialLabel5);
+            Controls.Add(materialMultiLineTextBox21);
             Controls.Add(materialButton2);
             Controls.Add(materialButton1);
             Controls.Add(materialMaskedTextBox3);
@@ -282,5 +322,7 @@
         private MaterialSkin.Controls.MaterialMaskedTextBox materialMaskedTextBox3;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialButton materialButton2;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 materialMultiLineTextBox21;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
     }
 }

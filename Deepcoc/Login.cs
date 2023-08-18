@@ -37,11 +37,7 @@ namespace Deepcoc
 
             if (KeyAuthApp.checkblack())
             {
-                // is blacklisted
-            }
-            else
-            {
-                // not blacklisted
+                MessageBox.Show("Get the fuck outa here.  You are blacklisted.");
             }
         }
 
@@ -60,9 +56,10 @@ namespace Deepcoc
 
         private void materialButton2_Click(object sender, EventArgs e)
         {
-            KeyAuthApp.license(materialMaskedTextBox3.Text );
+            KeyAuthApp.license(materialMaskedTextBox3.Text);
             if (KeyAuthApp.response.success)
             {
+                Offsets.key = materialMaskedTextBox3.Text;
                 //MessageBox.Show("Success");
                 Form1 app = new Form1();
                 app.Show();
@@ -71,6 +68,7 @@ namespace Deepcoc
             else
             {
                 MessageBox.Show("Failed");
+                //Login.ActiveForm.Close();
             }
         }
     }

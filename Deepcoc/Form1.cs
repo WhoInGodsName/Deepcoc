@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Deepcoc.Auth;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -14,6 +15,11 @@ namespace Deepcoc
 
     public partial class Form1 : MaterialForm
     {
+        public static api KeyAuthApp = new api(
+            name: "Nemesis",
+            ownerid: "JxxtbMr5Q0",
+            secret: "1b35d2d380ed79523c35de34f3963cb650a53d55239a497e47ea8bbf0d7578cb",
+            version: "1.0");
 
         public IntPtr primaryAddress = IntPtr.Zero;
         public IntPtr secondaryAddress = IntPtr.Zero;
@@ -39,6 +45,8 @@ namespace Deepcoc
         public Form1()
         {
             InitializeComponent();
+            KeyAuthApp.init();
+
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -50,6 +58,11 @@ namespace Deepcoc
         {
             TextBox.CheckForIllegalCrossThreadCalls = false;
 
+            KeyAuthApp.license(Offsets.key);
+            /*if (KeyAuthApp.response.success)
+            {
+                game = Process.GetProcessesByName("FSD-Win64-Shipping").First();
+            }*/
             game = Process.GetProcessesByName("FSD-Win64-Shipping").First();
             MemoryReader mem = new MemoryReader(game);
             baseAddress = game.MainModule.BaseAddress;
@@ -72,6 +85,9 @@ namespace Deepcoc
 
             Thread EDS = new Thread(DeathStare);
             EDS.Start();
+
+            Thread check = new Thread(CheckyWecky);
+            check.Start();
 
             void LockAmmo()
             {
@@ -102,7 +118,7 @@ namespace Deepcoc
                     if (materialCheckbox8.Checked)
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(primaryAddress, Offsets.currentAmmo);
-                        mem.WriteInt(_currentAmmo, 1000);
+                        mem.WriteInt(_currentAmmo, 100);
                     }
                     if (materialCheckbox7.Checked)
                     {
@@ -161,8 +177,11 @@ namespace Deepcoc
                 {
                     IntPtr _xCoordAddress = mem.ReadAddress(baseAddress, Offsets.xCoord);
                     IntPtr _zCoordAddress = mem.ReadAddress(baseAddress, Offsets.zCoord);
+                    IntPtr _jumpMaxAddress = mem.ReadAddress(baseAddress, Offsets.jumpMaxCount);
+                    float yVal = mem.ReadFloat(yCoord);
                     int _speed = materialSlider2.Value;
                     int _units = materialSlider3.Value;
+                    int _isJumping = 0;
                     float _firstXVal = mem.ReadFloat(_xCoordAddress);
                     float _firstZVal = mem.ReadFloat(_zCoordAddress);
 
@@ -192,7 +211,16 @@ namespace Deepcoc
                     {
                         float _yCoordValue = mem.ReadFloat(yCoord);
                         mem.WriteFloat(yCoord, _yCoordValue - (_units));
+
                     }
+
+                    //Fly thats better for clients
+                    if (materialCheckbox21.Checked && GetAsyncKeyState(Keys.Space) < 0)
+                    {
+                        mem.WriteInt(_jumpMaxAddress, 999999);
+                        //Thread.Sleep(25);
+                    }
+
 
                     //Downed meme
                     if (materialCheckbox17.Checked && GetAsyncKeyState(Keys.W) < 0)
@@ -232,6 +260,8 @@ namespace Deepcoc
                     var slot4Address = mem.ReadAddress(baseAddress, Offsets.slot4Molly);
                     var slot5Address = mem.ReadAddress(baseAddress, Offsets.slot5Molly);
                     var slot6Address = mem.ReadAddress(baseAddress, Offsets.slot6Molly);
+                    var slot7Address = mem.ReadAddress(baseAddress, Offsets.slot7Molly);
+                    var slot8Address = mem.ReadAddress(baseAddress, Offsets.slot8Molly);
 
                     float prev1 = mem.ReadFloat(slot1Address);
                     float prev2 = mem.ReadFloat(slot2Address);
@@ -239,6 +269,8 @@ namespace Deepcoc
                     float prev4 = mem.ReadFloat(slot4Address);
                     float prev5 = mem.ReadFloat(slot5Address);
                     float prev6 = mem.ReadFloat(slot6Address);
+                    float prev7 = mem.ReadFloat(slot7Address);
+                    float prev8 = mem.ReadFloat(slot8Address);
 
                     materialMultiLineTextBox13.Text = prev1.ToString();
                     materialMultiLineTextBox14.Text = prev2.ToString();
@@ -246,6 +278,8 @@ namespace Deepcoc
                     materialMultiLineTextBox16.Text = prev4.ToString();
                     materialMultiLineTextBox17.Text = prev5.ToString();
                     materialMultiLineTextBox18.Text = prev6.ToString();
+                    materialMultiLineTextBox19.Text = prev7.ToString();
+                    materialMultiLineTextBox20.Text = prev8.ToString();
                     Thread.Sleep(10000);
 
                     if ((float)Convert.ToDouble(materialMultiLineTextBox13.Text) != prev1)
@@ -290,6 +324,20 @@ namespace Deepcoc
                         mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox18.Text));
                         materialMultiLineTextBox18.Text = mem.ReadFloat(slot6Address).ToString();
                     }
+                    if ((float)Convert.ToDouble(materialMultiLineTextBox19.Text) != prev7)
+                    {
+                        var current = mem.ReadAddress(baseAddress, Offsets.slot7MollyCurrent);
+                        mem.WriteFloat(slot7Address, (float)Convert.ToDouble(materialMultiLineTextBox19.Text));
+                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox19.Text));
+                        materialMultiLineTextBox19.Text = mem.ReadFloat(slot7Address).ToString();
+                    }
+                    if ((float)Convert.ToDouble(materialMultiLineTextBox20.Text) != prev8)
+                    {
+                        var current = mem.ReadAddress(baseAddress, Offsets.slot8MollyCurrent);
+                        mem.WriteFloat(slot8Address, (float)Convert.ToDouble(materialMultiLineTextBox20.Text));
+                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox20.Text));
+                        materialMultiLineTextBox20.Text = mem.ReadFloat(slot8Address).ToString();
+                    }
                 }
             }
 
@@ -312,8 +360,8 @@ namespace Deepcoc
                             if (enemyMaxHealthAddress != IntPtr.Zero && mem.ReadFloat(enemyMaxHealthAddress) > 1)
                             {
                                 mem.WriteFloat(enemyCourageAddress, 0);
-                                mem.WriteFloat(enemyTimeDialationAddress, 0);
-                                //mem.WriteFloat(enemyMaxHealthAddress, 0);
+                                //mem.WriteFloat(enemyTimeDialationAddress, 0);
+                                mem.WriteFloat(enemyMaxHealthAddress, 0);
                                 Thread.Sleep(20);
                                 //mem.WriteFloat(enemyDamage, 10000);
                             }
@@ -347,6 +395,29 @@ namespace Deepcoc
                     System.Diagnostics.Debug.WriteLine("Cant reload");
                 }
             }
+        }
+        private void CheckyWecky()
+        {
+            try
+            {
+                KeyAuthApp.license(Offsets.key);
+                if (!KeyAuthApp.response.success)
+                {
+                    Form1.ActiveForm.Close();               
+                    while(true)
+                    {
+                        //MessageBox.Show("You dont have a license for the software bitch");
+                        Process.Start("https://www.youtube.com/watch?v=XFirF_bFHVg");
+                    }
+                    
+                }
+
+            }
+            catch
+            {
+
+            }
+            Thread.Sleep(600000);
         }
 
         private void ReloadAddresses()
