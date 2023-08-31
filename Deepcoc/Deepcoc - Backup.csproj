@@ -9,6 +9,12 @@
     <Platforms>AnyCPU;x64</Platforms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup>
+    <!-- Eazfuscator.NET is integrated with this project at MSBuild level: https://www.gapotchenko.com/eazfuscator.net/kb/100036 -->
+    <EazfuscatorIntegration>MSBuild</EazfuscatorIntegration>
+    <EazfuscatorActiveConfiguration>Release</EazfuscatorActiveConfiguration>
+    <EazfuscatorCompatibilityVersion>2023.3</EazfuscatorCompatibilityVersion>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="EasyHook" Version="2.7.7097" />
     <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
@@ -32,5 +38,6 @@
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="&quot;$(Obfuscar)&quot; obfuscar.xml" />
+    <Exec Command="echo Release@@x64&#xD;&#xA;if &quot;$(ConfigurationName)&quot; == &quot;Release&quot; (if &quot;$(PlatformName)&quot; == &quot;x64&quot; (&quot;$(ProjectDir)_Obfuscar\Obfuscar.Console.exe&quot; &quot;$(ProjectDir)_Obfuscar\obfuscar_Release_x64.xml&quot;&#xD;&#xA;xcopy /e /v &quot;$(ProjectDir)bin\x64\Release\net6.0-windows\\Out\&quot; &quot;$(ProjectDir)bin\x64\Release\net6.0-windows\&quot; /Y))" />
   </Target>
 </Project>

@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics;
+using System.Numerics;
 using System.Runtime.InteropServices;
 
 namespace Deepcoc
@@ -27,13 +28,7 @@ namespace Deepcoc
         static extern bool ReadProcessMemory(IntPtr handle, IntPtr address, [Out()] byte[] buffer, int size, IntPtr bytesRead);
 
         [DllImport("kernel32.dll")]
-        static extern bool ReadProcessMemory(IntPtr handle, ulong address, [Out()] byte[] buffer, int size, out int bytesRead);
-
-        [DllImport("kernel32.dll")]
         static extern bool WriteProcessMemory(IntPtr handle, IntPtr address, byte[] buffer, int size, IntPtr numBytesWritten);
-
-        [DllImport("kernel32.dll")]
-        static extern bool WriteProcessMemory(IntPtr handle, ulong address, byte[] buffer, int size, IntPtr numBytesWritten);
 
         [DllImport("kernel32.dll")]
         public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
@@ -83,8 +78,9 @@ namespace Deepcoc
         public IntPtr ReadAddress(IntPtr address, int offset)
         {
             byte[] _result = new byte[16];
-            IntPtr _nextAddress = IntPtr.Add(address, offset);
-            ReadProcessMemory(_handle, (IntPtr)_nextAddress, _result, _result.Length, IntPtr.Zero);
+            //Debug.WriteLine("in second");      
+            ReadProcessMemory(_handle, address, _result, _result.Length, IntPtr.Zero);
+            IntPtr _nextAddress = IntPtr.Add((IntPtr)BitConverter.ToInt64(_result, 0), offset);
             return _nextAddress;
         }
 
@@ -146,7 +142,7 @@ namespace Deepcoc
         public void WriteFloat(IntPtr address, float value)
         {
             WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 4, IntPtr.Zero);
-            System.Diagnostics.Debug.WriteLine(value);
+            //System.Diagnostics.Debug.WriteLine(value);
         }
         public void WriteByte(IntPtr address, byte value)
         {

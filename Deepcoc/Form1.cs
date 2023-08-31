@@ -42,6 +42,7 @@ namespace Deepcoc
 
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(Keys vKey);
+
         public Form1()
         {
             InitializeComponent();
@@ -59,11 +60,11 @@ namespace Deepcoc
             TextBox.CheckForIllegalCrossThreadCalls = false;
 
             KeyAuthApp.license(Offsets.key);
-            /*if (KeyAuthApp.response.success)
+            if (KeyAuthApp.response.success)
             {
                 game = Process.GetProcessesByName("FSD-Win64-Shipping").First();
-            }*/
-            game = Process.GetProcessesByName("FSD-Win64-Shipping").First();
+            }
+
             MemoryReader mem = new MemoryReader(game);
             baseAddress = game.MainModule.BaseAddress;
             ReloadAddresses();
@@ -122,8 +123,9 @@ namespace Deepcoc
                     }
                     if (materialCheckbox7.Checked)
                     {
-                        IntPtr _fireRate = mem.ReadAddress(primaryAddress, Offsets.fireRate);
-                        mem.WriteInt(_fireRate, fireRate);
+                        var firstGunAddress = mem.ReadAddress(baseAddress, Offsets.PrimaryGun);
+                        var cycleAddress = mem.ReadAddress(firstGunAddress, Offsets.cycleTimeLeft);
+                        mem.WriteFloat(cycleAddress, 0);
                     }
 
                     //Secondary gun
@@ -134,8 +136,8 @@ namespace Deepcoc
                     }
                     if (materialCheckbox10.Checked)
                     {
-                        IntPtr _fireRate = mem.ReadAddress(secondaryAddress, Offsets.fireRate);
-                        mem.WriteInt(_fireRate, fireRate);
+                        IntPtr _fireRate = mem.ReadAddress(secondaryAddress, Offsets.ammoCount);
+                        mem.WriteInt(_fireRate + Offsets.fireRate, fireRate);
                     }
 
                     //Third gun
@@ -148,8 +150,8 @@ namespace Deepcoc
                     if (materialCheckbox12.Checked)
                     {
                         IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
-                        IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.fireRate);
-                        mem.WriteInt(_fireRate, fireRate);
+                        IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.ammoCount);
+                        mem.WriteInt(_fireRate + Offsets.fireRate, fireRate);
                     }
 
                     //Fourth gun
@@ -162,8 +164,8 @@ namespace Deepcoc
                     if (materialCheckbox14.Checked)
                     {
                         IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.FourthGun);
-                        IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.fireRate);
-                        mem.WriteInt(_fireRate, fireRate);
+                        IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.ammoCount);
+                        mem.WriteInt(_fireRate + Offsets.fireRate, fireRate);
                     }
 
 
@@ -197,7 +199,7 @@ namespace Deepcoc
                     //Fly
                     if (materialCheckbox15.Checked && isGrounded != 0)
                     {
-                        mem.WriteFloat(velY, 50);
+                        mem.WriteFloat(velY, 10);
                     }
 
                     if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.Space) < 0)
@@ -345,32 +347,62 @@ namespace Deepcoc
             {
                 while (true)
                 {
-                    if (materialCheckbox4.Checked)
+                    //Debug.WriteLine("in1");
+                    if (materialCheckbox26.Checked)
                     {
                         try
                         {
-                            var sightComponentAddress = mem.ReadAddress(baseAddress, Offsets.SightComponent);
-                            var enemyPawnAddress = mem.ReadAddress(sightComponentAddress, Offsets.EnemyPawn);
-                            var enemyMaxHealthAddress = mem.ReadAddress(baseAddress, Offsets.enemmMaxHealth);
-                            var enemyDamage = mem.ReadAddress(baseAddress, Offsets.enemyDamage);
-                            var enemyCourageAddress = mem.ReadAddress(baseAddress, Offsets.enemyCourage);
-                            var enemyTimeDialationAddress = mem.ReadAddress(baseAddress, Offsets.enemyTimeScale);
 
-                            //Debug.WriteLine(mem.ReadFloat(enemyMaxHealthAddress));
-                            if (enemyMaxHealthAddress != IntPtr.Zero && mem.ReadFloat(enemyMaxHealthAddress) > 1)
+                            var sightComponentAddress = mem.ReadAddress(baseAddress, Offsets.SightComponent);
+                            var enemyTimeDialationAddress = mem.ReadAddress(baseAddress, Offsets.enemyTimeScale);
+                            var meshAddress = mem.ReadAddress(sightComponentAddress, Offsets.targetMesh);
+                            var meshValue = mem.ReadFloat(meshAddress);
+                            
+                            if (sightComponentAddress != IntPtr.Zero)
                             {
-                                mem.WriteFloat(enemyCourageAddress, 0);
-                                //mem.WriteFloat(enemyTimeDialationAddress, 0);
-                                mem.WriteFloat(enemyMaxHealthAddress, 0);
-                                Thread.Sleep(20);
-                                //mem.WriteFloat(enemyDamage, 10000);
+
+                                
+
+                                var scaleAddressX = mem.ReadAddress(meshAddress, Offsets.targetScaleX);
+                                var scaleAddressY = mem.ReadAddress(meshAddress, Offsets.targetScaleY);
+                                var scaleAddressZ = mem.ReadAddress(meshAddress, Offsets.targetScaleZ);
+                                Debug.WriteLine(mem.ReadFloat(scaleAddressX) + " " + mem.ReadFloat(scaleAddressY) + " " + mem.ReadFloat(scaleAddressZ));
+                                if (mem.ReadFloat(scaleAddressX) > 0.001 && scaleAddressY != IntPtr.Zero && scaleAddressZ != IntPtr.Zero)
+                                {
+                                    if (!materialMultiLineTextBox22.Text.Equals("0") && scaleAddressZ != IntPtr.Zero)
+                                    {
+
+                                        mem.WriteFloat(scaleAddressZ, (float)Convert.ToDouble(materialMultiLineTextBox22.Text));
+                                    }
+                                    if (!materialMultiLineTextBox23.Text.Equals("0") && scaleAddressY != IntPtr.Zero)
+                                    {
+                                        mem.WriteFloat(scaleAddressY, (float)Convert.ToDouble(materialMultiLineTextBox23.Text));
+                                    }
+                                    if (!materialMultiLineTextBox24.Text.Equals("0") && scaleAddressX != IntPtr.Zero)
+                                    {
+                                        mem.WriteFloat(scaleAddressX, (float)Convert.ToDouble(materialMultiLineTextBox24.Text));
+                                    }
+
+                                    if (materialCheckbox25.Checked)
+                                    {
+                                        mem.WriteFloat(enemyTimeDialationAddress, 0);
+                                    }
+                                    else
+                                    {
+                                        mem.WriteFloat(enemyTimeDialationAddress, 1);
+                                    }
+                                }
+                                //Thread.Sleep(10);
+                                
                             }
+                            
+
                         }
                         catch
                         {
 
                         }
-                        Thread.Sleep(20);
+                        Thread.Sleep(25);
                     }
 
                 }
@@ -403,13 +435,13 @@ namespace Deepcoc
                 KeyAuthApp.license(Offsets.key);
                 if (!KeyAuthApp.response.success)
                 {
-                    Form1.ActiveForm.Close();               
-                    while(true)
+                    Form1.ActiveForm.Close();
+                    while (true)
                     {
-                        //MessageBox.Show("You dont have a license for the software bitch");
+                        MessageBox.Show("You dont have a license for the software bitch");
                         Process.Start("https://www.youtube.com/watch?v=XFirF_bFHVg");
                     }
-                    
+
                 }
 
             }
@@ -432,7 +464,7 @@ namespace Deepcoc
                 secondaryAddress = mem.ReadAddress(baseAddress, Offsets.SecondaryGun);
                 yCoord = mem.ReadAddress(baseAddress, Offsets.yCoord);
                 xCoord = mem.ReadAddress(baseAddress, Offsets.xCoord);
-                zCoord = mem.ReadAddress(xCoord, 0x4);
+                zCoord = IntPtr.Add(xCoord, 0x4);
 
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Success: Reloaded addresses");
             }
@@ -807,14 +839,18 @@ namespace Deepcoc
             {
                 MemoryReader mem = new MemoryReader(game);
                 var primaryFullAutoAddress = mem.ReadAddress(baseAddress, Offsets.primaryGunFullAuto);
+                Thread.Sleep(10);
+                IntPtr burstCountAddress = mem.ReadAddress(baseAddress, Offsets.primaryGunBurst);
                 Debug.WriteLine(primaryFullAutoAddress.ToString("X"));
                 if (fullAutoPrimary.Checked)
                 {
                     mem.WriteByte(primaryFullAutoAddress, 1);
+                    mem.WriteInt(burstCountAddress, 10);
                 }
                 else
                 {
                     mem.WriteByte(primaryFullAutoAddress, 0);
+                    mem.WriteInt(burstCountAddress, 0);
                 }
             }
             catch
@@ -964,7 +1000,7 @@ namespace Deepcoc
             materialCheckbox1.Checked = false;
             materialCheckbox2.Checked = false;
             materialCheckbox3.Checked = false;
-            materialCheckbox4.Checked = false;
+            materialCheckbox24.Checked = false;
             materialCheckbox5.Checked = false;
             materialCheckbox6.Checked = false;
             materialCheckbox7.Checked = false;
@@ -981,7 +1017,10 @@ namespace Deepcoc
             materialCheckbox18.Checked = false;
             materialCheckbox19.Checked = false;
             materialCheckbox20.Checked = false;
-
+            materialCheckbox21.Checked = false;
+            materialCheckbox22.Checked = false;
+            materialCheckbox23.Checked = false;
+            fullAutoPrimary.Checked = false;
         }
 
         private void materialCheckbox20_CheckedChanged(object sender, EventArgs e)
@@ -1072,6 +1111,102 @@ namespace Deepcoc
         private void materialButton32_Click_1(object sender, EventArgs e)
         {
             Dance(11);
+        }
+
+        private void materialCheckbox22_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var recoilAddress = mem.ReadAddress(baseAddress, Offsets.PrimaryGunRecoilMin);
+                Thread.Sleep(10);
+                var recoilPitchMin = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMin);
+                var recoilPitchMax = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMax);
+                var recoilYawMin = mem.ReadAddress(recoilAddress, Offsets.recoilYawMin);
+                var recoilYawMax = mem.ReadAddress(recoilAddress, Offsets.recoilYawMax);
+
+
+
+                if (materialCheckbox22.Checked)
+                {
+
+
+                    Debug.WriteLine("recoil min: " + recoilPitchMin.ToString("X"));
+                    priorMin = mem.ReadFloat(recoilPitchMin);
+                    priorMax = mem.ReadFloat(recoilPitchMax);
+
+                    mem.WriteFloat(recoilPitchMin, 0);
+                    mem.WriteFloat(recoilPitchMax, 0);
+                    mem.WriteFloat(recoilYawMin, 0);
+                    mem.WriteFloat(recoilYawMax, 0);
+                }
+                else
+                {
+                    mem.WriteFloat(recoilPitchMin, priorMin);
+                    mem.WriteFloat(recoilPitchMax, priorMax);
+                }
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Illegal read/write for recoil.");
+            }
+        }
+
+        private void materialMultiLineTextBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialMultiLineTextBox3_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void materialMultiLineTextBox2_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void materialCheckbox23_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var weaponFireAddress = mem.ReadAddress(primaryAddress, Offsets.weaponFire);
+            var canCarveAddress = mem.ReadAddress(weaponFireAddress, Offsets.bulletsCanCarve);
+            var bulletPerCarveMin = mem.ReadAddress(weaponFireAddress, Offsets.bulletsPerCarveMin);
+            var bulletPerCarveMax = mem.ReadAddress(weaponFireAddress, Offsets.bulletsPerCarveMax);
+            var carveDiameterAddress = mem.ReadAddress(weaponFireAddress, Offsets.carveDiameter);
+
+            if (materialCheckbox23.Checked)
+            {
+                mem.WriteInt(canCarveAddress, 1);
+                mem.WriteInt(bulletPerCarveMin, 1);
+                mem.WriteInt(bulletPerCarveMax, 1);
+                mem.WriteFloat(carveDiameterAddress, (float)Convert.ToDouble(materialMultiLineTextBox21.Text));
+            }
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialCheckbox4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialCheckbox24_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var charAddress = mem.ReadAddress(baseAddress, Offsets.character);
+            var healthCompAddress = mem.ReadAddress(charAddress, Offsets.PlayerHealthComponent);
+            var canTakeDamageAddress = mem.ReadAddress(healthCompAddress, Offsets.playerCanTakeDamage);
+            if (materialCheckbox24.Checked)
+            {
+                mem.WriteInt(canTakeDamageAddress, 0);
+            }
+            else
+            {
+                mem.WriteInt(canTakeDamageAddress, 1);
+            }
         }
     }
 }

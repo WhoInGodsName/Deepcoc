@@ -1,0 +1,945 @@
+Renamed Types:
+
+[Deepcoc]System.Runtime.CompilerServices.NullableAttribute -> [Deepcoc] . 
+{
+
+	[Deepcoc]System.Runtime.CompilerServices.NullableAttribute::.ctor[1]( [System.Runtime]System.Byte ) skipped:  special name
+	[Deepcoc]System.Runtime.CompilerServices.NullableAttribute::.ctor[1]( [System.Runtime]System.Byte[] ) skipped:  special name
+
+	System.Byte[] [Deepcoc]System.Byte[] System.Runtime.CompilerServices.NullableAttribute::NullableFlags ->  
+}
+
+[Deepcoc]System.Runtime.CompilerServices.NullableContextAttribute -> [Deepcoc] . 
+{
+
+	[Deepcoc]System.Runtime.CompilerServices.NullableContextAttribute::.ctor[1]( [System.Runtime]System.Byte ) skipped:  special name
+
+	System.Byte [Deepcoc]System.Byte System.Runtime.CompilerServices.NullableContextAttribute::Flag ->  
+}
+
+[Deepcoc]SoT_Helper.Services.SignatureScan -> [Deepcoc] . 
+{
+	[Deepcoc]SoT_Helper.Services.SignatureScan::ReadProcessMemory[5]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr, [System.Runtime]System.Byte[], [System.Runtime]System.Int32, [System.Runtime]System.Int32& ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::DumpMemory[0]( ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::MaskCheck[3]( [System.Runtime]System.Int32, [System.Runtime]System.Byte[], [System.Runtime]System.String ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::FindPattern[2]( [System.Runtime]System.String, [System.Runtime]System.Int32 ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::FindPattern[3]( [System.Runtime]System.Byte[], [System.Runtime]System.String, [System.Runtime]System.UInt32 ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::ResetRegion[0]( ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::get_Process[0]( ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::set_Process[1]( [System.Diagnostics.Process]System.Diagnostics.Process ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::get_Address[0]( ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::set_Address[1]( [System.Runtime]System.IntPtr ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::get_Size[0]( ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan::set_Size[1]( [System.Runtime]System.Int32 ) ->  
+
+	[Deepcoc]SoT_Helper.Services.SignatureScan::.ctor[0]( ) skipped:  special name
+	[Deepcoc]SoT_Helper.Services.SignatureScan::.ctor[3]( [System.Diagnostics.Process]System.Diagnostics.Process, [System.Runtime]System.IntPtr, [System.Runtime]System.Int32 ) skipped:  special name
+
+	System.Byte[] [Deepcoc]System.Byte[] SoT_Helper.Services.SignatureScan::m_vDumpedRegion ->  
+	System.Diagnostics.Process [Deepcoc]System.Diagnostics.Process SoT_Helper.Services.SignatureScan::m_vProcess ->  
+	System.IntPtr [Deepcoc]System.IntPtr SoT_Helper.Services.SignatureScan::m_vAddress ->  
+	System.Int32 [Deepcoc]System.Int32 SoT_Helper.Services.SignatureScan::m_vSize ->  
+
+	System.Diagnostics.Process [Deepcoc]System.Diagnostics.Process SoT_Helper.Services.SignatureScan::Process -> dropped
+	System.IntPtr [Deepcoc]System.IntPtr SoT_Helper.Services.SignatureScan::Address -> dropped
+	System.Int32 [Deepcoc]System.Int32 SoT_Helper.Services.SignatureScan::Size -> dropped
+}
+
+[Deepcoc]Deepcoc.Form1 -> [Deepcoc] . 
+{
+	[Deepcoc]Deepcoc.Form1::GetAsyncKeyState[1]( [System.Windows.Forms]System.Windows.Forms.Keys ) ->  
+	[Deepcoc]Deepcoc.Form1::Form1_Load[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::AutoReload[0]( ) ->  
+	[Deepcoc]Deepcoc.Form1::CheckyWecky[0]( ) ->  
+	[Deepcoc]Deepcoc.Form1::ReloadAddresses[0]( ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton1_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton2_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton3_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialTextBox1_TextChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton4_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton5_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton7_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton8_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::ChangeSize[2]( [System.Runtime]System.Single, [MaterialSkin]MaterialSkin.Controls.MaterialSlider ) ->  
+	[Deepcoc]Deepcoc.Form1::Dance[1]( [System.Runtime]System.Byte ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton10_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton6_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton11_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton12_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialButton15_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ​
+	[Deepcoc]Deepcoc.Form1::materialButton13_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‐
+	[Deepcoc]Deepcoc.Form1::materialButton14_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‑
+	[Deepcoc]Deepcoc.Form1::materialButton16_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‒
+	[Deepcoc]Deepcoc.Form1::materialButton17_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> –
+	[Deepcoc]Deepcoc.Form1::materialLabel16_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> —
+	[Deepcoc]Deepcoc.Form1::materialButton18_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ―
+	[Deepcoc]Deepcoc.Form1::materialButton19_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> •
+	[Deepcoc]Deepcoc.Form1::materialButton20_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ․
+	[Deepcoc]Deepcoc.Form1::materialButton21_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‥
+	[Deepcoc]Deepcoc.Form1::materialSlider1_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‧
+	[Deepcoc]Deepcoc.Form1::materialCheckbox1_CheckedChanged_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialCheckbox2_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::fullAutoPrimary_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‪
+	[Deepcoc]Deepcoc.Form1::materialCheckbox2_CheckedChanged_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‫
+	[Deepcoc]Deepcoc.Form1::materialCheckbox3_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‬
+	[Deepcoc]Deepcoc.Form1::materialCheckbox9_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‭
+	[Deepcoc]Deepcoc.Form1::materialCheckbox5_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‮
+	[Deepcoc]Deepcoc.Form1::materialCheckbox6_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Form1::materialCheckbox16_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ′
+	[Deepcoc]Deepcoc.Form1::materialCheckbox18_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‵
+	[Deepcoc]Deepcoc.Form1::materialCheckbox19_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ″
+	[Deepcoc]Deepcoc.Form1::materialCheckbox21_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‶
+	[Deepcoc]Deepcoc.Form1::materialButton33_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ‾
+	[Deepcoc]Deepcoc.Form1::materialCheckbox20_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁇
+	[Deepcoc]Deepcoc.Form1::materialLabel1_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁈
+	[Deepcoc]Deepcoc.Form1::materialButton22_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁉
+	[Deepcoc]Deepcoc.Form1::materialButton23_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁊
+	[Deepcoc]Deepcoc.Form1::materialButton24_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁋
+	[Deepcoc]Deepcoc.Form1::materialButton25_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁌
+	[Deepcoc]Deepcoc.Form1::materialButton26_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁍
+	[Deepcoc]Deepcoc.Form1::materialButton27_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁎
+	[Deepcoc]Deepcoc.Form1::materialButton28_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁏
+	[Deepcoc]Deepcoc.Form1::materialButton29_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁐
+	[Deepcoc]Deepcoc.Form1::materialButton30_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁑
+	[Deepcoc]Deepcoc.Form1::materialButton31_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁒
+	[Deepcoc]Deepcoc.Form1::materialButton32_Click_1[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁓
+	[Deepcoc]Deepcoc.Form1::materialCheckbox22_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁔
+	[Deepcoc]Deepcoc.Form1::materialMultiLineTextBox4_TextChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁕
+	[Deepcoc]Deepcoc.Form1::materialMultiLineTextBox3_TextChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁖
+	[Deepcoc]Deepcoc.Form1::materialMultiLineTextBox2_TextChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁗
+	[Deepcoc]Deepcoc.Form1::materialCheckbox23_CheckedChanged[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁘
+	[Deepcoc]Deepcoc.Form1::tabPage1_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) -> ⁙
+	[Deepcoc]Deepcoc.Form1::InitializeComponent[0]( ) ->  
+
+	[Deepcoc]Deepcoc.Form1::.ctor[0]( ) skipped:  special name
+	[Deepcoc]Deepcoc.Form1::Dispose[1]( [System.Runtime]System.Boolean ) skipped:  external base class or interface
+	[Deepcoc]Deepcoc.Form1::.cctor[0]( ) skipped:  special name
+
+	Deepcoc.Auth.api [Deepcoc]Deepcoc.Auth.api Deepcoc.Form1::KeyAuthApp ->  
+	System.IntPtr [Deepcoc]System.IntPtr Deepcoc.Form1::primaryAddress ->  
+	System.IntPtr [Deepcoc]System.IntPtr Deepcoc.Form1::secondaryAddress ->  
+	System.IntPtr [Deepcoc]System.IntPtr Deepcoc.Form1::baseAddress ->  
+	System.Diagnostics.Process [Deepcoc]System.Diagnostics.Process Deepcoc.Form1::game ->  
+	System.IntPtr [Deepcoc]System.IntPtr Deepcoc.Form1::yCoord ->  
+	System.IntPtr [Deepcoc]System.IntPtr Deepcoc.Form1::xCoord ->  
+	System.IntPtr [Deepcoc]System.IntPtr Deepcoc.Form1::zCoord ->  
+	System.IntPtr [Deepcoc]System.IntPtr Deepcoc.Form1::infDepoAddress ->  
+	System.IntPtr [Deepcoc]System.IntPtr Deepcoc.Form1::trampolineAddress ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Form1::fireRate ->  
+	System.Single [Deepcoc]System.Single Deepcoc.Form1::gravOffset ->  
+	System.Single[] [Deepcoc]System.Single[] Deepcoc.Form1::teleAddresses ->  
+	System.Single [Deepcoc]System.Single Deepcoc.Form1::priorMin ->  
+	System.Single [Deepcoc]System.Single Deepcoc.Form1::priorMax ->  
+	System.ComponentModel.IContainer [Deepcoc]System.ComponentModel.IContainer Deepcoc.Form1::components ->  
+	MaterialSkin.Controls.MaterialTabControl [Deepcoc]MaterialSkin.Controls.MaterialTabControl Deepcoc.Form1::materialTabControl1 ->  
+	System.Windows.Forms.TabPage [Deepcoc]System.Windows.Forms.TabPage Deepcoc.Form1::tabPage1 ->  
+	System.Windows.Forms.TabPage [Deepcoc]System.Windows.Forms.TabPage Deepcoc.Form1::tabPage2 ->  
+	System.Windows.Forms.ListBox [Deepcoc]System.Windows.Forms.ListBox Deepcoc.Form1::listBox1 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton1 ->  
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox4 ->  
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox3 ->  
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox2 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton2 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton3 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel1 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel5 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel4 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel3 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel2 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel7 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel6 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel8 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton4 ->  
+	System.Windows.Forms.ImageList [Deepcoc]System.Windows.Forms.ImageList Deepcoc.Form1::imageList1 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox8 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox7 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox9 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox10 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox11 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox12 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox13 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox14 ->  
+	MaterialSkin.Controls.MaterialSlider [Deepcoc]MaterialSkin.Controls.MaterialSlider Deepcoc.Form1::materialSlider2 ->  
+	MaterialSkin.Controls.MaterialSlider [Deepcoc]MaterialSkin.Controls.MaterialSlider Deepcoc.Form1::materialSlider3 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox15 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox17 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton5 ->  
+	System.Windows.Forms.TabPage [Deepcoc]System.Windows.Forms.TabPage Deepcoc.Form1::tabPage3 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel12 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel11 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel10 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel9 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton7 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel13 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton8 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton9 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton16 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton17 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton21 ->  
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox10 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel19 -> ​
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel15 -> ‐
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton6 ->  
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox6 ->  
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox5 ->  
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox1 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton15 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton14 -> ​
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton13 -> ‐
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton12 -> ‑
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton11 -> ‒
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton10 -> –
+	MaterialSkin.Controls.MaterialSlider [Deepcoc]MaterialSkin.Controls.MaterialSlider Deepcoc.Form1::materialSlider1 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel14 -> ‑
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel20 -> ‒
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox11 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox1 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton20 -> —
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox9 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel18 -> –
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton18 -> ―
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox7 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel16 -> —
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox8 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton19 -> •
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel17 -> ―
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::FullAutoSecondary ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::fullAutoPrimary ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox2 -> ​
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox3 -> ‐
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox4 -> ‑
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox5 -> ‒
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox16 -> –
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox6 -> —
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel22 -> •
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox18 -> ―
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel23 -> ․
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox12 ->  
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox20 -> •
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox19 -> ․
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton33 -> ․
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton32 -> ‥
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton31 -> ‧
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton30 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton29 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton28 -> ‪
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton27 -> ‫
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton26 -> ‬
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton25 -> ‭
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton24 -> ‮
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton23 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Form1::materialButton22 -> ′
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel21 -> ‥
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel24 -> ‧
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox16 ->  
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox15 -> ​
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox14 -> ‐
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox13 -> ‑
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel28 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel27 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel26 -> ‪
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel25 -> ‫
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel30 -> ‬
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox18 -> ‒
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel29 -> ‭
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox17 -> –
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel31 -> ‮
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox19 -> —
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Form1::materialLabel32 ->  
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox20 -> ―
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox21 -> ‥
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox22 -> ‧
+	MaterialSkin.Controls.MaterialMultiLineTextBox [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox Deepcoc.Form1::materialMultiLineTextBox21 -> •
+	MaterialSkin.Controls.MaterialCheckbox [Deepcoc]MaterialSkin.Controls.MaterialCheckbox Deepcoc.Form1::materialCheckbox23 ->  
+}
+
+[Deepcoc]Deepcoc.Login -> [Deepcoc] . 
+{
+	[Deepcoc]Deepcoc.Login::Login_Load[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Login::materialButton1_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Login::materialButton2_Click[2]( [System.Runtime]System.Object, [System.Runtime]System.EventArgs ) ->  
+	[Deepcoc]Deepcoc.Login::InitializeComponent[0]( ) ->  
+
+	[Deepcoc]Deepcoc.Login::Dispose[1]( [System.Runtime]System.Boolean ) skipped:  external base class or interface
+	[Deepcoc]Deepcoc.Login::.ctor[0]( ) skipped:  special name
+	[Deepcoc]Deepcoc.Login::.cctor[0]( ) skipped:  special name
+
+	Deepcoc.Auth.api [Deepcoc]Deepcoc.Auth.api Deepcoc.Login::KeyAuthApp ->  
+	System.ComponentModel.IContainer [Deepcoc]System.ComponentModel.IContainer Deepcoc.Login::components ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Login::materialLabel1 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Login::materialLabel2 ->  
+	MaterialSkin.Controls.MaterialMaskedTextBox [Deepcoc]MaterialSkin.Controls.MaterialMaskedTextBox Deepcoc.Login::materialMaskedTextBox1 ->  
+	MaterialSkin.Controls.MaterialMaskedTextBox [Deepcoc]MaterialSkin.Controls.MaterialMaskedTextBox Deepcoc.Login::materialMaskedTextBox2 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Login::materialLabel3 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Login::materialLabel4 ->  
+	MaterialSkin.Controls.MaterialMaskedTextBox [Deepcoc]MaterialSkin.Controls.MaterialMaskedTextBox Deepcoc.Login::materialMaskedTextBox3 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Login::materialButton1 ->  
+	MaterialSkin.Controls.MaterialButton [Deepcoc]MaterialSkin.Controls.MaterialButton Deepcoc.Login::materialButton2 ->  
+	MaterialSkin.Controls.MaterialMultiLineTextBox2 [Deepcoc]MaterialSkin.Controls.MaterialMultiLineTextBox2 Deepcoc.Login::materialMultiLineTextBox21 ->  
+	MaterialSkin.Controls.MaterialLabel [Deepcoc]MaterialSkin.Controls.MaterialLabel Deepcoc.Login::materialLabel5 ->  
+}
+
+[Deepcoc]Deepcoc.ProcessAccessFlags -> [Deepcoc] . 
+{
+	Deepcoc.ProcessAccessFlags [Deepcoc]Deepcoc.ProcessAccessFlags Deepcoc.ProcessAccessFlags::All ->  
+	Deepcoc.ProcessAccessFlags [Deepcoc]Deepcoc.ProcessAccessFlags Deepcoc.ProcessAccessFlags::Terminate ->  
+	Deepcoc.ProcessAccessFlags [Deepcoc]Deepcoc.ProcessAccessFlags Deepcoc.ProcessAccessFlags::CreateThread ->  
+	Deepcoc.ProcessAccessFlags [Deepcoc]Deepcoc.ProcessAccessFlags Deepcoc.ProcessAccessFlags::VMOperation ->  
+	Deepcoc.ProcessAccessFlags [Deepcoc]Deepcoc.ProcessAccessFlags Deepcoc.ProcessAccessFlags::VMRead ->  
+	Deepcoc.ProcessAccessFlags [Deepcoc]Deepcoc.ProcessAccessFlags Deepcoc.ProcessAccessFlags::VMWrite ->  
+	Deepcoc.ProcessAccessFlags [Deepcoc]Deepcoc.ProcessAccessFlags Deepcoc.ProcessAccessFlags::DupHandle ->  
+	Deepcoc.ProcessAccessFlags [Deepcoc]Deepcoc.ProcessAccessFlags Deepcoc.ProcessAccessFlags::SetInformation ->  
+	Deepcoc.ProcessAccessFlags [Deepcoc]Deepcoc.ProcessAccessFlags Deepcoc.ProcessAccessFlags::QueryInformation ->  
+	Deepcoc.ProcessAccessFlags [Deepcoc]Deepcoc.ProcessAccessFlags Deepcoc.ProcessAccessFlags::Synchronize ->  
+
+	System.UInt32 [Deepcoc]System.UInt32 Deepcoc.ProcessAccessFlags::value__ skipped:  special name
+}
+
+[Deepcoc]Deepcoc.MemoryReader -> [Deepcoc] . 
+{
+	[Deepcoc]Deepcoc.MemoryReader::ReadProcessMemory[5]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr, [System.Runtime]System.Byte[], [System.Runtime]System.Int32, [System.Runtime]System.IntPtr ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::WriteProcessMemory[5]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr, [System.Runtime]System.Byte[], [System.Runtime]System.Int32, [System.Runtime]System.IntPtr ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::OpenProcess[3]( [System.Runtime]System.Int32, [System.Runtime]System.Boolean, [System.Runtime]System.Int32 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::OpenProcess[3]( [Deepcoc]Deepcoc.ProcessAccessFlags, [System.Runtime]System.Boolean, [System.Runtime]System.Int32 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::VirtualAllocEx[5]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr, [System.Runtime]System.Int32, [System.Runtime]System.UInt32, [System.Runtime]System.UInt32 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::VirtualFreeEx[4]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr, [System.Runtime]System.Int32, [System.Runtime]System.Int32 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::VirtualAlloc[5]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr, [System.Runtime]System.Int32, [System.Runtime]System.UInt32, [System.Runtime]System.UInt32 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::VirtualProtectEx[5]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr, [System.Runtime]System.Int32, [System.Runtime]System.UInt32, [System.Runtime]System.UInt32& ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::VirtualProtect[4]( [System.Runtime]System.IntPtr, [System.Runtime]System.Int32, [System.Runtime]System.UInt32, [System.Runtime]System.UInt32& ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::SetMemoryProtection[3]( [System.Runtime]System.IntPtr, [System.Runtime]System.Int32, [System.Runtime]System.UInt32 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::ReadAddress[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.Int32[] ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::ReadAddress[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.Int32 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::ReadInt[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.Int64 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::ReadInt[1]( [System.Runtime]System.IntPtr ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::ReadFloat[1]( [System.Runtime]System.IntPtr ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::ReadLong[1]( [System.Runtime]System.IntPtr ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::ReadBytes[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.Int32 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::ReadVector3[3]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::WriteInt[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.Int32 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::WriteLong[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.Int64 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::WriteFloat[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.Single ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::WriteByte[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.Byte ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::CreateCodeCave[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.Int32 ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::WriteToCave[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.Byte[] ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::FreeCave[1]( [System.Runtime]System.IntPtr ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::CalculateJump[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::CalculateRelativeOffset[2]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr ) ->  
+	[Deepcoc]Deepcoc.MemoryReader::CreateDetour[3]( [System.Runtime]System.IntPtr, [System.Runtime]System.IntPtr, [System.Runtime]System.Byte[] ) ->  
+
+	[Deepcoc]Deepcoc.MemoryReader::.ctor[1]( [System.Diagnostics.Process]System.Diagnostics.Process ) skipped:  special name
+
+	System.Diagnostics.Process [Deepcoc]System.Diagnostics.Process Deepcoc.MemoryReader::_process ->  
+	System.IntPtr [Deepcoc]System.IntPtr Deepcoc.MemoryReader::_handle ->  
+}
+
+[Deepcoc]Deepcoc.Offsets -> [Deepcoc] . 
+{
+
+	[Deepcoc]Deepcoc.Offsets::.ctor[0]( ) skipped:  special name
+	[Deepcoc]Deepcoc.Offsets::.cctor[0]( ) skipped:  special name
+
+	System.String [Deepcoc]System.String Deepcoc.Offsets::key ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::SecondaryGun ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::PrimaryGun ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::ThirdGun ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::FourthGun ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::primaryGunFullAuto ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::primaryGunBurst ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::SecondayGunFullAuto ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::SecondayGunBurst ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::ThirdGunFullAuto ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::ThirdGunBurst ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::SecondayGunRecoilMin ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::SecondayGunRecoilMax ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::ThirdGunRecoilMin ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::ThirdGunRecoilMax -> ​
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::PrimaryGunRecoilMin -> ‐
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::PrimaryGunRecoilMax -> ‑
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::flares -> ‒
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::flareCooldown -> –
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::yCoord -> —
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::xCoord -> ―
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::zCoord -> •
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::velocityY -> ․
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::velocityX -> ‥
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::velocityZ -> ‧
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::runSpeed ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::walkSpeed ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::deceleration -> ‪
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::jumpMaxCount -> ‫
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::character -> ‬
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::throwMinForce -> ‭
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::throwMaxForce -> ‮
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::characterSizeY ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::characterSizeX -> ′
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::characterSizeZ -> ‵
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::caractureCapsuleHeight -> ″
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::caractureCapsuleRadius -> ‶
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::noClip -> ‾
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::isGrounded -> ⁇
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::FOV -> ⁈
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::gravityScale -> ⁉
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::perkPoints -> ⁊
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::scrip -> ⁋
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::danceMove -> ⁌
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::isDancing -> ⁍
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::inDanceRange -> ⁎
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::SightComponent -> ⁏
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::EnemyPawn -> ⁐
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::enemmMaxHealth -> ⁑
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::enemyDamage -> ⁒
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::enemyCourage -> ⁓
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::enemyTimeScale -> ⁔
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot1MollyCurrent -> ⁕
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot2MollyCurrent -> ⁖
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot3MollyCurrent -> ⁗
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot4MollyCurrent -> ⁘
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot5MollyCurrent -> ⁙
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot6MollyCurrent -> ⁚
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot7MollyCurrent -> ⁛
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot8MollyCurrent -> ⁜
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot1Molly -> ⁝
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot2Molly -> ⁞
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot3Molly ->  
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot4Molly -> ⁠
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot5Molly -> ⁡
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot6Molly -> ⁢
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot7Molly -> ⁣
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::slot8Molly -> ⁤
+	System.Int32[] [Deepcoc]System.Int32[] Deepcoc.Offsets::primaryOverheat -> ⁪
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::fireRate ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::fireRate2 ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::currentAmmo ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::fullAuto ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::damage ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::burstCount ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::slot ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::ammoCount ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::cycleTimeLeft ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::recoilPitchMin ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::recoilPitchMax ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::recoilYawMin ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::recoilYawMax ->  
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::recoilRollMin -> ​
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::recoilRollMax -> ‐
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::weaponFire -> ‑
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::spreadPerShot -> ‒
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::bulletDamage -> –
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::bulletsCanCarve -> —
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::bulletsPerCarveMin -> ―
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::bulletsPerCarveMax -> •
+	System.Int32 [Deepcoc]System.Int32 Deepcoc.Offsets::carveDiameter -> ․
+	System.Int64[] [Deepcoc]System.Int64[] Deepcoc.Offsets::targetAddress ->  
+}
+
+[Deepcoc]Deepcoc.Properties.Resources -> [Deepcoc] . 
+{
+	[Deepcoc]Deepcoc.Properties.Resources::get_ResourceManager[0]( ) ->  
+	[Deepcoc]Deepcoc.Properties.Resources::get_Culture[0]( ) ->  
+	[Deepcoc]Deepcoc.Properties.Resources::set_Culture[1]( [System.Runtime]System.Globalization.CultureInfo ) ->  
+	[Deepcoc]Deepcoc.Properties.Resources::get_A48192A7_0F0A_4F34_BC15_9E1D78F4F244[0]( ) ->  
+	[Deepcoc]Deepcoc.Properties.Resources::get_icons8_body_armor_64[0]( ) ->  
+
+	[Deepcoc]Deepcoc.Properties.Resources::.ctor[0]( ) skipped:  special name
+
+	System.Resources.ResourceManager [Deepcoc]System.Resources.ResourceManager Deepcoc.Properties.Resources::resourceMan ->  
+	System.Globalization.CultureInfo [Deepcoc]System.Globalization.CultureInfo Deepcoc.Properties.Resources::resourceCulture ->  
+
+	System.Resources.ResourceManager [Deepcoc]System.Resources.ResourceManager Deepcoc.Properties.Resources::ResourceManager ->  
+	System.Globalization.CultureInfo [Deepcoc]System.Globalization.CultureInfo Deepcoc.Properties.Resources::Culture ->  
+	System.Drawing.Bitmap [Deepcoc]System.Drawing.Bitmap Deepcoc.Properties.Resources::A48192A7_0F0A_4F34_BC15_9E1D78F4F244 -> dropped
+	System.Drawing.Bitmap [Deepcoc]System.Drawing.Bitmap Deepcoc.Properties.Resources::icons8_body_armor_64 -> dropped
+}
+
+[Deepcoc]Deepcoc.Auth.api -> [Deepcoc] . 
+{
+	[Deepcoc]Deepcoc.Auth.api::init[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api::CheckInit[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api::expirydaysleft[2]( [System.Runtime]System.String, [System.Runtime]System.Int32 ) ->  
+	[Deepcoc]Deepcoc.Auth.api::register[4]( [System.Runtime]System.String, [System.Runtime]System.String, [System.Runtime]System.String, [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::forgot[2]( [System.Runtime]System.String, [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::login[2]( [System.Runtime]System.String, [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::logout[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api::web_login[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api::button[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::upgrade[2]( [System.Runtime]System.String, [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::license[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::check[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api::setvar[2]( [System.Runtime]System.String, [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::getvar[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::ban[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::var[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::fetchOnline[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api::fetchStats[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api::chatget[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::chatsend[2]( [System.Runtime]System.String, [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::checkblack[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api::webhook[4]( [System.Runtime]System.String, [System.Runtime]System.String, [System.Runtime]System.String, [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::download[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::log[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::changeUsername[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::checksum[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::error[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::req[1]( [System.Collections.Specialized]System.Collections.Specialized.NameValueCollection ) ->  
+	[Deepcoc]Deepcoc.Auth.api::assertSSL[4]( [System.Runtime]System.Object, [System.Security.Cryptography.X509Certificates]System.Security.Cryptography.X509Certificates.X509Certificate, [System.Security.Cryptography.X509Certificates]System.Security.Cryptography.X509Certificates.X509Chain, [System.Net.Primitives]System.Net.Security.SslPolicyErrors ) ->  
+	[Deepcoc]Deepcoc.Auth.api::sigCheck[3]( [System.Runtime]System.String, [System.Runtime]System.String, [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api::load_app_data[1]( [Deepcoc]Deepcoc.Auth.api/app_data_structure ) ->  
+	[Deepcoc]Deepcoc.Auth.api::load_user_data[1]( [Deepcoc]Deepcoc.Auth.api/user_data_structure ) ->  
+	[Deepcoc]Deepcoc.Auth.api::load_response_struct[1]( [Deepcoc]Deepcoc.Auth.api/response_structure ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api::.ctor[4]( [System.Runtime]System.String, [System.Runtime]System.String, [System.Runtime]System.String, [System.Runtime]System.String ) skipped:  special name
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api::name ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api::ownerid ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api::secret ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api::version ->  
+	System.Int64 [Deepcoc]System.Int64 Deepcoc.Auth.api::responseTime ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api::sessionid ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api::enckey ->  
+	System.Boolean [Deepcoc]System.Boolean Deepcoc.Auth.api::initialized ->  
+	Deepcoc.Auth.api/app_data_class [Deepcoc]Deepcoc.Auth.api/app_data_class Deepcoc.Auth.api::app_data ->  
+	Deepcoc.Auth.api/user_data_class [Deepcoc]Deepcoc.Auth.api/user_data_class Deepcoc.Auth.api::user_data ->  
+	Deepcoc.Auth.api/response_class [Deepcoc]Deepcoc.Auth.api/response_class Deepcoc.Auth.api::response ->  
+	Deepcoc.Auth.json_wrapper [Deepcoc]Deepcoc.Auth.json_wrapper Deepcoc.Auth.api::response_decoder ->  
+}
+
+[Deepcoc]Deepcoc.Auth.json_wrapper -> [Deepcoc] .‐
+{
+	[Deepcoc]Deepcoc.Auth.json_wrapper::is_serializable[1]( [System.Runtime]System.Type ) ->  
+	[Deepcoc]Deepcoc.Auth.json_wrapper::string_to_object[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.json_wrapper::string_to_generic[1]( [System.Runtime]System.String ) ->  
+
+	[Deepcoc]Deepcoc.Auth.json_wrapper::.ctor[1]( [System.Runtime]System.Object ) skipped:  special name
+
+	System.Runtime.Serialization.Json.DataContractJsonSerializer [Deepcoc]System.Runtime.Serialization.Json.DataContractJsonSerializer Deepcoc.Auth.json_wrapper::serializer ->  
+	System.Object [Deepcoc]System.Object Deepcoc.Auth.json_wrapper::current_object ->  
+}
+
+[Deepcoc]<PrivateImplementationDetails> -> [Deepcoc] .‑
+{
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::00C43CE27A675249FF90BE19ABBA3ABA4D6E2B7042F89172A16AE913352C6276 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 <PrivateImplementationDetails>::07D37C7864ECA6A6A26600276A0FBD674E6CBA3E5BDF21B5ACA5BB216E1A217D ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 <PrivateImplementationDetails>::0FBA73F52808EF8A999245EB07932B55395A3A32DFE7AF13966B7193DBB238A4 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::1AC5BBF81453D0667D0696197821ECA75648A3286ECE1C34DCFBE1019DE8CAE2 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::1BB51FAA6C76419625BD66AD8C90EC44FA11631FC74F701C32AE24E736A96679 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::1E5ED9D30EA5688DD8978DFAB02A7D6C9E03012A8D678A471DDE2D6F3C987D62 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::2974AA8F3353314AC6BBA30EAD51772E477964447FB6B69B4A2C3C9DD68568AC ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::2DF4A6FEC0EE0BEFB78453CB1407E8B490E56F43CC1F0429275F91D5F4E00E94 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::324212474AA51899C68924A424084625A1E6240260171CF6029874806598C6D9 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::3961FF27FE4C9E74E3E78DFF37947F0230B62BD18A7D03D3284C72788F614405 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::3A54C6B6DD0CE6511BE4DF5879BBEDAC36442E7E32B8A1B30A272B9512E3B130 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::3E5E59664B7617FF2A423C828803775A8C7C47682BB2BA7D60469DDDFB55446B ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::43D7BD61E3438FE76E1A3C50F03285E8816983F00D5BB73FE8642465D1AEAD46 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 <PrivateImplementationDetails>::45F2ED90D74D9038BC61471BC3347E1748D55ED82DEE90E8AA1D9E5EFFBAE1D5 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::4877DA09FE62AE03E2A22127F67CA396F729AAE7BBF20949071ECABA24EBD431 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::48949388D7F70E89692309207FFC90A33C91FD794189BC5D0749FFAFDAEDE265 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::4F0CE8E5FBB71790697DA9096A3D9D6058A15A2E6EA25A97CD720C7D98CDD2D6 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::4F768E5EDCDEE32EE3214F91AB4A3A8D2D0CC0C49C0F9F64050CEFA8C1E3D906 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::50AE86E44E20224DF562C95A3473111A8A311133B7D03D8E51B58AAE1BCC09A1 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::50F6304103BE28063FE38390BA50D748858B067CED9C6B3938774455E6037826 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::591F7763B25529677237323F6415A13C0CA93BCA86667CD28A4D8F98196EAE63 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 <PrivateImplementationDetails>::60C3D97C616AD7CB78BA410B9B8DC5B1F4ADCA16D8ADDA91ACE6DE0D04E02834 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::6229D4C8AC0DF07F11B3C4121C118909C1D7CB9943A33CA295D30A5E01208B10 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::695C50C4997C1BEFB15DAE7EEBAEDF52CB4420D92C93A7317DABAAB160F92F1F ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 <PrivateImplementationDetails>::6A2E43208191D366C17CB72E1B9B845338776509AAB0B5649B2B177CCAAC4E36 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::6C2B3E7A0EAE895A20B638800D9B99F5617DB81F67DA33E4D682B7235E277317 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 <PrivateImplementationDetails>::6EAB63E96AABBF336E08F07C22EF774B75C34EC604C7CA61FCECE8ECF8EDF2DE ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::700DE4530269CAFBE9A02D2CF33C050DC30D5979279602E960671CBB6023EC14 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=36 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=36 <PrivateImplementationDetails>::7780FEDCC5D88780F823796E6014F7BC551D064DC27FC910839DF9F51316E75A ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::7A2C6A65F6B64BEC47E3F72C372CE5FB83FBAB914402DB4DEF3069607D00ECE3 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=36 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=36 <PrivateImplementationDetails>::7DAC148A4A02DA506F61502C4DB430556430EEE9033CE42118EFA989AC31B4F5 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::81D7B02E12243483FDB07E073DD3511C0BA7F629105EBB33BAB70BD1B5A0A7E7 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 <PrivateImplementationDetails>::845B509BA9AFB243CFB92A434504C85B17006A91EC412749160D312852A0F8B6 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::84A13F75901201183031F727C930B73341A1698D3F2CC808C5A3BACAD5E66359 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 <PrivateImplementationDetails>::84E50C92D43B3776FBE3535C3B115D47EE9902AA49BC1074FA9D46E0BBA54888 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::8A06FEB7C1F66F795D3F35308B063F4BCA465E6EA5788D2C5D71715150CF665B ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::8AF8B6EBC14764D6F51386DEDA118821CBB910CE7F754793789FF6C394C7328D ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 <PrivateImplementationDetails>::8D26648F7929AE1996D38BE00D0CD8AB5AC31A4CA6B09DCD315CDD44AA6D84F1 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=40 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=40 <PrivateImplementationDetails>::95A1C1D3775CF2F06B9197E32D31F68AB011CF835CA6469515A56A56DF1553B0 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::98E89F310524D38783CE86DCB12FDCCC1A0CE7790CC1C62E7E37FCEB513F1BC9 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::9ACD33744C9AC5CA936EFBFC0CBE29D93F6E7562A3FCA178E992197627C1EF3B ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=6 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=6 <PrivateImplementationDetails>::A48B63BBA1E17839842C77FDC8D4A06C991D5ED87906AB1BCBE71BAA260778F1 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 <PrivateImplementationDetails>::A873BA3384E8DF82392A0503AB49458E5FEE834055FF38B7B8E678D5ACDE1747 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=12 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=12 <PrivateImplementationDetails>::AF5686D8A899D1483D3873A5AFB9207FEA8C1B7252B7F822D49C195ED6D7009C ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 <PrivateImplementationDetails>::B646D9B894B6EC1776CBB1236F7A2FAEDDE5F8F82670315ED40AB3ABE3619D52 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::B6C4A560A1468C409E60FF95E42908CC6C1A2000AE375ED8CB88F0C4B3712314 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::BCBD825EFDCD5B30B82042A390D78294A0DA8220BA0A3918E04EC1EDB961B715 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::C5BDB618A6D3B538E27C2AA027535ACBB237C730D61E1769F28A9A31141EA8BB ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::CCC643AAD0A9EC4428D383AFBCF97A5C1B3AD779E836FA587465847B7344C897 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=36 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=36 <PrivateImplementationDetails>::CDEBA9F68A89839B17E6DDED6F7915E7A0EABFE9920E4ABCED7D0B9C19FE0132 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::D2F497A317E62C7EEAF09692F1B2CF464CB4003867D5819A07E8634422C73866 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::D58B655340A1A9CB848C05C35375D52202E342A61DCEA0FE0EFC1FCA6A4068A3 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::D77661A744588D57205B1C75BE4A438D9FDDA2131C04070428EB04D7E1A24CBD ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::D9DAB536545A94ACFEAF6A901FA59697E2B64C6557793D5562734BCBFC34301B -> ​
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 <PrivateImplementationDetails>::DDAEBC34BC26CCE5167E58B099EAE6E219152E4D8C09CFF318F96CEAE5EE2343 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::DEB23A6D67EB968D4F0D20F68D40E058689A488AD04FF09A1606D92EA22CFCAA ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::E19BB64C5C606AB10AAC048ED1B1873580F94A8F3C2375D2A593ECF95D00F80B -> ‐
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::E1C01C5F1F0E63B7FAD80EFDA07F6F7FEE9266F992AC39F3D8DA5F054303EC3C -> ‑
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::E20B831F19976B761A95432BF9903E0F38C4B2A013E01E533E4572F44980246E -> ​
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 <PrivateImplementationDetails>::E803F35F526426F42CE289657A9F9BC04BABF19A87E040BF916CEF0ACC1857E1 -> ‒
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::E8EFEC76FE2C861699601C894FC86B43B16E2D690E3CBDC1C9C6792C0F0D0171 -> ‐
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 <PrivateImplementationDetails>::EA6DEEDAE1E669FDBA01D5162E85E05CE42793598068252B0D2C79B0D1716812 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::ED1AF46F7FA9BA618B4D8AAC2D2A6E20279E7E1068BE6D0A2051271DDF2042C8 -> ‑
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::F10722795089049B90CDF3D75A64C40EF05A0DC68E88C695F2AE85D4B60FDFFE ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 <PrivateImplementationDetails>::F32E77A914685D90F5EAF521EBF44C5B7C14770F48864567B66F65240EB45391 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 <PrivateImplementationDetails>::F573A5E3A2A65E04CFDAF802052C8193E7C18F64B19549550A240F4964A90F38 -> ‒
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 <PrivateImplementationDetails>::F9E4C1477DFFF940D739DDF5054F16E0860DC862ADB5373EE5DDA76964EE9409 ->  
+	<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 [Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 <PrivateImplementationDetails>::FEEEC8BCEE9C1DA75DE450A0A34E5ED168C7A2B589F352435D8B4B76A35BD197 ->  
+}
+
+[Deepcoc]SoT_Helper.Services.SignatureScan/<>c -> [Deepcoc] . / 
+{
+	[Deepcoc]SoT_Helper.Services.SignatureScan/<>c::<FindPattern>b__9_0[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]SoT_Helper.Services.SignatureScan/<>c::<FindPattern>b__9_1[1]( [System.Runtime]System.String ) ->  
+
+	[Deepcoc]SoT_Helper.Services.SignatureScan/<>c::.cctor[0]( ) skipped:  special name
+	[Deepcoc]SoT_Helper.Services.SignatureScan/<>c::.ctor[0]( ) skipped:  special name
+
+	SoT_Helper.Services.SignatureScan/<>c [Deepcoc]SoT_Helper.Services.SignatureScan/<>c SoT_Helper.Services.SignatureScan/<>c::<>9 ->  
+	System.Func`2<System.String,System.Byte> [Deepcoc]System.Func`2<System.String,System.Byte> SoT_Helper.Services.SignatureScan/<>c::<>9__9_0 ->  
+	System.Func`2<System.String,System.Char> [Deepcoc]System.Func`2<System.String,System.Char> SoT_Helper.Services.SignatureScan/<>c::<>9__9_1 ->  
+}
+
+[Deepcoc]Deepcoc.Form1/<>c__DisplayClass15_0 -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Form1/<>c__DisplayClass15_0::<Form1_Load>g__LockAmmo|0[0]( ) ->  
+	[Deepcoc]Deepcoc.Form1/<>c__DisplayClass15_0::<Form1_Load>g__Speed|1[0]( ) ->  
+	[Deepcoc]Deepcoc.Form1/<>c__DisplayClass15_0::<Form1_Load>g__Resources|2[0]( ) ->  
+	[Deepcoc]Deepcoc.Form1/<>c__DisplayClass15_0::<Form1_Load>g__DeathStare|3[0]( ) ->  
+
+	[Deepcoc]Deepcoc.Form1/<>c__DisplayClass15_0::.ctor[0]( ) skipped:  special name
+
+	Deepcoc.Form1 [Deepcoc]Deepcoc.Form1 Deepcoc.Form1/<>c__DisplayClass15_0::<>4__this ->  
+	Deepcoc.MemoryReader [Deepcoc]Deepcoc.MemoryReader Deepcoc.Form1/<>c__DisplayClass15_0::mem ->  
+}
+
+[Deepcoc]Deepcoc.Auth.api/response_structure -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_success[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_success[1]( [System.Runtime]System.Boolean ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_newSession[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_newSession[1]( [System.Runtime]System.Boolean ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_sessionid[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_sessionid[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_contents[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_contents[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_response[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_response[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_message[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_message[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_download[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_download[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_info[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_info[1]( [Deepcoc]Deepcoc.Auth.api/user_data_structure ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_appinfo[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_appinfo[1]( [Deepcoc]Deepcoc.Auth.api/app_data_structure ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_messages[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_messages[1]( [System.Collections]System.Collections.Generic.List`1<[Deepcoc]Deepcoc.Auth.api/msg> ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::get_users[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_structure::set_users[1]( [System.Collections]System.Collections.Generic.List`1<[Deepcoc]Deepcoc.Auth.api/users> ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api/response_structure::.ctor[0]( ) skipped:  special name
+
+	System.Boolean [Deepcoc]System.Boolean Deepcoc.Auth.api/response_structure::<success>k__BackingField ->  
+	System.Boolean [Deepcoc]System.Boolean Deepcoc.Auth.api/response_structure::<newSession>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_structure::<sessionid>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_structure::<contents>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_structure::<response>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_structure::<message>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_structure::<download>k__BackingField ->  
+	Deepcoc.Auth.api/user_data_structure [Deepcoc]Deepcoc.Auth.api/user_data_structure Deepcoc.Auth.api/response_structure::<info>k__BackingField ->  
+	Deepcoc.Auth.api/app_data_structure [Deepcoc]Deepcoc.Auth.api/app_data_structure Deepcoc.Auth.api/response_structure::<appinfo>k__BackingField ->  
+	System.Collections.Generic.List`1<Deepcoc.Auth.api/msg> [Deepcoc]System.Collections.Generic.List`1<Deepcoc.Auth.api/msg> Deepcoc.Auth.api/response_structure::<messages>k__BackingField ->  
+	System.Collections.Generic.List`1<Deepcoc.Auth.api/users> [Deepcoc]System.Collections.Generic.List`1<Deepcoc.Auth.api/users> Deepcoc.Auth.api/response_structure::<users>k__BackingField ->  
+
+	System.Boolean [Deepcoc]System.Boolean Deepcoc.Auth.api/response_structure::success ->  
+	System.Boolean [Deepcoc]System.Boolean Deepcoc.Auth.api/response_structure::newSession ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_structure::sessionid ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_structure::contents ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_structure::response ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_structure::message ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_structure::download ->  
+	Deepcoc.Auth.api/user_data_structure [Deepcoc]Deepcoc.Auth.api/user_data_structure Deepcoc.Auth.api/response_structure::info ->  
+	Deepcoc.Auth.api/app_data_structure [Deepcoc]Deepcoc.Auth.api/app_data_structure Deepcoc.Auth.api/response_structure::appinfo ->  
+	System.Collections.Generic.List`1<Deepcoc.Auth.api/msg> [Deepcoc]System.Collections.Generic.List`1<Deepcoc.Auth.api/msg> Deepcoc.Auth.api/response_structure::messages ->  
+	System.Collections.Generic.List`1<Deepcoc.Auth.api/users> [Deepcoc]System.Collections.Generic.List`1<Deepcoc.Auth.api/users> Deepcoc.Auth.api/response_structure::users ->  
+}
+
+[Deepcoc]Deepcoc.Auth.api/msg -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Auth.api/msg::get_message[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/msg::set_message[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/msg::get_author[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/msg::set_author[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/msg::get_timestamp[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/msg::set_timestamp[1]( [System.Runtime]System.String ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api/msg::.ctor[0]( ) skipped:  special name
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/msg::<message>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/msg::<author>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/msg::<timestamp>k__BackingField ->  
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/msg::message -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/msg::author -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/msg::timestamp -> dropped
+}
+
+[Deepcoc]Deepcoc.Auth.api/users -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Auth.api/users::get_credential[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/users::set_credential[1]( [System.Runtime]System.String ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api/users::.ctor[0]( ) skipped:  special name
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/users::<credential>k__BackingField ->  
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/users::credential -> dropped
+}
+
+[Deepcoc]Deepcoc.Auth.api/user_data_structure -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::get_username[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::set_username[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::get_ip[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::set_ip[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::get_hwid[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::set_hwid[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::get_createdate[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::set_createdate[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::get_lastlogin[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::set_lastlogin[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::get_subscriptions[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::set_subscriptions[1]( [System.Collections]System.Collections.Generic.List`1<[Deepcoc]Deepcoc.Auth.api/Data> ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api/user_data_structure::.ctor[0]( ) skipped:  special name
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_structure::<username>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_structure::<ip>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_structure::<hwid>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_structure::<createdate>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_structure::<lastlogin>k__BackingField ->  
+	System.Collections.Generic.List`1<Deepcoc.Auth.api/Data> [Deepcoc]System.Collections.Generic.List`1<Deepcoc.Auth.api/Data> Deepcoc.Auth.api/user_data_structure::<subscriptions>k__BackingField ->  
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_structure::username ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_structure::ip ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_structure::hwid ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_structure::createdate ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_structure::lastlogin ->  
+	System.Collections.Generic.List`1<Deepcoc.Auth.api/Data> [Deepcoc]System.Collections.Generic.List`1<Deepcoc.Auth.api/Data> Deepcoc.Auth.api/user_data_structure::subscriptions ->  
+}
+
+[Deepcoc]Deepcoc.Auth.api/app_data_structure -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::get_numUsers[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::set_numUsers[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::get_numOnlineUsers[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::set_numOnlineUsers[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::get_numKeys[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::set_numKeys[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::get_version[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::set_version[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::get_customerPanelLink[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::set_customerPanelLink[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::get_downloadLink[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::set_downloadLink[1]( [System.Runtime]System.String ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api/app_data_structure::.ctor[0]( ) skipped:  special name
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::<numUsers>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::<numOnlineUsers>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::<numKeys>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::<version>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::<customerPanelLink>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::<downloadLink>k__BackingField ->  
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::numUsers ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::numOnlineUsers ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::numKeys ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::version ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::customerPanelLink ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_structure::downloadLink ->  
+}
+
+[Deepcoc]Deepcoc.Auth.api/app_data_class -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::get_numUsers[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::set_numUsers[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::get_numOnlineUsers[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::set_numOnlineUsers[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::get_numKeys[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::set_numKeys[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::get_version[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::set_version[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::get_customerPanelLink[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::set_customerPanelLink[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::get_downloadLink[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::set_downloadLink[1]( [System.Runtime]System.String ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api/app_data_class::.ctor[0]( ) skipped:  special name
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::<numUsers>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::<numOnlineUsers>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::<numKeys>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::<version>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::<customerPanelLink>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::<downloadLink>k__BackingField ->  
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::numUsers -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::numOnlineUsers -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::numKeys -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::version -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::customerPanelLink -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/app_data_class::downloadLink -> dropped
+}
+
+[Deepcoc]Deepcoc.Auth.api/user_data_class -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::get_username[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::set_username[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::get_ip[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::set_ip[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::get_hwid[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::set_hwid[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::get_createdate[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::set_createdate[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::get_lastlogin[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::set_lastlogin[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::get_subscriptions[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::set_subscriptions[1]( [System.Collections]System.Collections.Generic.List`1<[Deepcoc]Deepcoc.Auth.api/Data> ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api/user_data_class::.ctor[0]( ) skipped:  special name
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_class::<username>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_class::<ip>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_class::<hwid>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_class::<createdate>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_class::<lastlogin>k__BackingField ->  
+	System.Collections.Generic.List`1<Deepcoc.Auth.api/Data> [Deepcoc]System.Collections.Generic.List`1<Deepcoc.Auth.api/Data> Deepcoc.Auth.api/user_data_class::<subscriptions>k__BackingField ->  
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_class::username -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_class::ip -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_class::hwid -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_class::createdate -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/user_data_class::lastlogin -> dropped
+	System.Collections.Generic.List`1<Deepcoc.Auth.api/Data> [Deepcoc]System.Collections.Generic.List`1<Deepcoc.Auth.api/Data> Deepcoc.Auth.api/user_data_class::subscriptions -> dropped
+}
+
+[Deepcoc]Deepcoc.Auth.api/Data -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Auth.api/Data::get_subscription[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/Data::set_subscription[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/Data::get_expiry[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/Data::set_expiry[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.api/Data::get_timeleft[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/Data::set_timeleft[1]( [System.Runtime]System.String ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api/Data::.ctor[0]( ) skipped:  special name
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/Data::<subscription>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/Data::<expiry>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/Data::<timeleft>k__BackingField ->  
+
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/Data::subscription -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/Data::expiry -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/Data::timeleft -> dropped
+}
+
+[Deepcoc]Deepcoc.Auth.api/response_class -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Auth.api/response_class::get_success[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_class::set_success[1]( [System.Runtime]System.Boolean ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_class::get_message[0]( ) ->  
+	[Deepcoc]Deepcoc.Auth.api/response_class::set_message[1]( [System.Runtime]System.String ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api/response_class::.ctor[0]( ) skipped:  special name
+
+	System.Boolean [Deepcoc]System.Boolean Deepcoc.Auth.api/response_class::<success>k__BackingField ->  
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_class::<message>k__BackingField ->  
+
+	System.Boolean [Deepcoc]System.Boolean Deepcoc.Auth.api/response_class::success -> dropped
+	System.String [Deepcoc]System.String Deepcoc.Auth.api/response_class::message -> dropped
+}
+
+[Deepcoc]Deepcoc.Auth.api/<>c -> [Deepcoc] . / 
+{
+	[Deepcoc]Deepcoc.Auth.api/<>c::<req>b__41_0[4]( [System.Runtime]System.Object, [System.Security.Cryptography.X509Certificates]System.Security.Cryptography.X509Certificates.X509Certificate, [System.Security.Cryptography.X509Certificates]System.Security.Cryptography.X509Certificates.X509Chain, [System.Net.Primitives]System.Net.Security.SslPolicyErrors ) ->  
+
+	[Deepcoc]Deepcoc.Auth.api/<>c::.cctor[0]( ) skipped:  special name
+	[Deepcoc]Deepcoc.Auth.api/<>c::.ctor[0]( ) skipped:  special name
+
+	Deepcoc.Auth.api/<>c [Deepcoc]Deepcoc.Auth.api/<>c Deepcoc.Auth.api/<>c::<>9 ->  
+	System.Net.Security.RemoteCertificateValidationCallback [Deepcoc]System.Net.Security.RemoteCertificateValidationCallback Deepcoc.Auth.api/<>c::<>9__41_0 ->  
+}
+
+[Deepcoc]Microsoft.CodeAnalysis.EmbeddedAttribute -> [Deepcoc] . 
+{
+
+	[Deepcoc]Microsoft.CodeAnalysis.EmbeddedAttribute::.ctor[0]( ) skipped:  special name
+}
+
+[Deepcoc]Deepcoc.Program -> [Deepcoc] . 
+{
+	[Deepcoc]Deepcoc.Program::Main[0]( ) ->  
+}
+
+[Deepcoc]Deepcoc.ApplicationConfiguration -> [Deepcoc] . 
+{
+	[Deepcoc]Deepcoc.ApplicationConfiguration::Initialize[0]( ) ->  
+}
+
+[Deepcoc]Deepcoc.Auth.encryption -> [Deepcoc] .​
+{
+	[Deepcoc]Deepcoc.Auth.encryption::HashHMAC[2]( [System.Runtime]System.String, [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.encryption::byte_arr_to_str[1]( [System.Runtime]System.Byte[] ) ->  
+	[Deepcoc]Deepcoc.Auth.encryption::str_to_byte_arr[1]( [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.encryption::CheckStringsFixedTime[2]( [System.Runtime]System.String, [System.Runtime]System.String ) ->  
+	[Deepcoc]Deepcoc.Auth.encryption::iv_key[0]( ) ->  
+}
+
+[Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=6 -> [Deepcoc] .‑/ 
+{
+}
+
+[Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=12 -> [Deepcoc] .‑/ 
+{
+}
+
+[Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=16 -> [Deepcoc] .‑/ 
+{
+}
+
+[Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=20 -> [Deepcoc] .‑/ 
+{
+}
+
+[Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=24 -> [Deepcoc] .‑/ 
+{
+}
+
+[Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=28 -> [Deepcoc] .‑/ 
+{
+}
+
+[Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=32 -> [Deepcoc] .‑/ 
+{
+}
+
+[Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=36 -> [Deepcoc] .‑/ 
+{
+}
+
+[Deepcoc]<PrivateImplementationDetails>/__StaticArrayInitTypeSize=40 -> [Deepcoc] .‑/ 
+{
+}
+
+Skipped Types:
+
+Renamed Resources:
+
+Deepcoc.Form1.resources ->  . .resources
+Deepcoc.Login.resources ->  . .resources
+Deepcoc.Properties.Resources.resources ->  . .resources
+
+Skipped Resources:
+
