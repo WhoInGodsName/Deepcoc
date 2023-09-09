@@ -357,11 +357,13 @@ namespace Deepcoc
                             var enemyTimeDialationAddress = mem.ReadAddress(baseAddress, Offsets.enemyTimeScale);
                             var meshAddress = mem.ReadAddress(sightComponentAddress, Offsets.targetMesh);
                             var meshValue = mem.ReadFloat(meshAddress);
-                            
+
                             if (sightComponentAddress != IntPtr.Zero)
                             {
 
-                                
+
+                                var timeDialationAddress = mem.ReadAddress(sightComponentAddress, Offsets.timeDialation);
+                                mem.WriteFloat(timeDialationAddress, materialSlider4.Value);
 
                                 var scaleAddressX = mem.ReadAddress(meshAddress, Offsets.targetScaleX);
                                 var scaleAddressY = mem.ReadAddress(meshAddress, Offsets.targetScaleY);
@@ -387,15 +389,11 @@ namespace Deepcoc
                                     {
                                         mem.WriteFloat(enemyTimeDialationAddress, 0);
                                     }
-                                    else
-                                    {
-                                        mem.WriteFloat(enemyTimeDialationAddress, 1);
-                                    }
                                 }
                                 //Thread.Sleep(10);
-                                
+
                             }
-                            
+
 
                         }
                         catch
@@ -1028,23 +1026,32 @@ namespace Deepcoc
             try
             {
                 MemoryReader mem = new MemoryReader(game);
-                var recoilMinAddress = mem.ReadAddress(baseAddress, Offsets.ThirdGunRecoilMin);
-                var recoilMaxAddress = mem.ReadAddress(baseAddress, Offsets.ThirdGunRecoilMax);
+                var recoilAddress = mem.ReadAddress(baseAddress, Offsets.ThirdGunRecoilMin);
+                Thread.Sleep(10);
+                var recoilPitchMin = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMin);
+                var recoilPitchMax = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMax);
+                var recoilYawMin = mem.ReadAddress(recoilAddress, Offsets.recoilYawMin);
+                var recoilYawMax = mem.ReadAddress(recoilAddress, Offsets.recoilYawMax);
 
 
 
-                if (materialCheckbox3.Checked)
+                if (materialCheckbox22.Checked)
                 {
-                    priorMin = mem.ReadFloat(recoilMinAddress);
-                    priorMax = mem.ReadFloat(recoilMaxAddress);
 
-                    mem.WriteFloat(recoilMinAddress, 0);
-                    mem.WriteFloat(recoilMaxAddress, 0);
+
+                    Debug.WriteLine("recoil min: " + recoilPitchMin.ToString("X"));
+                    priorMin = mem.ReadFloat(recoilPitchMin);
+                    priorMax = mem.ReadFloat(recoilPitchMax);
+
+                    mem.WriteFloat(recoilPitchMin, 0);
+                    mem.WriteFloat(recoilPitchMax, 0);
+                    mem.WriteFloat(recoilYawMin, 0);
+                    mem.WriteFloat(recoilYawMax, 0);
                 }
                 else
                 {
-                    mem.WriteFloat(recoilMinAddress, priorMin);
-                    mem.WriteFloat(recoilMaxAddress, priorMax);
+                    mem.WriteFloat(recoilPitchMin, priorMin);
+                    mem.WriteFloat(recoilPitchMax, priorMax);
                 }
             }
             catch
@@ -1206,6 +1213,20 @@ namespace Deepcoc
             else
             {
                 mem.WriteInt(canTakeDamageAddress, 1);
+            }
+        }
+
+        private void materialCheckbox4_CheckedChanged_1(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var dilationAddress = mem.ReadAddress(baseAddress, Offsets.characterTimeDialation);
+            if (materialCheckbox4.Checked)
+            {
+                mem.WriteFloat(dilationAddress, materialSlider5.Value);
+            }
+            else
+            {
+                mem.WriteFloat(dilationAddress, 1);
             }
         }
     }

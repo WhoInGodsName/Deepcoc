@@ -31,6 +31,10 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabPage2 = new TabPage();
+            materialCheckbox4 = new MaterialSkin.Controls.MaterialCheckbox();
+            materialSlider5 = new MaterialSkin.Controls.MaterialSlider();
+            materialLabel34 = new MaterialSkin.Controls.MaterialLabel();
+            materialSlider4 = new MaterialSkin.Controls.MaterialSlider();
             materialCheckbox26 = new MaterialSkin.Controls.MaterialCheckbox();
             materialCheckbox25 = new MaterialSkin.Controls.MaterialCheckbox();
             materialLabel33 = new MaterialSkin.Controls.MaterialLabel();
@@ -163,6 +167,10 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(materialCheckbox4);
+            tabPage2.Controls.Add(materialSlider5);
+            tabPage2.Controls.Add(materialLabel34);
+            tabPage2.Controls.Add(materialSlider4);
             tabPage2.Controls.Add(materialCheckbox26);
             tabPage2.Controls.Add(materialCheckbox25);
             tabPage2.Controls.Add(materialLabel33);
@@ -230,11 +238,66 @@
             tabPage2.Text = "Resources + Misc";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // materialCheckbox4
+            // 
+            materialCheckbox4.AutoSize = true;
+            materialCheckbox4.Depth = 0;
+            materialCheckbox4.Location = new Point(685, 271);
+            materialCheckbox4.Margin = new Padding(0);
+            materialCheckbox4.MouseLocation = new Point(-1, -1);
+            materialCheckbox4.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox4.Name = "materialCheckbox4";
+            materialCheckbox4.ReadOnly = false;
+            materialCheckbox4.Ripple = true;
+            materialCheckbox4.Size = new Size(92, 37);
+            materialCheckbox4.TabIndex = 170;
+            materialCheckbox4.Text = "Activate";
+            materialCheckbox4.UseVisualStyleBackColor = true;
+            materialCheckbox4.CheckedChanged += materialCheckbox4_CheckedChanged_1;
+            // 
+            // materialSlider5
+            // 
+            materialSlider5.Depth = 0;
+            materialSlider5.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialSlider5.Location = new Point(685, 228);
+            materialSlider5.MouseState = MaterialSkin.MouseState.HOVER;
+            materialSlider5.Name = "materialSlider5";
+            materialSlider5.Size = new Size(277, 40);
+            materialSlider5.TabIndex = 169;
+            materialSlider5.Text = "Time dilation";
+            materialSlider5.Value = 1;
+            // 
+            // materialLabel34
+            // 
+            materialLabel34.AutoSize = true;
+            materialLabel34.Depth = 0;
+            materialLabel34.FlatStyle = FlatStyle.Popup;
+            materialLabel34.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel34.ForeColor = Color.Maroon;
+            materialLabel34.Location = new Point(685, 206);
+            materialLabel34.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel34.Name = "materialLabel34";
+            materialLabel34.Size = new Size(184, 19);
+            materialLabel34.TabIndex = 168;
+            materialLabel34.Text = "PLAYZER TIME DILATION";
+            // 
+            // materialSlider4
+            // 
+            materialSlider4.Depth = 0;
+            materialSlider4.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialSlider4.Location = new Point(685, 74);
+            materialSlider4.MouseState = MaterialSkin.MouseState.HOVER;
+            materialSlider4.Name = "materialSlider4";
+            materialSlider4.Size = new Size(277, 40);
+            materialSlider4.TabIndex = 167;
+            materialSlider4.Text = "Time dilation";
+            materialSlider4.Value = 1;
+            // 
             // materialCheckbox26
             // 
             materialCheckbox26.AutoSize = true;
             materialCheckbox26.Depth = 0;
-            materialCheckbox26.Location = new Point(685, 112);
+            materialCheckbox26.Location = new Point(685, 154);
             materialCheckbox26.Margin = new Padding(0);
             materialCheckbox26.MouseLocation = new Point(-1, -1);
             materialCheckbox26.MouseState = MaterialSkin.MouseState.HOVER;
@@ -250,7 +313,7 @@
             // 
             materialCheckbox25.AutoSize = true;
             materialCheckbox25.Depth = 0;
-            materialCheckbox25.Location = new Point(685, 75);
+            materialCheckbox25.Location = new Point(685, 117);
             materialCheckbox25.Margin = new Padding(0);
             materialCheckbox25.MouseLocation = new Point(-1, -1);
             materialCheckbox25.MouseState = MaterialSkin.MouseState.HOVER;
@@ -330,7 +393,7 @@
             materialLabel31.Name = "materialLabel31";
             materialLabel31.Size = new Size(10, 19);
             materialLabel31.TabIndex = 159;
-            materialLabel31.Text = "6";
+            materialLabel31.Text = "8";
             // 
             // materialMultiLineTextBox19
             // 
@@ -358,7 +421,7 @@
             materialLabel32.Name = "materialLabel32";
             materialLabel32.Size = new Size(10, 19);
             materialLabel32.TabIndex = 157;
-            materialLabel32.Text = "5";
+            materialLabel32.Text = "7";
             // 
             // materialMultiLineTextBox20
             // 
@@ -2335,7 +2398,7 @@
             Font = new Font("Impact", 24F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(7);
             Name = "Form1";
-            Text = "NEMESIS 1.2.4";
+            Text = "NEMESIS 1.2.6";
             Load += Form1_Load;
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
@@ -2475,5 +2538,8 @@
         private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox23;
         private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox24;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckbox26;
+        private MaterialSkin.Controls.MaterialSlider materialSlider4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel34;
+        private MaterialSkin.Controls.MaterialSlider materialSlider5;
     }
 }
