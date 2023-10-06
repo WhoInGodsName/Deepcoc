@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using Deepcoc.Auth;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -15,11 +14,7 @@ namespace Deepcoc
 
     public partial class Form1 : MaterialForm
     {
-        public static api KeyAuthApp = new api(
-            name: "Nemesis",
-            ownerid: "JxxtbMr5Q0",
-            secret: "1b35d2d380ed79523c35de34f3963cb650a53d55239a497e47ea8bbf0d7578cb",
-            version: "1.0");
+
 
         public IntPtr primaryAddress = IntPtr.Zero;
         public IntPtr secondaryAddress = IntPtr.Zero;
@@ -46,7 +41,7 @@ namespace Deepcoc
         public Form1()
         {
             InitializeComponent();
-            KeyAuthApp.init();
+
 
 
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -59,12 +54,7 @@ namespace Deepcoc
         {
             TextBox.CheckForIllegalCrossThreadCalls = false;
 
-            KeyAuthApp.license(Offsets.key);
-            if (KeyAuthApp.response.success)
-            {
-                game = Process.GetProcessesByName("FSD-Win64-Shipping").First();
-            }
-
+            game = Process.GetProcessesByName("FSD-Win64-Shipping").First();
             MemoryReader mem = new MemoryReader(game);
             baseAddress = game.MainModule.BaseAddress;
             ReloadAddresses();
@@ -87,8 +77,8 @@ namespace Deepcoc
             Thread EDS = new Thread(DeathStare);
             EDS.Start();
 
-            Thread check = new Thread(CheckyWecky);
-            check.Start();
+            //Thread check = new Thread(CheckyWecky);
+            //check.Start();
 
             void LockAmmo()
             {
@@ -425,29 +415,6 @@ namespace Deepcoc
                     System.Diagnostics.Debug.WriteLine("Cant reload");
                 }
             }
-        }
-        private void CheckyWecky()
-        {
-            try
-            {
-                KeyAuthApp.license(Offsets.key);
-                if (!KeyAuthApp.response.success)
-                {
-                    Form1.ActiveForm.Close();
-                    while (true)
-                    {
-                        MessageBox.Show("You dont have a license for the software bitch");
-                        Process.Start("https://www.youtube.com/watch?v=XFirF_bFHVg");
-                    }
-
-                }
-
-            }
-            catch
-            {
-
-            }
-            Thread.Sleep(600000);
         }
 
         private void ReloadAddresses()
