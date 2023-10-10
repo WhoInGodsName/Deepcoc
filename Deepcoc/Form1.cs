@@ -98,12 +98,12 @@ namespace Deepcoc
                         listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid int for custom firerate.");
                     }
                     //Gunner specific
-                    if (materialCheckbox18.Checked)
+                    /*if (materialCheckbox18.Checked)
                     {
                         var overheatAddress = mem.ReadAddress(baseAddress, Offsets.primaryOverheat);
                         Thread.Sleep(5);
                         mem.WriteFloat(overheatAddress, 0);
-                    }
+                    }*/
 
                     //Primary gun
                     if (materialCheckbox8.Checked)
@@ -145,7 +145,7 @@ namespace Deepcoc
                     }
 
                     //Fourth gun
-                    if (materialCheckbox13.Checked)
+                    /*if (materialCheckbox13.Checked)
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(baseAddress, Offsets.FourthGun);
                         IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, Offsets.currentAmmo);
@@ -156,7 +156,7 @@ namespace Deepcoc
                         IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.FourthGun);
                         IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.ammoCount);
                         mem.WriteInt(_fireRate + Offsets.fireRate, fireRate);
-                    }
+                    }*/
 
 
                     Thread.Sleep(25);
@@ -489,7 +489,7 @@ namespace Deepcoc
                 var infDepo = signatureScan.FindPattern("F3 0F 11 51 60 48", 0);
                 infDepoAddress = infDepo;
 
-                Debug.WriteLine(infDepo.ToString("X"));
+                Debug.WriteLine("infDepo: " + infDepo.ToString("X"));
                 IntPtr trampolineSourceAddr = mem.CreateCodeCave(infDepo + 0x15D6C00, 145);
                 if (trampolineSourceAddr == IntPtr.Zero)
                 {
@@ -962,7 +962,7 @@ namespace Deepcoc
 
         private void materialButton33_Click(object sender, EventArgs e)
         {
-            materialCheckbox1.Checked = false;
+            //materialCheckbox1.Checked = false;
             materialCheckbox2.Checked = false;
             materialCheckbox3.Checked = false;
             materialCheckbox24.Checked = false;
@@ -974,12 +974,12 @@ namespace Deepcoc
             materialCheckbox10.Checked = false;
             materialCheckbox11.Checked = false;
             materialCheckbox12.Checked = false;
-            materialCheckbox13.Checked = false;
-            materialCheckbox14.Checked = false;
+            //materialCheckbox13.Checked = false;
+            //materialCheckbox14.Checked = false;
             materialCheckbox15.Checked = false;
             materialCheckbox16.Checked = false;
             materialCheckbox17.Checked = false;
-            materialCheckbox18.Checked = false;
+            //materialCheckbox18.Checked = false;
             materialCheckbox19.Checked = false;
             materialCheckbox20.Checked = false;
             materialCheckbox21.Checked = false;
