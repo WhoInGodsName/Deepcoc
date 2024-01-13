@@ -95,6 +95,8 @@
             materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
+            materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+            materialCheckbox28 = new MaterialSkin.Controls.MaterialCheckbox();
             materialCheckbox24 = new MaterialSkin.Controls.MaterialCheckbox();
             materialCheckbox23 = new MaterialSkin.Controls.MaterialCheckbox();
             materialMultiLineTextBox21 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
@@ -148,10 +150,24 @@
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
             listBox1 = new ListBox();
             tabPage3 = new TabPage();
+            materialCheckbox32 = new MaterialSkin.Controls.MaterialCheckbox();
+            materialCheckbox31 = new MaterialSkin.Controls.MaterialCheckbox();
+            materialLabel37 = new MaterialSkin.Controls.MaterialLabel();
+            materialCheckbox30 = new MaterialSkin.Controls.MaterialCheckbox();
+            materialLabel36 = new MaterialSkin.Controls.MaterialLabel();
+            materialCheckbox29 = new MaterialSkin.Controls.MaterialCheckbox();
+            materialLabel35 = new MaterialSkin.Controls.MaterialLabel();
+            materialCheckbox13 = new MaterialSkin.Controls.MaterialCheckbox();
+            materialCheckbox14 = new MaterialSkin.Controls.MaterialCheckbox();
+            materialCheckbox18 = new MaterialSkin.Controls.MaterialCheckbox();
+            materialCheckbox27 = new MaterialSkin.Controls.MaterialCheckbox();
+            materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
             materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel38 = new MaterialSkin.Controls.MaterialLabel();
             tabPage2.SuspendLayout();
             materialTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -918,6 +934,7 @@
             materialMultiLineTextBox6.Size = new Size(93, 30);
             materialMultiLineTextBox6.TabIndex = 128;
             materialMultiLineTextBox6.Text = "";
+            materialMultiLineTextBox6.TextChanged += materialMultiLineTextBox6_TextChanged;
             // 
             // materialMultiLineTextBox5
             // 
@@ -1279,6 +1296,9 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(materialLabel38);
+            tabPage1.Controls.Add(materialComboBox1);
+            tabPage1.Controls.Add(materialCheckbox28);
             tabPage1.Controls.Add(materialCheckbox24);
             tabPage1.Controls.Add(materialCheckbox23);
             tabPage1.Controls.Add(materialMultiLineTextBox21);
@@ -1340,6 +1360,46 @@
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
+            // 
+            // materialComboBox1
+            // 
+            materialComboBox1.AutoResize = false;
+            materialComboBox1.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox1.Depth = 0;
+            materialComboBox1.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox1.DropDownHeight = 174;
+            materialComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox1.DropDownWidth = 80;
+            materialComboBox1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox1.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox1.FormattingEnabled = true;
+            materialComboBox1.IntegralHeight = false;
+            materialComboBox1.ItemHeight = 43;
+            materialComboBox1.Items.AddRange(new object[] { "Magazine", "Reserve" });
+            materialComboBox1.Location = new Point(637, 37);
+            materialComboBox1.MaxDropDownItems = 4;
+            materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox1.Name = "materialComboBox1";
+            materialComboBox1.Size = new Size(133, 49);
+            materialComboBox1.StartIndex = 0;
+            materialComboBox1.TabIndex = 151;
+            // 
+            // materialCheckbox28
+            // 
+            materialCheckbox28.AutoSize = true;
+            materialCheckbox28.Depth = 0;
+            materialCheckbox28.Location = new Point(794, 106);
+            materialCheckbox28.Margin = new Padding(0);
+            materialCheckbox28.MouseLocation = new Point(-1, -1);
+            materialCheckbox28.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox28.Name = "materialCheckbox28";
+            materialCheckbox28.ReadOnly = false;
+            materialCheckbox28.Ripple = true;
+            materialCheckbox28.Size = new Size(149, 37);
+            materialCheckbox28.TabIndex = 150;
+            materialCheckbox28.Text = "Inf grenades (H)";
+            materialCheckbox28.UseVisualStyleBackColor = true;
+            materialCheckbox28.CheckedChanged += materialCheckbox28_CheckedChanged;
             // 
             // materialCheckbox24
             // 
@@ -1970,6 +2030,7 @@
             materialCheckbox7.TabIndex = 72;
             materialCheckbox7.Text = "Lock Firerate";
             materialCheckbox7.UseVisualStyleBackColor = true;
+            materialCheckbox7.CheckedChanged += materialCheckbox7_CheckedChanged;
             // 
             // materialLabel7
             // 
@@ -2177,6 +2238,19 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(materialCheckbox32);
+            tabPage3.Controls.Add(materialCheckbox31);
+            tabPage3.Controls.Add(materialLabel37);
+            tabPage3.Controls.Add(materialCheckbox30);
+            tabPage3.Controls.Add(materialLabel36);
+            tabPage3.Controls.Add(materialCheckbox29);
+            tabPage3.Controls.Add(materialLabel35);
+            tabPage3.Controls.Add(materialCheckbox13);
+            tabPage3.Controls.Add(materialCheckbox14);
+            tabPage3.Controls.Add(materialCheckbox18);
+            tabPage3.Controls.Add(materialCheckbox27);
+            tabPage3.Controls.Add(materialLabel5);
+            tabPage3.Controls.Add(materialCheckbox1);
             tabPage3.Controls.Add(materialLabel12);
             tabPage3.Controls.Add(materialLabel11);
             tabPage3.Controls.Add(materialLabel10);
@@ -2187,8 +2261,214 @@
             tabPage3.Padding = new Padding(3);
             tabPage3.Size = new Size(1284, 542);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "Class specific";
+            tabPage3.Text = "Any distance";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // materialCheckbox32
+            // 
+            materialCheckbox32.AutoSize = true;
+            materialCheckbox32.Depth = 0;
+            materialCheckbox32.Location = new Point(20, 167);
+            materialCheckbox32.Margin = new Padding(0);
+            materialCheckbox32.MouseLocation = new Point(-1, -1);
+            materialCheckbox32.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox32.Name = "materialCheckbox32";
+            materialCheckbox32.ReadOnly = false;
+            materialCheckbox32.Ripple = true;
+            materialCheckbox32.Size = new Size(116, 37);
+            materialCheckbox32.TabIndex = 178;
+            materialCheckbox32.Text = "Max ammo";
+            materialCheckbox32.UseVisualStyleBackColor = true;
+            materialCheckbox32.CheckedChanged += materialCheckbox32_CheckedChanged;
+            // 
+            // materialCheckbox31
+            // 
+            materialCheckbox31.AutoSize = true;
+            materialCheckbox31.Depth = 0;
+            materialCheckbox31.Location = new Point(20, 130);
+            materialCheckbox31.Margin = new Padding(0);
+            materialCheckbox31.MouseLocation = new Point(-1, -1);
+            materialCheckbox31.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox31.Name = "materialCheckbox31";
+            materialCheckbox31.ReadOnly = false;
+            materialCheckbox31.Ripple = true;
+            materialCheckbox31.Size = new Size(126, 37);
+            materialCheckbox31.TabIndex = 177;
+            materialCheckbox31.Text = "Any distance";
+            materialCheckbox31.UseVisualStyleBackColor = true;
+            materialCheckbox31.CheckedChanged += materialCheckbox31_CheckedChanged;
+            // 
+            // materialLabel37
+            // 
+            materialLabel37.AutoSize = true;
+            materialLabel37.Depth = 0;
+            materialLabel37.FlatStyle = FlatStyle.Popup;
+            materialLabel37.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel37.ForeColor = Color.Maroon;
+            materialLabel37.Location = new Point(20, 72);
+            materialLabel37.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel37.Name = "materialLabel37";
+            materialLabel37.Size = new Size(58, 19);
+            materialLabel37.TabIndex = 176;
+            materialLabel37.Text = "Sentries";
+            // 
+            // materialCheckbox30
+            // 
+            materialCheckbox30.AutoSize = true;
+            materialCheckbox30.Depth = 0;
+            materialCheckbox30.Location = new Point(20, 93);
+            materialCheckbox30.Margin = new Padding(0);
+            materialCheckbox30.MouseLocation = new Point(-1, -1);
+            materialCheckbox30.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox30.Name = "materialCheckbox30";
+            materialCheckbox30.ReadOnly = false;
+            materialCheckbox30.Ripple = true;
+            materialCheckbox30.Size = new Size(113, 37);
+            materialCheckbox30.TabIndex = 175;
+            materialCheckbox30.Text = "Inf sentries";
+            materialCheckbox30.UseVisualStyleBackColor = true;
+            materialCheckbox30.CheckedChanged += materialCheckbox30_CheckedChanged;
+            // 
+            // materialLabel36
+            // 
+            materialLabel36.AutoSize = true;
+            materialLabel36.Depth = 0;
+            materialLabel36.FlatStyle = FlatStyle.Popup;
+            materialLabel36.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel36.ForeColor = Color.Maroon;
+            materialLabel36.Location = new Point(745, 72);
+            materialLabel36.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel36.Name = "materialLabel36";
+            materialLabel36.Size = new Size(56, 19);
+            materialLabel36.TabIndex = 174;
+            materialLabel36.Text = "Primary";
+            // 
+            // materialCheckbox29
+            // 
+            materialCheckbox29.AutoSize = true;
+            materialCheckbox29.Depth = 0;
+            materialCheckbox29.Location = new Point(369, 93);
+            materialCheckbox29.Margin = new Padding(0);
+            materialCheckbox29.MouseLocation = new Point(-1, -1);
+            materialCheckbox29.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox29.Name = "materialCheckbox29";
+            materialCheckbox29.ReadOnly = false;
+            materialCheckbox29.Ripple = true;
+            materialCheckbox29.Size = new Size(120, 37);
+            materialCheckbox29.TabIndex = 173;
+            materialCheckbox29.Text = "No overheat";
+            materialCheckbox29.UseVisualStyleBackColor = true;
+            materialCheckbox29.CheckedChanged += materialCheckbox29_CheckedChanged;
+            // 
+            // materialLabel35
+            // 
+            materialLabel35.AutoSize = true;
+            materialLabel35.Depth = 0;
+            materialLabel35.FlatStyle = FlatStyle.Popup;
+            materialLabel35.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel35.ForeColor = Color.Maroon;
+            materialLabel35.Location = new Point(369, 72);
+            materialLabel35.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel35.Name = "materialLabel35";
+            materialLabel35.Size = new Size(56, 19);
+            materialLabel35.TabIndex = 172;
+            materialLabel35.Text = "Primary";
+            // 
+            // materialCheckbox13
+            // 
+            materialCheckbox13.AutoSize = true;
+            materialCheckbox13.Depth = 0;
+            materialCheckbox13.Location = new Point(1139, 204);
+            materialCheckbox13.Margin = new Padding(0);
+            materialCheckbox13.MouseLocation = new Point(-1, -1);
+            materialCheckbox13.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox13.Name = "materialCheckbox13";
+            materialCheckbox13.ReadOnly = false;
+            materialCheckbox13.Ripple = true;
+            materialCheckbox13.Size = new Size(97, 37);
+            materialCheckbox13.TabIndex = 171;
+            materialCheckbox13.Text = "No recoil";
+            materialCheckbox13.UseVisualStyleBackColor = true;
+            // 
+            // materialCheckbox14
+            // 
+            materialCheckbox14.AutoSize = true;
+            materialCheckbox14.Depth = 0;
+            materialCheckbox14.Location = new Point(1139, 167);
+            materialCheckbox14.Margin = new Padding(0);
+            materialCheckbox14.MouseLocation = new Point(-1, -1);
+            materialCheckbox14.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox14.Name = "materialCheckbox14";
+            materialCheckbox14.ReadOnly = false;
+            materialCheckbox14.Ripple = true;
+            materialCheckbox14.Size = new Size(94, 37);
+            materialCheckbox14.TabIndex = 170;
+            materialCheckbox14.Text = "full auto";
+            materialCheckbox14.UseVisualStyleBackColor = true;
+            materialCheckbox14.CheckedChanged += materialCheckbox14_CheckedChanged;
+            // 
+            // materialCheckbox18
+            // 
+            materialCheckbox18.AutoSize = true;
+            materialCheckbox18.Depth = 0;
+            materialCheckbox18.Location = new Point(1139, 93);
+            materialCheckbox18.Margin = new Padding(0);
+            materialCheckbox18.MouseLocation = new Point(-1, -1);
+            materialCheckbox18.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox18.Name = "materialCheckbox18";
+            materialCheckbox18.ReadOnly = false;
+            materialCheckbox18.Ripple = true;
+            materialCheckbox18.Size = new Size(120, 37);
+            materialCheckbox18.TabIndex = 169;
+            materialCheckbox18.Text = "Lock Ammo";
+            materialCheckbox18.UseVisualStyleBackColor = true;
+            // 
+            // materialCheckbox27
+            // 
+            materialCheckbox27.AutoSize = true;
+            materialCheckbox27.Depth = 0;
+            materialCheckbox27.Location = new Point(1139, 130);
+            materialCheckbox27.Margin = new Padding(0);
+            materialCheckbox27.MouseLocation = new Point(-1, -1);
+            materialCheckbox27.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox27.Name = "materialCheckbox27";
+            materialCheckbox27.ReadOnly = false;
+            materialCheckbox27.Ripple = true;
+            materialCheckbox27.Size = new Size(126, 37);
+            materialCheckbox27.TabIndex = 168;
+            materialCheckbox27.Text = "Lock Firerate";
+            materialCheckbox27.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel5
+            // 
+            materialLabel5.AutoSize = true;
+            materialLabel5.Depth = 0;
+            materialLabel5.FlatStyle = FlatStyle.Popup;
+            materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel5.ForeColor = Color.Maroon;
+            materialLabel5.Location = new Point(1139, 72);
+            materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel5.Name = "materialLabel5";
+            materialLabel5.Size = new Size(84, 19);
+            materialLabel5.TabIndex = 167;
+            materialLabel5.Text = "FLARE GUN";
+            // 
+            // materialCheckbox1
+            // 
+            materialCheckbox1.AutoSize = true;
+            materialCheckbox1.Depth = 0;
+            materialCheckbox1.Location = new Point(745, 93);
+            materialCheckbox1.Margin = new Padding(0);
+            materialCheckbox1.MouseLocation = new Point(-1, -1);
+            materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCheckbox1.Name = "materialCheckbox1";
+            materialCheckbox1.ReadOnly = false;
+            materialCheckbox1.Ripple = true;
+            materialCheckbox1.Size = new Size(120, 37);
+            materialCheckbox1.TabIndex = 166;
+            materialCheckbox1.Text = "No overheat";
+            materialCheckbox1.UseVisualStyleBackColor = true;
+            materialCheckbox1.CheckedChanged += materialCheckbox1_CheckedChanged;
             // 
             // materialLabel12
             // 
@@ -2252,6 +2532,20 @@
             materialLabel9.TabIndex = 67;
             materialLabel9.Text = "ENGINEER";
             // 
+            // materialLabel38
+            // 
+            materialLabel38.AutoSize = true;
+            materialLabel38.Depth = 0;
+            materialLabel38.FlatStyle = FlatStyle.Popup;
+            materialLabel38.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel38.ForeColor = Color.Maroon;
+            materialLabel38.Location = new Point(637, 11);
+            materialLabel38.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel38.Name = "materialLabel38";
+            materialLabel38.Size = new Size(125, 19);
+            materialLabel38.TabIndex = 152;
+            materialLabel38.Text = "Ammo Lock Type";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(16F, 39F);
@@ -2263,7 +2557,7 @@
             Font = new Font("Impact", 24F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(7);
             Name = "Form1";
-            Text = "NEMESIS 1.2.9";
+            Text = "NEMESIS 1.3.0";
             Load += Form1_Load;
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
@@ -2399,5 +2693,21 @@
         private MaterialSkin.Controls.MaterialSlider materialSlider4;
         private MaterialSkin.Controls.MaterialLabel materialLabel34;
         private MaterialSkin.Controls.MaterialSlider materialSlider5;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox13;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox14;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox18;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox27;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox28;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox29;
+        private MaterialSkin.Controls.MaterialLabel materialLabel35;
+        private MaterialSkin.Controls.MaterialLabel materialLabel36;
+        private MaterialSkin.Controls.MaterialLabel materialLabel37;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox30;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox31;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox32;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel38;
     }
 }

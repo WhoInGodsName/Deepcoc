@@ -82,6 +82,7 @@ namespace Deepcoc
 
             void LockAmmo()
             {
+                var ammoOffset = Offsets.currentAmmo;
                 while (true)
                 {
 
@@ -105,10 +106,19 @@ namespace Deepcoc
                         mem.WriteFloat(overheatAddress, 0);
                     }*/
 
+                    if(materialComboBox1.GetItemText(materialComboBox1.SelectedItem) == "Reserve")
+                    {
+                        ammoOffset = Offsets.ammoCount;
+                    }
+                    else
+                    {
+                        ammoOffset = Offsets.currentAmmo;
+                    }
+
                     //Primary gun
                     if (materialCheckbox8.Checked)
                     {
-                        IntPtr _currentAmmo = mem.ReadAddress(primaryAddress, Offsets.currentAmmo);
+                        IntPtr _currentAmmo = mem.ReadAddress(primaryAddress, ammoOffset);
                         mem.WriteInt(_currentAmmo, 100);
                     }
                     if (materialCheckbox7.Checked)
@@ -121,29 +131,60 @@ namespace Deepcoc
                     //Secondary gun
                     if (materialCheckbox9.Checked)
                     {
-                        IntPtr _currentAmmo = mem.ReadAddress(secondaryAddress, Offsets.currentAmmo);
+                        IntPtr _currentAmmo = mem.ReadAddress(secondaryAddress, ammoOffset);
                         mem.WriteInt(_currentAmmo, 100);
                     }
                     if (materialCheckbox10.Checked)
                     {
                         IntPtr _fireRate = mem.ReadAddress(secondaryAddress, Offsets.ammoCount);
-                        mem.WriteInt(_fireRate + Offsets.fireRate, fireRate);
+                        mem.WriteFloat(_fireRate + Offsets.fireRate2, 20f);
+                    }
+                    if (materialCheckbox2.Checked)
+                    {
+                        var gun = mem.ReadAddress(baseAddress, Offsets.SecondaryGun);
+                        var cycleTimeLeft = mem.ReadAddress(gun, Offsets.cycleTimeLeft);
+                        mem.WriteFloat(cycleTimeLeft, 0);
                     }
 
                     //Third gun
                     if (materialCheckbox11.Checked)
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
-                        IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, Offsets.currentAmmo);
+                        IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, ammoOffset);
                         mem.WriteInt(_lockAmmo, 100);
                     }
                     if (materialCheckbox12.Checked)
                     {
-                        IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
-                        IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.ammoCount);
-                        mem.WriteInt(_fireRate + Offsets.fireRate, fireRate);
+                        IntPtr _gun = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
+                        IntPtr _fireRate = mem.ReadAddress(_gun, Offsets.fireRate2);
+                        mem.WriteFloat(_fireRate, 20f);
+                    }
+                    if (fullAutoPrimary.Checked)
+                    {
+                        var gun = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
+                        var cycleTimeLeft = mem.ReadAddress(gun, Offsets.cycleTimeLeft);
+                        mem.WriteFloat(cycleTimeLeft, 0);
                     }
 
+                    //Scout flare gun
+                    if (materialCheckbox18.Checked)
+                    {
+                        IntPtr _currentAmmo = mem.ReadAddress(baseAddress, Offsets.FourthGun);
+                        IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, Offsets.currentAmmo);
+                        mem.WriteInt(_lockAmmo, 100);
+                    }
+                    if (materialCheckbox27.Checked)
+                    {
+                        IntPtr _gun = mem.ReadAddress(baseAddress, Offsets.FourthGun);
+                        IntPtr _fireRate = mem.ReadAddress(_gun, Offsets.fireRate2);
+                        mem.WriteInt(_fireRate, 20);
+                    }
+                    if (materialCheckbox14.Checked)
+                    {
+                        IntPtr fourthGunAddress = mem.ReadAddress(baseAddress, Offsets.ForthGunFullAuto);
+                        IntPtr cycleTimeLeft = mem.ReadAddress(fourthGunAddress, Offsets.cycleTimeLeft);
+                        mem.WriteFloat(cycleTimeLeft, 0);
+                    }
                     //Fourth gun
                     /*if (materialCheckbox13.Checked)
                     {
@@ -173,7 +214,7 @@ namespace Deepcoc
                     float yVal = mem.ReadFloat(yCoord);
                     int _speed = materialSlider2.Value;
                     int _units = materialSlider3.Value;
-                    int _isJumping = 0;
+                    //int _isJumping = 0;
                     float _firstXVal = mem.ReadFloat(_xCoordAddress);
                     float _firstZVal = mem.ReadFloat(_zCoordAddress);
 
@@ -441,6 +482,8 @@ namespace Deepcoc
 
         }
 
+
+
         private void materialButton1_Click(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -579,6 +622,46 @@ namespace Deepcoc
                 mem.WriteFloat(charSizeAddressZ, scale);
             }
 
+        }
+
+        private void RecoilControl(int offset)
+        {
+
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var recoilAddress = mem.ReadAddress(baseAddress, offset);
+                Thread.Sleep(10);
+                var recoilPitchMin = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMin);
+                var recoilPitchMax = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMax);
+                var recoilYawMin = mem.ReadAddress(recoilAddress, Offsets.recoilYawMin);
+                var recoilYawMax = mem.ReadAddress(recoilAddress, Offsets.recoilYawMax);
+
+
+
+                if (materialCheckbox22.Checked)
+                {
+
+
+                    Debug.WriteLine("recoil min: " + recoilPitchMin.ToString("X"));
+                    priorMin = mem.ReadFloat(recoilPitchMin);
+                    priorMax = mem.ReadFloat(recoilPitchMax);
+
+                    mem.WriteFloat(recoilPitchMin, 0);
+                    mem.WriteFloat(recoilPitchMax, 0);
+                    mem.WriteFloat(recoilYawMin, 0);
+                    mem.WriteFloat(recoilYawMax, 0);
+                }
+                else
+                {
+                    mem.WriteFloat(recoilPitchMin, priorMin);
+                    mem.WriteFloat(recoilPitchMax, priorMax);
+                }
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Illegal read/write for recoil.");
+            }
         }
 
         private void Dance(byte danceMove)
@@ -804,18 +887,21 @@ namespace Deepcoc
             {
                 MemoryReader mem = new MemoryReader(game);
                 var primaryFullAutoAddress = mem.ReadAddress(baseAddress, Offsets.primaryGunFullAuto);
+                var gun = mem.ReadAddress(baseAddress, Offsets.PrimaryGun);
+                var cycleTimeLeft = mem.ReadAddress(gun, Offsets.cycleTimeLeft);
                 Thread.Sleep(10);
                 IntPtr burstCountAddress = mem.ReadAddress(baseAddress, Offsets.primaryGunBurst);
                 Debug.WriteLine(primaryFullAutoAddress.ToString("X"));
                 if (fullAutoPrimary.Checked)
                 {
                     mem.WriteByte(primaryFullAutoAddress, 1);
-                    mem.WriteInt(burstCountAddress, 10);
+                    //mem.WriteInt(burstCountAddress, 10);
+                    mem.WriteFloat(cycleTimeLeft, 0);
                 }
                 else
                 {
                     mem.WriteByte(primaryFullAutoAddress, 0);
-                    mem.WriteInt(burstCountAddress, 0);
+                    //mem.WriteInt(burstCountAddress, 0);
                 }
             }
             catch
@@ -835,15 +921,16 @@ namespace Deepcoc
             Debug.WriteLine(secondaryGunAddress.ToString("X"));
             if (materialCheckbox2.Checked)
             {
-                mem.WriteInt(burstCountAddress, 10);
+                //mem.WriteInt(burstCountAddress, 10);
                 mem.WriteByte(secondaryGunAddress, 1);
             }
             else
             {
                 mem.WriteByte(secondaryGunAddress, 0);
-                mem.WriteInt(burstCountAddress, 0);
+                //mem.WriteInt(burstCountAddress, 0);
             }
         }
+
 
         public float priorMin = 0f;
         public float priorMax = 0f;
@@ -945,7 +1032,7 @@ namespace Deepcoc
             Debug.WriteLine(secondaryGunAddress.ToString("X"));
             if (materialCheckbox19.Checked)
             {
-                mem.WriteInt(burstCountAddress, 10);
+                //mem.WriteInt(burstCountAddress, 10);
                 mem.WriteByte(secondaryGunAddress, 1);
             }
             else
@@ -987,6 +1074,8 @@ namespace Deepcoc
             materialCheckbox23.Checked = false;
             fullAutoPrimary.Checked = false;
         }
+
+
 
         private void materialCheckbox20_CheckedChanged(object sender, EventArgs e)
         {
@@ -1194,6 +1283,145 @@ namespace Deepcoc
             else
             {
                 mem.WriteFloat(dilationAddress, 1);
+            }
+        }
+
+        private void materialMultiLineTextBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialCheckbox7_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //No overheat : Gunner
+        private void materialCheckbox1_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var primaryGun = mem.ReadAddress(baseAddress, Offsets.PrimaryGun);
+            var manualCooldownAddress = mem.ReadAddress(primaryGun, Offsets.ManualCooldownDelay);
+            var cooldownRateAddress = mem.ReadAddress(primaryGun, Offsets.coolDownRate);
+            if (materialCheckbox1.Checked)
+            {
+                mem.WriteFloat(manualCooldownAddress, 0);
+                mem.WriteFloat(cooldownRateAddress, 1000);
+            }
+            else
+            {
+                mem.WriteFloat(manualCooldownAddress, 0.3f);
+                mem.WriteFloat(cooldownRateAddress, 4);
+            }
+
+        }
+
+        private void materialCheckbox14_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            IntPtr fourthGunAddress = mem.ReadAddress(baseAddress, Offsets.ForthGunFullAuto);
+            Thread.Sleep(10);
+            IntPtr burstCountAddress = mem.ReadAddress(baseAddress, Offsets.FourthGunBurst);
+            IntPtr cycleTimeLeft = mem.ReadAddress(fourthGunAddress, Offsets.cycleTimeLeft);
+
+            Debug.WriteLine(fourthGunAddress.ToString("X"));
+            if (materialCheckbox14.Checked)
+            {
+                mem.WriteInt(burstCountAddress, 10);
+                mem.WriteByte(fourthGunAddress, 1);
+            }
+            else
+            {
+                mem.WriteByte(fourthGunAddress, 0);
+                mem.WriteInt(burstCountAddress, 0);
+            }
+        }
+
+        //Grenades
+        private void materialCheckbox28_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+
+            var inventory = mem.ReadAddress(baseAddress, Offsets.inventoryComponent);
+            var grenadeItem = mem.ReadAddress(inventory, Offsets.grenadeItem);
+            var grenadeCount = mem.ReadAddress(grenadeItem, Offsets.grenades);
+
+            if (materialCheckbox28.Checked)
+            {
+                mem.WriteInt(grenadeCount, 999999);
+            }
+            else
+            {
+                mem.WriteInt(grenadeCount, 1);
+            }
+        }
+
+        private void materialCheckbox29_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var primaryGun = mem.ReadAddress(baseAddress, Offsets.PrimaryGun);
+            var pressureDrop = mem.ReadAddress(primaryGun, Offsets.pressureDrop);
+            if (materialCheckbox29.Checked)
+            {
+                mem.WriteFloat(pressureDrop, 0f);
+            }
+            else
+            {
+                mem.WriteFloat(pressureDrop, 1f);
+
+            }
+        }
+
+        private void materialCheckbox30_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var inventory = mem.ReadAddress(baseAddress, Offsets.inventoryComponent);
+            var sentry = mem.ReadAddress(inventory, Offsets.recallableSentryGun);
+            var maxSentry = mem.ReadAddress(sentry, Offsets.maxSentryCount);
+
+            if (materialCheckbox30.Checked)
+            {
+                mem.WriteInt(maxSentry, 99999);
+            }
+            else
+            {
+                mem.WriteInt(maxSentry, 1);
+            }
+        }
+
+        private void materialCheckbox31_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var inventory = mem.ReadAddress(baseAddress, Offsets.inventoryComponent);
+            var sentry = mem.ReadAddress(inventory, Offsets.recallableSentryGun);
+            var itemPlacer = mem.ReadAddress(sentry, Offsets.itemPlacer);
+            var distance = mem.ReadAddress(itemPlacer, Offsets.placementDistance);
+
+            if (materialCheckbox31.Checked)
+            {
+                mem.WriteFloat(distance, 999999f);
+            }
+            else
+            {
+                mem.WriteFloat(distance, 100f);
+            }
+        }
+
+        private void materialCheckbox32_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var inventory = mem.ReadAddress(baseAddress, Offsets.inventoryComponent);
+            var sentry = mem.ReadAddress(inventory, Offsets.recallableSentryGun);
+            var ammoCapComp = mem.ReadAddress(sentry, Offsets.ammoCapacity);
+            var ammoCount = mem.ReadAddress(ammoCapComp, Offsets.ammoCountSent);
+
+            if (materialCheckbox32.Checked)
+            {
+                mem.WriteInt(ammoCount, 9999999);
+            }
+            else
+            {
+                mem.WriteInt(ammoCount, 300);
             }
         }
     }
