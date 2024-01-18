@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Numerics;
 using System.Runtime.InteropServices;
 
@@ -137,6 +138,11 @@ namespace Deepcoc
         public void WriteLong(IntPtr address, long value)
         {
             WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 8, IntPtr.Zero);
+        }
+        public void WriteDouble(IntPtr address, double value)
+        {
+            WriteProcessMemory(_handle, address, BitConverter.GetBytes(value), 8, IntPtr.Zero);
+
         }
 
         public void WriteFloat(IntPtr address, float value)

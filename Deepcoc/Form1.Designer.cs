@@ -95,6 +95,7 @@
             materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
+            materialLabel38 = new MaterialSkin.Controls.MaterialLabel();
             materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
             materialCheckbox28 = new MaterialSkin.Controls.MaterialCheckbox();
             materialCheckbox24 = new MaterialSkin.Controls.MaterialCheckbox();
@@ -167,7 +168,6 @@
             materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
-            materialLabel38 = new MaterialSkin.Controls.MaterialLabel();
             tabPage2.SuspendLayout();
             materialTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -1361,6 +1361,20 @@
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
             // 
+            // materialLabel38
+            // 
+            materialLabel38.AutoSize = true;
+            materialLabel38.Depth = 0;
+            materialLabel38.FlatStyle = FlatStyle.Popup;
+            materialLabel38.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel38.ForeColor = Color.Maroon;
+            materialLabel38.Location = new Point(637, 11);
+            materialLabel38.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel38.Name = "materialLabel38";
+            materialLabel38.Size = new Size(125, 19);
+            materialLabel38.TabIndex = 152;
+            materialLabel38.Text = "Ammo Lock Type";
+            // 
             // materialComboBox1
             // 
             materialComboBox1.AutoResize = false;
@@ -2532,20 +2546,6 @@
             materialLabel9.TabIndex = 67;
             materialLabel9.Text = "ENGINEER";
             // 
-            // materialLabel38
-            // 
-            materialLabel38.AutoSize = true;
-            materialLabel38.Depth = 0;
-            materialLabel38.FlatStyle = FlatStyle.Popup;
-            materialLabel38.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel38.ForeColor = Color.Maroon;
-            materialLabel38.Location = new Point(637, 11);
-            materialLabel38.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel38.Name = "materialLabel38";
-            materialLabel38.Size = new Size(125, 19);
-            materialLabel38.TabIndex = 152;
-            materialLabel38.Text = "Ammo Lock Type";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(16F, 39F);
@@ -2557,7 +2557,7 @@
             Font = new Font("Impact", 24F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(7);
             Name = "Form1";
-            Text = "NEMESIS 1.3.0";
+            Text = "NEMESIS 1.3.2";
             Load += Form1_Load;
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();

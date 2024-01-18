@@ -106,7 +106,7 @@ namespace Deepcoc
                         mem.WriteFloat(overheatAddress, 0);
                     }*/
 
-                    if(materialComboBox1.GetItemText(materialComboBox1.SelectedItem) == "Reserve")
+                    if (materialComboBox1.GetItemText(materialComboBox1.SelectedItem) == "Reserve")
                     {
                         ammoOffset = Offsets.ammoCount;
                     }
