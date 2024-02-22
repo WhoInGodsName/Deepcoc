@@ -82,7 +82,9 @@ namespace Deepcoc
 
             void LockAmmo()
             {
-                var ammoOffset = Offsets.currentAmmo;
+                var ammoOffsetPrimary = Offsets.currentAmmo;
+                var ammoOffsetSecondary = Offsets.currentAmmo;
+                var ammoOffsetThird = Offsets.currentAmmo;
                 while (true)
                 {
 
@@ -98,27 +100,38 @@ namespace Deepcoc
                     {
                         listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid int for custom firerate.");
                     }
-                    //Gunner specific
-                    /*if (materialCheckbox18.Checked)
-                    {
-                        var overheatAddress = mem.ReadAddress(baseAddress, Offsets.primaryOverheat);
-                        Thread.Sleep(5);
-                        mem.WriteFloat(overheatAddress, 0);
-                    }*/
 
                     if (materialComboBox1.GetItemText(materialComboBox1.SelectedItem) == "Reserve")
                     {
-                        ammoOffset = Offsets.ammoCount;
+                        ammoOffsetPrimary = Offsets.ammoCount;
                     }
                     else
                     {
-                        ammoOffset = Offsets.currentAmmo;
+                        ammoOffsetPrimary = Offsets.currentAmmo;
+                    }
+
+                    if (materialComboBox2.GetItemText(materialComboBox2.SelectedItem) == "Reserve")
+                    {
+                        ammoOffsetSecondary = Offsets.ammoCount;
+                    }
+                    else
+                    {
+                        ammoOffsetSecondary = Offsets.currentAmmo;
+                    }
+
+                    if (materialComboBox3.GetItemText(materialComboBox3.SelectedItem) == "Reserve")
+                    {
+                        ammoOffsetThird = Offsets.ammoCount;
+                    }
+                    else
+                    {
+                        ammoOffsetThird = Offsets.currentAmmo;
                     }
 
                     //Primary gun
                     if (materialCheckbox8.Checked)
                     {
-                        IntPtr _currentAmmo = mem.ReadAddress(primaryAddress, ammoOffset);
+                        IntPtr _currentAmmo = mem.ReadAddress(primaryAddress, ammoOffsetPrimary);
                         mem.WriteInt(_currentAmmo, 100);
                     }
                     if (materialCheckbox7.Checked)
@@ -131,7 +144,7 @@ namespace Deepcoc
                     //Secondary gun
                     if (materialCheckbox9.Checked)
                     {
-                        IntPtr _currentAmmo = mem.ReadAddress(secondaryAddress, ammoOffset);
+                        IntPtr _currentAmmo = mem.ReadAddress(secondaryAddress, ammoOffsetSecondary);
                         mem.WriteInt(_currentAmmo, 100);
                     }
                     if (materialCheckbox10.Checked)
@@ -150,7 +163,7 @@ namespace Deepcoc
                     if (materialCheckbox11.Checked)
                     {
                         IntPtr _currentAmmo = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
-                        IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, ammoOffset);
+                        IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, ammoOffsetThird);
                         mem.WriteInt(_lockAmmo, 100);
                     }
                     if (materialCheckbox12.Checked)
@@ -185,19 +198,6 @@ namespace Deepcoc
                         IntPtr cycleTimeLeft = mem.ReadAddress(fourthGunAddress, Offsets.cycleTimeLeft);
                         mem.WriteFloat(cycleTimeLeft, 0);
                     }
-                    //Fourth gun
-                    /*if (materialCheckbox13.Checked)
-                    {
-                        IntPtr _currentAmmo = mem.ReadAddress(baseAddress, Offsets.FourthGun);
-                        IntPtr _lockAmmo = mem.ReadAddress(_currentAmmo, Offsets.currentAmmo);
-                        mem.WriteInt(_lockAmmo, 100);
-                    }
-                    if (materialCheckbox14.Checked)
-                    {
-                        IntPtr _fireRateAddy = mem.ReadAddress(baseAddress, Offsets.FourthGun);
-                        IntPtr _fireRate = mem.ReadAddress(_fireRateAddy, Offsets.ammoCount);
-                        mem.WriteInt(_fireRate + Offsets.fireRate, fireRate);
-                    }*/
 
 
                     Thread.Sleep(25);
@@ -483,8 +483,7 @@ namespace Deepcoc
         }
 
 
-
-        private void materialButton1_Click(object sender, EventArgs e)
+        private void materialButton1_Click_1(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
             teleAddresses[0] = mem.ReadFloat(xCoord);
@@ -496,7 +495,8 @@ namespace Deepcoc
             materialMultiLineTextBox4.Text = "z: " + teleAddresses[2].ToString();
         }
 
-        private void materialButton2_Click(object sender, EventArgs e)
+        //Teleport
+        private void materialButton2_Click_1(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
 
@@ -509,7 +509,7 @@ namespace Deepcoc
             mem.WriteFloat(zCoord, teleAddresses[2] + 1);
         }
 
-        private void materialButton3_Click(object sender, EventArgs e)
+        private void materialButton3_Click_1(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
 
@@ -517,6 +517,7 @@ namespace Deepcoc
             mem.WriteFloat(yCoord, teleAddresses[4] + 1);
             mem.WriteFloat(zCoord, teleAddresses[5] + 1);
         }
+
 
         private void materialTextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -684,7 +685,7 @@ namespace Deepcoc
                 var isDancingAddress = mem.ReadAddress(baseAddress, Offsets.isDancing);
 
                 mem.WriteByte(inDanceRangeAddress, 1);
-                mem.WriteByte(isDancingAddress, 1);
+                mem.WriteByte(isDancingAddress, 0);
                 mem.WriteByte(danceMoveAddress, 255);
                 Thread.Sleep(10);
                 mem.WriteByte(danceMoveAddress, danceMove);
@@ -696,11 +697,6 @@ namespace Deepcoc
                 mem.WriteByte(inDanceRangeAddress, 0);
             }
             Thread.Sleep(100);
-        }
-
-        private void materialButton10_Click_1(object sender, EventArgs e)
-        {
-            ChangeSize(0, materialSlider1);
         }
         private void materialButton6_Click_1(object sender, EventArgs e)
         {
@@ -831,26 +827,6 @@ namespace Deepcoc
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
             }
         }
-
-        private void materialButton20_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                MemoryReader mem = new MemoryReader(game);
-                var runSpeedAddress = mem.ReadAddress(baseAddress, Offsets.runSpeed);
-                var walkSpeedAddress = mem.ReadAddress(baseAddress, Offsets.walkSpeed);
-                var decellerationAddress = mem.ReadAddress(baseAddress, Offsets.deceleration);
-
-                mem.WriteFloat(runSpeedAddress, (float)Convert.ToDouble(materialMultiLineTextBox9.Text));
-                mem.WriteFloat(walkSpeedAddress, (float)Convert.ToDouble(materialMultiLineTextBox9.Text));
-                mem.WriteFloat(decellerationAddress, (float)Convert.ToDouble(materialMultiLineTextBox11.Text));
-            }
-            catch
-            {
-                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
-            }
-        }
-
         private void materialButton21_Click(object sender, EventArgs e)
         {
             try
@@ -1297,7 +1273,7 @@ namespace Deepcoc
         }
 
         //No overheat : Gunner
-        private void materialCheckbox1_CheckedChanged(object sender, EventArgs e)
+        private void materialCheckbox1_CheckedChanged_2(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
             var primaryGun = mem.ReadAddress(baseAddress, Offsets.PrimaryGun);
@@ -1356,7 +1332,7 @@ namespace Deepcoc
             }
         }
 
-        private void materialCheckbox29_CheckedChanged(object sender, EventArgs e)
+        private void materialCheckbox29_CheckedChanged_1(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
             var primaryGun = mem.ReadAddress(baseAddress, Offsets.PrimaryGun);
@@ -1372,7 +1348,7 @@ namespace Deepcoc
             }
         }
 
-        private void materialCheckbox30_CheckedChanged(object sender, EventArgs e)
+        private void materialCheckbox30_CheckedChanged_1(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
             var inventory = mem.ReadAddress(baseAddress, Offsets.inventoryComponent);
@@ -1389,7 +1365,7 @@ namespace Deepcoc
             }
         }
 
-        private void materialCheckbox31_CheckedChanged(object sender, EventArgs e)
+        private void materialCheckbox31_CheckedChanged_1(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
             var inventory = mem.ReadAddress(baseAddress, Offsets.inventoryComponent);
@@ -1407,7 +1383,7 @@ namespace Deepcoc
             }
         }
 
-        private void materialCheckbox32_CheckedChanged(object sender, EventArgs e)
+        private void materialCheckbox32_CheckedChanged_1(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
             var inventory = mem.ReadAddress(baseAddress, Offsets.inventoryComponent);
@@ -1424,5 +1400,52 @@ namespace Deepcoc
                 mem.WriteInt(ammoCount, 300);
             }
         }
+
+        private void materialCheckbox8_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialCheckbox15_CheckedChanged(object sender, EventArgs e)
+        {
+            MemoryReader mem = new MemoryReader(game);
+            var character = mem.ReadAddress(baseAddress, Offsets.character);
+            var moveComponent = mem.ReadAddress(character, Offsets.characterMovementComponent);
+            var brakingDecel = mem.ReadAddress(moveComponent, Offsets.BrakingDecelerationFalling);
+            if (materialCheckbox15.Checked)
+            {
+
+
+                mem.WriteFloat(brakingDecel, 5000);
+            }
+            else
+            {
+                mem.WriteFloat(brakingDecel, 0);
+            }
+        }
+
+        private void materialButton9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MemoryReader mem = new MemoryReader(game);
+                var runSpeedAddress = mem.ReadAddress(baseAddress, Offsets.runSpeed);
+                var walkSpeedAddress = mem.ReadAddress(baseAddress, Offsets.walkSpeed);
+
+                mem.WriteFloat(runSpeedAddress, (float)Convert.ToDouble(materialMultiLineTextBox9.Text));
+                mem.WriteFloat(walkSpeedAddress, (float)Convert.ToDouble(materialMultiLineTextBox9.Text));
+
+            }
+            catch
+            {
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
+            }
+        }
+
+        private void materialLabel17_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
