@@ -1,7 +1,7 @@
 # Deepcoc AKA Nemesis
 Nemesis is the first mod I have made.  It is for the game Deep Rock Galactic and coded in C#.  This project was used for experimenting with accessing, reading, and writing to in game memory externally, signature scanning, detour creation and more.  The code is messy due to much experimentation but provided a lot of insight for future projects!
 
-# Current features for Nemesis v1.4.0 include:
+# Current features for Nemesis v1.4.1 include:
 
 God Mode (HOST ONLY)
 Fly
@@ -47,5 +47,5 @@ README file has been added for user convenience.
 ## Version 1.4.0 22/02/2024: 
 GUI formatting and patched offsets.
 
-##Version 1.4.1 4/03/2024: 
+## Version 1.4.1 4/03/2024: 
 Signature for Mary poppins feature updated.
