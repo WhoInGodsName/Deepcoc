@@ -26,7 +26,7 @@ Freeze enemies by looking at them (HOST ONLY)
 12 in-game emotes (HOST ONLY)
 
 # Version log
-##Version 1.2.8 6/10/2023: 
+## Version 1.2.8 6/10/2023: 
 Offsets have been fixed so Nemesis is up and functional again!
 
 ## Version 1.2.9 10/10/2023: 
