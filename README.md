@@ -1,5 +1,5 @@
 # Deepcoc AKA Nemesis
-Nemesis is the first mod I have made.  It is for the game Deep Rock Galactic and coded in C#.  This project was used for experimenting with accessing, reading, and writing to in game memory externally, signature scanning, detour creation and more.  The code is messy due to much experimentation but provided a lot of insight for future projects!
+Nemesis is the first mod I have made.  It is for the game Deep Rock Galactic and coded in C#.  This project was used for experimenting with accessing, reading, and writing to in game memory externally, signature scanning, detour creation and more.  The code is messy due to much experimentation but provided a lot of insight for future projects!  Feel free to visit my thread on UnknownCheats to download the verified files from there: https://www.unknowncheats.me/forum/other-fps-games/603417-deep-rock-galactic-nemesis-name-unknown.html
 
 # Current features for Nemesis v1.4.1 include:
 
