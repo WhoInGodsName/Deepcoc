@@ -530,7 +530,7 @@ namespace Deepcoc
             {
                 MemoryReader mem = new MemoryReader(game);
                 SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
-                var infDepo = signatureScan.FindPattern("F3 0F 11 51 60 48", 0);
+                var infDepo = signatureScan.FindPattern("F3 0F 11 59 60 48", 0);
                 infDepoAddress = infDepo;
 
                 Debug.WriteLine("infDepo: " + infDepo.ToString("X"));
