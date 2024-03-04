@@ -2495,7 +2495,7 @@
             Font = new Font("Impact", 24F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(7);
             Name = "Form1";
-            Text = "NEMESIS 1.4.0";
+            Text = "NEMESIS 1.4.1";
             Load += Form1_Load;
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
