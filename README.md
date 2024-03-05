@@ -5,25 +5,25 @@ Nemesis is the first mod I have made.  It is for the game Deep Rock Galactic and
 
 God Mode (HOST ONLY)
 Fly
-Speed modifiers
-Infinite minerals & deposit (HOST ONLY)
-Unlimited perk points and scrip
-Teleport (HOST ONLY)
-Infinite Ammo
-Full auto for all guns
-No flare cooldown
-FOV changer
-Custom firerate
-Infinite Jump
-Infinite grenades
-Downed movement
-Throw strength modifier
-Third person mode (HOST ONLY)
-Character size changer
-No-clip
-Class specific cheats
-Freeze enemies by looking at them (HOST ONLY)
-12 in-game emotes (HOST ONLY)
+Speed modifiers <br>
+Infinite minerals & deposit (HOST ONLY) <br>
+Unlimited perk points and scrip <br>
+Teleport (HOST ONLY) <br>
+Infinite Ammo <br>
+Full auto for all guns <br>
+No flare cooldown <br>
+FOV changer <br>
+Custom firerate <br>
+Infinite Jump <br>
+Infinite grenades <br>
+Downed movement <br>
+Throw strength modifier <br>
+Third person mode (HOST ONLY) <br>
+Character size changer <br>
+No-clip <br>
+Class specific cheats <br>
+Freeze enemies by looking at them (HOST ONLY) <br>
+12 in-game emotes (HOST ONLY) <br>
 
 # Version log
 ## Version 1.2.8 6/10/2023: 
