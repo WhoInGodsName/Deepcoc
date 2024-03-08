@@ -213,7 +213,7 @@ namespace Deepcoc
                     IntPtr _jumpMaxAddress = mem.ReadAddress(baseAddress, Offsets.jumpMaxCount);
                     float yVal = mem.ReadFloat(yCoord);
                     int _speed = materialSlider2.Value;
-                    int _units = materialSlider3.Value;
+                    int _units = 10;
                     //int _isJumping = 0;
                     float _firstXVal = mem.ReadFloat(_xCoordAddress);
                     float _firstZVal = mem.ReadFloat(_zCoordAddress);
@@ -285,92 +285,41 @@ namespace Deepcoc
 
             void Resources()
             {
+                MaterialSkin.Controls.MaterialMultiLineTextBox[] text_list = { materialMultiLineTextBox13, materialMultiLineTextBox14, materialMultiLineTextBox15, materialMultiLineTextBox16,
+                                                                        materialMultiLineTextBox17, materialMultiLineTextBox18, materialMultiLineTextBox19, materialMultiLineTextBox20};
+                float[] prevValues = new float[9];
                 while (true)
                 {
-                    var slot1Address = mem.ReadAddress(baseAddress, Offsets.slot1Molly);
-                    var slot2Address = mem.ReadAddress(baseAddress, Offsets.slot2Molly);
-                    var slot3Address = mem.ReadAddress(baseAddress, Offsets.slot3Molly);
-                    var slot4Address = mem.ReadAddress(baseAddress, Offsets.slot4Molly);
-                    var slot5Address = mem.ReadAddress(baseAddress, Offsets.slot5Molly);
-                    var slot6Address = mem.ReadAddress(baseAddress, Offsets.slot6Molly);
-                    var slot7Address = mem.ReadAddress(baseAddress, Offsets.slot7Molly);
-                    var slot8Address = mem.ReadAddress(baseAddress, Offsets.slot8Molly);
+                    var mollyBase = mem.ReadAddress(baseAddress, Offsets.slot1Molly);
 
-                    float prev1 = mem.ReadFloat(slot1Address);
-                    float prev2 = mem.ReadFloat(slot2Address);
-                    float prev3 = mem.ReadFloat(slot3Address);
-                    float prev4 = mem.ReadFloat(slot4Address);
-                    float prev5 = mem.ReadFloat(slot5Address);
-                    float prev6 = mem.ReadFloat(slot6Address);
-                    float prev7 = mem.ReadFloat(slot7Address);
-                    float prev8 = mem.ReadFloat(slot8Address);
 
-                    materialMultiLineTextBox13.Text = prev1.ToString();
-                    materialMultiLineTextBox14.Text = prev2.ToString();
-                    materialMultiLineTextBox15.Text = prev3.ToString();
-                    materialMultiLineTextBox16.Text = prev4.ToString();
-                    materialMultiLineTextBox17.Text = prev5.ToString();
-                    materialMultiLineTextBox18.Text = prev6.ToString();
-                    materialMultiLineTextBox19.Text = prev7.ToString();
-                    materialMultiLineTextBox20.Text = prev8.ToString();
+                    for (int i = 0; i < text_list.Length; i++)
+                    {
+                        Debug.WriteLine((i * 0x8));
+                        var slotPosAddress = mem.ReadAddress(mollyBase,(i * 0x8));
+                        var slotValueAddress = mem.ReadAddress(slotPosAddress, Offsets.slot);
+                        var slotValue = mem.ReadFloat(slotValueAddress);
+                        prevValues[i] = slotValue;
+                        text_list[i].Text = slotValue.ToString();
+                    }
                     Thread.Sleep(10000);
 
-                    if ((float)Convert.ToDouble(materialMultiLineTextBox13.Text) != prev1)
+                    for(int j = 0; j < text_list.Length; j++)
                     {
-                        var current = mem.ReadAddress(baseAddress, Offsets.slot1MollyCurrent);
-                        mem.WriteFloat(slot1Address, (float)Convert.ToDouble(materialMultiLineTextBox13.Text));
-                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox13.Text));
-                        materialMultiLineTextBox13.Text = mem.ReadFloat(slot1Address).ToString();
-                    }
-                    if ((float)Convert.ToDouble(materialMultiLineTextBox14.Text) != prev2)
-                    {
-                        var current = mem.ReadAddress(baseAddress, Offsets.slot2MollyCurrent);
-                        mem.WriteFloat(slot2Address, (float)Convert.ToDouble(materialMultiLineTextBox14.Text));
-                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox14.Text));
-                        materialMultiLineTextBox14.Text = mem.ReadFloat(slot2Address).ToString();
-                    }
-                    if ((float)Convert.ToDouble(materialMultiLineTextBox15.Text) != prev3)
-                    {
-                        var current = mem.ReadAddress(baseAddress, Offsets.slot3MollyCurrent);
-                        mem.WriteFloat(slot3Address, (float)Convert.ToDouble(materialMultiLineTextBox15.Text));
-                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox15.Text));
-                        materialMultiLineTextBox15.Text = mem.ReadFloat(slot3Address).ToString();
-                    }
-                    if ((float)Convert.ToDouble(materialMultiLineTextBox16.Text) != prev4)
-                    {
-                        var current = mem.ReadAddress(baseAddress, Offsets.slot4MollyCurrent);
-                        mem.WriteFloat(slot4Address, (float)Convert.ToDouble(materialMultiLineTextBox16.Text));
-                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox16.Text));
-                        materialMultiLineTextBox16.Text = mem.ReadFloat(slot4Address).ToString();
-                    }
-                    if ((float)Convert.ToDouble(materialMultiLineTextBox17.Text) != prev5)
-                    {
-                        var current = mem.ReadAddress(baseAddress, Offsets.slot5MollyCurrent);
-                        mem.WriteFloat(slot5Address, (float)Convert.ToDouble(materialMultiLineTextBox17.Text));
-                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox17.Text));
-                        materialMultiLineTextBox17.Text = mem.ReadFloat(slot5Address).ToString();
-                    }
-                    if ((float)Convert.ToDouble(materialMultiLineTextBox18.Text) != prev6)
-                    {
-                        var current = mem.ReadAddress(baseAddress, Offsets.slot6MollyCurrent);
-                        mem.WriteFloat(slot6Address, (float)Convert.ToDouble(materialMultiLineTextBox18.Text));
-                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox18.Text));
-                        materialMultiLineTextBox18.Text = mem.ReadFloat(slot6Address).ToString();
-                    }
-                    if ((float)Convert.ToDouble(materialMultiLineTextBox19.Text) != prev7)
-                    {
-                        var current = mem.ReadAddress(baseAddress, Offsets.slot7MollyCurrent);
-                        mem.WriteFloat(slot7Address, (float)Convert.ToDouble(materialMultiLineTextBox19.Text));
-                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox19.Text));
-                        materialMultiLineTextBox19.Text = mem.ReadFloat(slot7Address).ToString();
-                    }
-                    if ((float)Convert.ToDouble(materialMultiLineTextBox20.Text) != prev8)
-                    {
-                        var current = mem.ReadAddress(baseAddress, Offsets.slot8MollyCurrent);
-                        mem.WriteFloat(slot8Address, (float)Convert.ToDouble(materialMultiLineTextBox20.Text));
-                        mem.WriteFloat(current, (float)Convert.ToDouble(materialMultiLineTextBox20.Text));
-                        materialMultiLineTextBox20.Text = mem.ReadFloat(slot8Address).ToString();
-                    }
+                        var slotPosAddress = mem.ReadAddress(mollyBase,(j * 0x8));
+                        
+                        var slotValueAddress = mem.ReadAddress(slotPosAddress, Offsets.slot);
+                        var slotValue = mem.ReadFloat(slotValueAddress);
+                        var slotCurrValue = mem.ReadAddress(slotPosAddress, Offsets.CurrentSlot);
+
+                        if ((float)Convert.ToDouble(text_list[j].Text) != prevValues[j])
+                        {
+                        
+                            mem.WriteFloat(slotValueAddress, (float)Convert.ToDouble(text_list[j].Text));
+                            mem.WriteFloat(slotCurrValue, (float)Convert.ToDouble(text_list[j].Text));
+                            text_list[j].Text = mem.ReadFloat(slotValueAddress).ToString();
+                        }
+                    }                
                 }
             }
 
@@ -414,11 +363,6 @@ namespace Deepcoc
                                     if (!materialMultiLineTextBox24.Text.Equals("0") && scaleAddressX != IntPtr.Zero)
                                     {
                                         mem.WriteFloat(scaleAddressX, (float)Convert.ToDouble(materialMultiLineTextBox24.Text));
-                                    }
-
-                                    if (materialCheckbox25.Checked)
-                                    {
-                                        mem.WriteFloat(enemyTimeDialationAddress, 0);
                                     }
                                 }
                                 //Thread.Sleep(10);
@@ -622,7 +566,6 @@ namespace Deepcoc
                 mem.WriteFloat(charSizeAddressX, scale);
                 mem.WriteFloat(charSizeAddressZ, scale);
             }
-
         }
 
         private void RecoilControl(int offset)
@@ -788,11 +731,6 @@ namespace Deepcoc
         }
 
 
-        private void materialLabel16_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void materialButton18_Click(object sender, EventArgs e)
         {
             try
@@ -840,21 +778,6 @@ namespace Deepcoc
             {
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
             }
-        }
-
-        private void materialSlider1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void materialCheckbox1_CheckedChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void materialCheckbox2_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void fullAutoPrimary_CheckedChanged(object sender, EventArgs e)
@@ -941,10 +864,6 @@ namespace Deepcoc
 
         }
 
-        private void materialCheckbox9_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void materialCheckbox5_CheckedChanged(object sender, EventArgs e)
         {
@@ -993,11 +912,6 @@ namespace Deepcoc
             }
         }
 
-        private void materialCheckbox18_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void materialCheckbox19_CheckedChanged(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -1018,16 +932,13 @@ namespace Deepcoc
             }
         }
 
-        private void materialCheckbox21_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void materialButton33_Click(object sender, EventArgs e)
         {
             //materialCheckbox1.Checked = false;
             materialCheckbox2.Checked = false;
             materialCheckbox3.Checked = false;
+            materialCheckbox4.Checked = false;
             materialCheckbox24.Checked = false;
             materialCheckbox5.Checked = false;
             materialCheckbox6.Checked = false;
@@ -1037,17 +948,25 @@ namespace Deepcoc
             materialCheckbox10.Checked = false;
             materialCheckbox11.Checked = false;
             materialCheckbox12.Checked = false;
-            //materialCheckbox13.Checked = false;
-            //materialCheckbox14.Checked = false;
             materialCheckbox15.Checked = false;
             materialCheckbox16.Checked = false;
             materialCheckbox17.Checked = false;
-            //materialCheckbox18.Checked = false;
             materialCheckbox19.Checked = false;
             materialCheckbox20.Checked = false;
             materialCheckbox21.Checked = false;
             materialCheckbox22.Checked = false;
             materialCheckbox23.Checked = false;
+            materialCheckbox26.Checked = false;
+            materialCheckbox28.Checked = false;
+            materialCheckbox1.Checked = false;
+            materialCheckbox29.Checked = false;
+            materialCheckbox30.Checked = false;
+            materialCheckbox31.Checked = false;
+            materialCheckbox32.Checked = false;
+            materialCheckbox18.Checked = false;
+            materialCheckbox27.Checked = false;
+            materialCheckbox13.Checked = false;
+            materialCheckbox14.Checked = false;
             fullAutoPrimary.Checked = false;
         }
 

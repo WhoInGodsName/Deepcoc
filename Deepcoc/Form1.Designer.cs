@@ -45,7 +45,6 @@
             materialLabel34 = new MaterialSkin.Controls.MaterialLabel();
             materialSlider4 = new MaterialSkin.Controls.MaterialSlider();
             materialCheckbox26 = new MaterialSkin.Controls.MaterialCheckbox();
-            materialCheckbox25 = new MaterialSkin.Controls.MaterialCheckbox();
             materialLabel33 = new MaterialSkin.Controls.MaterialLabel();
             materialMultiLineTextBox22 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             materialMultiLineTextBox23 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
@@ -185,7 +184,6 @@
             tabPage2.Controls.Add(materialLabel34);
             tabPage2.Controls.Add(materialSlider4);
             tabPage2.Controls.Add(materialCheckbox26);
-            tabPage2.Controls.Add(materialCheckbox25);
             tabPage2.Controls.Add(materialLabel33);
             tabPage2.Controls.Add(materialMultiLineTextBox22);
             tabPage2.Controls.Add(materialMultiLineTextBox23);
@@ -393,7 +391,7 @@
             // 
             materialCheckbox4.AutoSize = true;
             materialCheckbox4.Depth = 0;
-            materialCheckbox4.Location = new Point(685, 271);
+            materialCheckbox4.Location = new Point(685, 240);
             materialCheckbox4.Margin = new Padding(0);
             materialCheckbox4.MouseLocation = new Point(-1, -1);
             materialCheckbox4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -410,7 +408,7 @@
             // 
             materialSlider5.Depth = 0;
             materialSlider5.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialSlider5.Location = new Point(685, 228);
+            materialSlider5.Location = new Point(685, 197);
             materialSlider5.MouseState = MaterialSkin.MouseState.HOVER;
             materialSlider5.Name = "materialSlider5";
             materialSlider5.Size = new Size(277, 40);
@@ -425,7 +423,7 @@
             materialLabel34.FlatStyle = FlatStyle.Popup;
             materialLabel34.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel34.ForeColor = Color.Maroon;
-            materialLabel34.Location = new Point(685, 206);
+            materialLabel34.Location = new Point(685, 175);
             materialLabel34.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel34.Name = "materialLabel34";
             materialLabel34.Size = new Size(174, 19);
@@ -448,7 +446,7 @@
             // 
             materialCheckbox26.AutoSize = true;
             materialCheckbox26.Depth = 0;
-            materialCheckbox26.Location = new Point(685, 154);
+            materialCheckbox26.Location = new Point(685, 125);
             materialCheckbox26.Margin = new Padding(0);
             materialCheckbox26.MouseLocation = new Point(-1, -1);
             materialCheckbox26.MouseState = MaterialSkin.MouseState.HOVER;
@@ -459,22 +457,6 @@
             materialCheckbox26.TabIndex = 166;
             materialCheckbox26.Text = "Activate silly stare";
             materialCheckbox26.UseVisualStyleBackColor = true;
-            // 
-            // materialCheckbox25
-            // 
-            materialCheckbox25.AutoSize = true;
-            materialCheckbox25.Depth = 0;
-            materialCheckbox25.Location = new Point(685, 117);
-            materialCheckbox25.Margin = new Padding(0);
-            materialCheckbox25.MouseLocation = new Point(-1, -1);
-            materialCheckbox25.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCheckbox25.Name = "materialCheckbox25";
-            materialCheckbox25.ReadOnly = false;
-            materialCheckbox25.Ripple = true;
-            materialCheckbox25.Size = new Size(132, 37);
-            materialCheckbox25.TabIndex = 165;
-            materialCheckbox25.Text = "Freeze enemy";
-            materialCheckbox25.UseVisualStyleBackColor = true;
             // 
             // materialLabel33
             // 
@@ -2376,7 +2358,6 @@
             materialCheckbox9.TabIndex = 75;
             materialCheckbox9.Text = "Lock Ammo";
             materialCheckbox9.UseVisualStyleBackColor = true;
-            materialCheckbox9.CheckedChanged += materialCheckbox9_CheckedChanged;
             // 
             // materialCheckbox10
             // 
@@ -2495,7 +2476,7 @@
             Font = new Font("Impact", 24F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(7);
             Name = "Form1";
-            Text = "NEMESIS 1.4.1";
+            Text = "NEMESIS 1.4.2";
             Load += Form1_Load;
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
@@ -2613,7 +2594,6 @@
         private MaterialSkin.Controls.MaterialCheckbox materialCheckbox23;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckbox4;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckbox24;
-        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox25;
         private MaterialSkin.Controls.MaterialLabel materialLabel33;
         private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox22;
         private MaterialSkin.Controls.MaterialMultiLineTextBox materialMultiLineTextBox23;
