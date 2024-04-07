@@ -140,6 +140,10 @@ namespace Deepcoc
                         var cycleAddress = mem.ReadAddress(firstGunAddress, Offsets.cycleTimeLeft);
                         mem.WriteFloat(cycleAddress, 0);
                     }
+                    if (materialCheckbox22.Checked)
+                    {
+                        RecoilControl(Offsets.PrimaryGun);
+                    }
 
                     //Secondary gun
                     if (materialCheckbox9.Checked)
@@ -157,6 +161,10 @@ namespace Deepcoc
                         var gun = mem.ReadAddress(baseAddress, Offsets.SecondaryGun);
                         var cycleTimeLeft = mem.ReadAddress(gun, Offsets.cycleTimeLeft);
                         mem.WriteFloat(cycleTimeLeft, 0);
+                    }
+                    if (materialCheckbox3.Checked)
+                    {
+                        RecoilControl(Offsets.SecondaryGun);
                     }
 
                     //Third gun
@@ -177,6 +185,10 @@ namespace Deepcoc
                         var gun = mem.ReadAddress(baseAddress, Offsets.ThirdGun);
                         var cycleTimeLeft = mem.ReadAddress(gun, Offsets.cycleTimeLeft);
                         mem.WriteFloat(cycleTimeLeft, 0);
+                    }
+                    if (materialCheckbox20.Checked)
+                    {
+                        RecoilControl(Offsets.ThirdGun);
                     }
 
                     //Scout flare gun
@@ -283,6 +295,8 @@ namespace Deepcoc
 
             }
 
+            //Function : Goes through all the resource slots within molly and updates the values to the line boxes.  If one of the values has been changed
+            // by the user, it will update that resource slot within molly and the line box to match.
             void Resources()
             {
                 MaterialSkin.Controls.MaterialMultiLineTextBox[] text_list = { materialMultiLineTextBox13, materialMultiLineTextBox14, materialMultiLineTextBox15, materialMultiLineTextBox16,
@@ -568,39 +582,31 @@ namespace Deepcoc
             }
         }
 
-        private void RecoilControl(int offset)
+        private void RecoilControl(int[] gun)
         {
 
             try
             {
                 MemoryReader mem = new MemoryReader(game);
-                var recoilAddress = mem.ReadAddress(baseAddress, offset);
-                Thread.Sleep(10);
+                var recoilAddress = mem.ReadAddress(baseAddress, gun);
+                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + recoilAddress.ToString("X"));
                 var recoilPitchMin = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMin);
                 var recoilPitchMax = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMax);
                 var recoilYawMin = mem.ReadAddress(recoilAddress, Offsets.recoilYawMin);
                 var recoilYawMax = mem.ReadAddress(recoilAddress, Offsets.recoilYawMax);
+                var recoilRollMin = mem.ReadAddress(recoilAddress, Offsets.recoilRollMin);
+                var recoilRollMax = mem.ReadAddress(recoilAddress, Offsets.recoilRollMax);
 
+                Debug.WriteLine("recoil min: " + recoilPitchMin.ToString("X"));
+                priorMin = mem.ReadFloat(recoilPitchMin);
+                priorMax = mem.ReadFloat(recoilPitchMax);
 
-
-                if (materialCheckbox22.Checked)
-                {
-
-
-                    Debug.WriteLine("recoil min: " + recoilPitchMin.ToString("X"));
-                    priorMin = mem.ReadFloat(recoilPitchMin);
-                    priorMax = mem.ReadFloat(recoilPitchMax);
-
-                    mem.WriteFloat(recoilPitchMin, 0);
-                    mem.WriteFloat(recoilPitchMax, 0);
-                    mem.WriteFloat(recoilYawMin, 0);
-                    mem.WriteFloat(recoilYawMax, 0);
-                }
-                else
-                {
-                    mem.WriteFloat(recoilPitchMin, priorMin);
-                    mem.WriteFloat(recoilPitchMax, priorMax);
-                }
+                mem.WriteFloat(recoilPitchMin, 0);
+                mem.WriteFloat(recoilPitchMax, 0);
+                mem.WriteFloat(recoilYawMin, 0);
+                mem.WriteFloat(recoilYawMax, 0);
+                mem.WriteFloat(recoilRollMin, 0);
+                mem.WriteFloat(recoilRollMax, 0);
             }
             catch
             {
@@ -1073,41 +1079,7 @@ namespace Deepcoc
 
         private void materialCheckbox22_CheckedChanged(object sender, EventArgs e)
         {
-            try
-            {
-                MemoryReader mem = new MemoryReader(game);
-                var recoilAddress = mem.ReadAddress(baseAddress, Offsets.PrimaryGunRecoilMin);
-                Thread.Sleep(10);
-                var recoilPitchMin = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMin);
-                var recoilPitchMax = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMax);
-                var recoilYawMin = mem.ReadAddress(recoilAddress, Offsets.recoilYawMin);
-                var recoilYawMax = mem.ReadAddress(recoilAddress, Offsets.recoilYawMax);
-
-
-
-                if (materialCheckbox22.Checked)
-                {
-
-
-                    Debug.WriteLine("recoil min: " + recoilPitchMin.ToString("X"));
-                    priorMin = mem.ReadFloat(recoilPitchMin);
-                    priorMax = mem.ReadFloat(recoilPitchMax);
-
-                    mem.WriteFloat(recoilPitchMin, 0);
-                    mem.WriteFloat(recoilPitchMax, 0);
-                    mem.WriteFloat(recoilYawMin, 0);
-                    mem.WriteFloat(recoilYawMax, 0);
-                }
-                else
-                {
-                    mem.WriteFloat(recoilPitchMin, priorMin);
-                    mem.WriteFloat(recoilPitchMax, priorMax);
-                }
-            }
-            catch
-            {
-                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Illegal read/write for recoil.");
-            }
+            RecoilControl(Offsets.PrimaryGun);
         }
 
         private void materialMultiLineTextBox4_TextChanged(object sender, EventArgs e)

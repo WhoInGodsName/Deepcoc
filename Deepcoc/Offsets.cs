@@ -95,12 +95,12 @@ namespace Deepcoc
             cycleTimeLeft = 0x6C8,
 
             //Recoil
-            recoilPitchMin = 0x6E4,
-            recoilPitchMax = 0x6E8,
-            recoilYawMin = 0x6EC,
-            recoilYawMax = 0x6F0,
-            recoilRollMin = 0x6DC,
-            recoilRollMax = 0x6E0,
+            recoilPitchMin = 0x6F4,
+            recoilPitchMax = 0x6F8,
+            recoilYawMin = 0x6FC,
+            recoilYawMax = 0x700,
+            recoilRollMin = 0x6EC,
+            recoilRollMax = 0x6F0,
 
             //weapon fire
             weaponFire = 0x450,
