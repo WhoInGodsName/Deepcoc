@@ -49,3 +49,9 @@ GUI formatting and patched offsets.
 
 ## Version 1.4.1 4/03/2024: 
 Signature for Mary poppins feature updated.
+
+## Version 1.4.2 9/03/2024: 
+Fixed Mollys pockets + Silly stare.
+
+## Version 1.4.3 7/04/2024: 
+Fixed issues with the recoil control not working as intended.
