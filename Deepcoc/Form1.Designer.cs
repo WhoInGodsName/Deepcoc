@@ -1059,7 +1059,6 @@
             materialMultiLineTextBox6.Size = new Size(93, 30);
             materialMultiLineTextBox6.TabIndex = 128;
             materialMultiLineTextBox6.Text = "";
-            materialMultiLineTextBox6.TextChanged += materialMultiLineTextBox6_TextChanged;
             // 
             // materialMultiLineTextBox5
             // 
@@ -1409,7 +1408,6 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
-            tabPage1.Click += tabPage1_Click;
             // 
             // materialCheckbox32
             // 
@@ -1942,7 +1940,6 @@
             materialCheckbox20.TabIndex = 141;
             materialCheckbox20.Text = "No recoil";
             materialCheckbox20.UseVisualStyleBackColor = true;
-            materialCheckbox20.CheckedChanged += materialCheckbox20_CheckedChanged;
             // 
             // materialCheckbox19
             // 
@@ -2069,7 +2066,6 @@
             materialCheckbox3.TabIndex = 132;
             materialCheckbox3.Text = "No recoil";
             materialCheckbox3.UseVisualStyleBackColor = true;
-            materialCheckbox3.CheckedChanged += materialCheckbox3_CheckedChanged;
             // 
             // materialCheckbox2
             // 
@@ -2230,7 +2226,6 @@
             materialLabel17.Size = new Size(31, 19);
             materialLabel17.TabIndex = 118;
             materialLabel17.Text = "FOV";
-            materialLabel17.Click += materialLabel17_Click;
             // 
             // materialButton16
             // 
@@ -2390,7 +2385,6 @@
             materialCheckbox8.TabIndex = 73;
             materialCheckbox8.Text = "Lock Ammo";
             materialCheckbox8.UseVisualStyleBackColor = true;
-            materialCheckbox8.CheckedChanged += materialCheckbox8_CheckedChanged;
             // 
             // materialCheckbox7
             // 
@@ -2407,7 +2401,6 @@
             materialCheckbox7.TabIndex = 72;
             materialCheckbox7.Text = "Lock Firerate";
             materialCheckbox7.UseVisualStyleBackColor = true;
-            materialCheckbox7.CheckedChanged += materialCheckbox7_CheckedChanged;
             // 
             // materialLabel7
             // 

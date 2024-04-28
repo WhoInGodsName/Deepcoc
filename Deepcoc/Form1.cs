@@ -440,7 +440,7 @@ namespace Deepcoc
 
         }
 
-
+        //Teleporting
         private void materialButton1_Click_1(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -474,12 +474,6 @@ namespace Deepcoc
             mem.WriteFloat(xCoord, teleAddresses[3] + 1);
             mem.WriteFloat(yCoord, teleAddresses[4] + 1);
             mem.WriteFloat(zCoord, teleAddresses[5] + 1);
-        }
-
-
-        private void materialTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void materialButton4_Click(object sender, EventArgs e)
@@ -544,6 +538,7 @@ namespace Deepcoc
             mem.FreeCave(trampolineAddress);
         }
 
+        //Max perk points
         private void materialButton7_Click(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -551,6 +546,7 @@ namespace Deepcoc
             mem.WriteInt(ppAddress, 999999999);
         }
 
+        //Scrip
         private void materialButton8_Click(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -560,6 +556,7 @@ namespace Deepcoc
             mem.WriteInt(scripAddress, scripValue + 5);
         }
 
+        //Change char size
         private void ChangeSize(float scale = 0, MaterialSlider slider = null)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -582,6 +579,8 @@ namespace Deepcoc
             }
         }
 
+        float priorMin = 0;
+        float priorMax = 0;
         private void RecoilControl(int[] gun)
         {
 
@@ -837,40 +836,9 @@ namespace Deepcoc
         }
 
 
-        public float priorMin = 0f;
-        public float priorMax = 0f;
-        private void materialCheckbox3_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                MemoryReader mem = new MemoryReader(game);
-                var recoilMinAddress = mem.ReadAddress(baseAddress, Offsets.SecondayGunRecoilMin);
-                var recoilMaxAddress = mem.ReadAddress(baseAddress, Offsets.SecondayGunRecoilMax);
+       
 
-
-
-                if (materialCheckbox3.Checked)
-                {
-                    priorMin = mem.ReadFloat(recoilMinAddress);
-                    priorMax = mem.ReadFloat(recoilMaxAddress);
-
-                    mem.WriteFloat(recoilMinAddress, 0);
-                    mem.WriteFloat(recoilMaxAddress, 0);
-                }
-                else
-                {
-                    mem.WriteFloat(recoilMinAddress, priorMin);
-                    mem.WriteFloat(recoilMaxAddress, priorMax);
-                }
-            }
-            catch
-            {
-                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Illegal read/write for recoil.");
-            }
-
-        }
-
-
+        //No clip
         private void materialCheckbox5_CheckedChanged(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -938,7 +906,7 @@ namespace Deepcoc
             }
         }
 
-
+        //Uncheck all
         private void materialButton33_Click(object sender, EventArgs e)
         {
             //materialCheckbox1.Checked = false;
@@ -976,47 +944,7 @@ namespace Deepcoc
             fullAutoPrimary.Checked = false;
         }
 
-
-
-        private void materialCheckbox20_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                MemoryReader mem = new MemoryReader(game);
-                var recoilAddress = mem.ReadAddress(baseAddress, Offsets.ThirdGunRecoilMin);
-                Thread.Sleep(10);
-                var recoilPitchMin = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMin);
-                var recoilPitchMax = mem.ReadAddress(recoilAddress, Offsets.recoilPitchMax);
-                var recoilYawMin = mem.ReadAddress(recoilAddress, Offsets.recoilYawMin);
-                var recoilYawMax = mem.ReadAddress(recoilAddress, Offsets.recoilYawMax);
-
-
-
-                if (materialCheckbox22.Checked)
-                {
-
-
-                    Debug.WriteLine("recoil min: " + recoilPitchMin.ToString("X"));
-                    priorMin = mem.ReadFloat(recoilPitchMin);
-                    priorMax = mem.ReadFloat(recoilPitchMax);
-
-                    mem.WriteFloat(recoilPitchMin, 0);
-                    mem.WriteFloat(recoilPitchMax, 0);
-                    mem.WriteFloat(recoilYawMin, 0);
-                    mem.WriteFloat(recoilYawMax, 0);
-                }
-                else
-                {
-                    mem.WriteFloat(recoilPitchMin, priorMin);
-                    mem.WriteFloat(recoilPitchMax, priorMax);
-                }
-            }
-            catch
-            {
-                listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Illegal read/write for recoil.");
-            }
-        }
-
+        //All emote buttons
         private void materialLabel1_Click(object sender, EventArgs e)
         {
             Dance(1);
@@ -1082,19 +1010,7 @@ namespace Deepcoc
             RecoilControl(Offsets.PrimaryGun);
         }
 
-        private void materialMultiLineTextBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void materialMultiLineTextBox3_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void materialMultiLineTextBox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-
+        //Carve 'er up
         private void materialCheckbox23_CheckedChanged(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
@@ -1111,16 +1027,6 @@ namespace Deepcoc
                 mem.WriteInt(bulletPerCarveMax, 1);
                 mem.WriteFloat(carveDiameterAddress, (float)Convert.ToDouble(materialMultiLineTextBox21.Text));
             }
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void materialCheckbox4_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void materialCheckbox24_CheckedChanged(object sender, EventArgs e)
@@ -1151,16 +1057,6 @@ namespace Deepcoc
             {
                 mem.WriteFloat(dilationAddress, 1);
             }
-        }
-
-        private void materialMultiLineTextBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void materialCheckbox7_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         //No overheat : Gunner
@@ -1292,10 +1188,6 @@ namespace Deepcoc
             }
         }
 
-        private void materialCheckbox8_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void materialCheckbox15_CheckedChanged(object sender, EventArgs e)
         {
@@ -1332,11 +1224,5 @@ namespace Deepcoc
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
             }
         }
-
-        private void materialLabel17_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
