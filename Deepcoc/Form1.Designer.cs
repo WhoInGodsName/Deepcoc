@@ -1886,7 +1886,6 @@
             materialCheckbox22.TabIndex = 144;
             materialCheckbox22.Text = "No recoil";
             materialCheckbox22.UseVisualStyleBackColor = true;
-            materialCheckbox22.CheckedChanged += materialCheckbox22_CheckedChanged;
             // 
             // materialCheckbox21
             // 

@@ -337,6 +337,7 @@ namespace Deepcoc
                 }
             }
 
+            //Function : Gets current entity being stared at and applies selected effects from the user to that entity.
             void DeathStare()
             {
                 while (true)
@@ -945,70 +946,19 @@ namespace Deepcoc
         }
 
         //All emote buttons
-        private void materialLabel1_Click(object sender, EventArgs e)
-        {
-            Dance(1);
-        }
+        private void materialLabel1_Click(object sender, EventArgs e) { Dance(1); }
+        private void materialButton22_Click_1(object sender, EventArgs e) { Dance(1); }
+        private void materialButton23_Click_1(object sender, EventArgs e) { Dance(2); }
+        private void materialButton24_Click_1(object sender, EventArgs e) { Dance(3); }
+        private void materialButton25_Click_1(object sender, EventArgs e) { Dance(4); }
+        private void materialButton26_Click_1(object sender, EventArgs e) { Dance(5); }
+        private void materialButton27_Click_1(object sender, EventArgs e) { Dance(6); }
+        private void materialButton28_Click_1(object sender, EventArgs e) { Dance(7); }
+        private void materialButton29_Click_1(object sender, EventArgs e) { Dance(8); }
+        private void materialButton30_Click_1(object sender, EventArgs e) { Dance(9); }
+        private void materialButton31_Click_1(object sender, EventArgs e) { Dance(10); }
+        private void materialButton32_Click_1(object sender, EventArgs e) { Dance(11); }
 
-        private void materialButton22_Click_1(object sender, EventArgs e)
-        {
-            Dance(1);
-        }
-
-        private void materialButton23_Click_1(object sender, EventArgs e)
-        {
-            Dance(2);
-        }
-
-        private void materialButton24_Click_1(object sender, EventArgs e)
-        {
-            Dance(3);
-        }
-
-        private void materialButton25_Click_1(object sender, EventArgs e)
-        {
-            Dance(4);
-        }
-
-        private void materialButton26_Click_1(object sender, EventArgs e)
-        {
-            Dance(5);
-        }
-
-        private void materialButton27_Click_1(object sender, EventArgs e)
-        {
-            Dance(6);
-        }
-
-        private void materialButton28_Click_1(object sender, EventArgs e)
-        {
-            Dance(7);
-        }
-
-        private void materialButton29_Click_1(object sender, EventArgs e)
-        {
-            Dance(8);
-        }
-
-        private void materialButton30_Click_1(object sender, EventArgs e)
-        {
-            Dance(9);
-        }
-
-        private void materialButton31_Click_1(object sender, EventArgs e)
-        {
-            Dance(10);
-        }
-
-        private void materialButton32_Click_1(object sender, EventArgs e)
-        {
-            Dance(11);
-        }
-
-        private void materialCheckbox22_CheckedChanged(object sender, EventArgs e)
-        {
-            RecoilControl(Offsets.PrimaryGun);
-        }
 
         //Carve 'er up
         private void materialCheckbox23_CheckedChanged(object sender, EventArgs e)
@@ -1029,6 +979,7 @@ namespace Deepcoc
             }
         }
 
+        //God mode
         private void materialCheckbox24_CheckedChanged(object sender, EventArgs e)
         {
             MemoryReader mem = new MemoryReader(game);
