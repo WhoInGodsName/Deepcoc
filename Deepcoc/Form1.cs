@@ -64,9 +64,6 @@ namespace Deepcoc
 
             Thread SPD = new Thread(Speed);
             SPD.Start();
-            /*
-            Thread DM = new Thread(DownedMovement);
-            DM.Start();*/
 
             Thread AR = new Thread(AutoReload);
             AR.Start();
@@ -76,9 +73,6 @@ namespace Deepcoc
 
             Thread EDS = new Thread(DeathStare);
             EDS.Start();
-
-            //Thread check = new Thread(CheckyWecky);
-            //check.Start();
 
             void LockAmmo()
             {
@@ -93,7 +87,6 @@ namespace Deepcoc
                         if (materialMultiLineTextBox12.Text != "")
                         {
                             fireRate = Convert.ToInt32(materialMultiLineTextBox12.Text);
-                            //listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + $" Success: firerate is set to {fireRate}.");
                         }
                     }
                     catch
@@ -226,13 +219,11 @@ namespace Deepcoc
                     float yVal = mem.ReadFloat(yCoord);
                     int _speed = materialSlider2.Value;
                     int _units = 10;
-                    //int _isJumping = 0;
                     float _firstXVal = mem.ReadFloat(_xCoordAddress);
                     float _firstZVal = mem.ReadFloat(_zCoordAddress);
 
                     var isGroundedAddress = mem.ReadAddress(baseAddress, Offsets.isGrounded);
                     var isGrounded = mem.ReadInt(isGroundedAddress);
-                    //Thread.Sleep(10);
                     var velY = mem.ReadAddress(baseAddress, Offsets.velocityY);
                     var velX = mem.ReadAddress(baseAddress, Offsets.velocityX);
                     var velZ = mem.ReadAddress(baseAddress, Offsets.velocityZ);
@@ -263,7 +254,6 @@ namespace Deepcoc
                     if (materialCheckbox21.Checked && GetAsyncKeyState(Keys.Space) < 0)
                     {
                         mem.WriteInt(_jumpMaxAddress, 999999);
-                        //Thread.Sleep(25);
                     }
 
 
@@ -289,7 +279,6 @@ namespace Deepcoc
                         float _zCoordValue = mem.ReadFloat(zCoord);
                         mem.WriteFloat(zCoord, _zCoordValue - _speed);
                     }
-                    //Thread.Sleep(10);
                     Thread.Sleep(5);
                 }
 
@@ -310,7 +299,7 @@ namespace Deepcoc
                     for (int i = 0; i < text_list.Length; i++)
                     {
                         Debug.WriteLine((i * 0x8));
-                        var slotPosAddress = mem.ReadAddress(mollyBase,(i * 0x8));
+                        var slotPosAddress = mem.ReadAddress(mollyBase, (i * 0x8));
                         var slotValueAddress = mem.ReadAddress(slotPosAddress, Offsets.slot);
                         var slotValue = mem.ReadFloat(slotValueAddress);
                         prevValues[i] = slotValue;
@@ -318,22 +307,22 @@ namespace Deepcoc
                     }
                     Thread.Sleep(10000);
 
-                    for(int j = 0; j < text_list.Length; j++)
+                    for (int j = 0; j < text_list.Length; j++)
                     {
-                        var slotPosAddress = mem.ReadAddress(mollyBase,(j * 0x8));
-                        
+                        var slotPosAddress = mem.ReadAddress(mollyBase, (j * 0x8));
+
                         var slotValueAddress = mem.ReadAddress(slotPosAddress, Offsets.slot);
                         var slotValue = mem.ReadFloat(slotValueAddress);
                         var slotCurrValue = mem.ReadAddress(slotPosAddress, Offsets.CurrentSlot);
 
                         if ((float)Convert.ToDouble(text_list[j].Text) != prevValues[j])
                         {
-                        
+
                             mem.WriteFloat(slotValueAddress, (float)Convert.ToDouble(text_list[j].Text));
                             mem.WriteFloat(slotCurrValue, (float)Convert.ToDouble(text_list[j].Text));
                             text_list[j].Text = mem.ReadFloat(slotValueAddress).ToString();
                         }
-                    }                
+                    }
                 }
             }
 
@@ -380,7 +369,6 @@ namespace Deepcoc
                                         mem.WriteFloat(scaleAddressX, (float)Convert.ToDouble(materialMultiLineTextBox24.Text));
                                     }
                                 }
-                                //Thread.Sleep(10);
 
                             }
 
@@ -800,13 +788,11 @@ namespace Deepcoc
                 if (fullAutoPrimary.Checked)
                 {
                     mem.WriteByte(primaryFullAutoAddress, 1);
-                    //mem.WriteInt(burstCountAddress, 10);
                     mem.WriteFloat(cycleTimeLeft, 0);
                 }
                 else
                 {
                     mem.WriteByte(primaryFullAutoAddress, 0);
-                    //mem.WriteInt(burstCountAddress, 0);
                 }
             }
             catch
@@ -826,18 +812,16 @@ namespace Deepcoc
             Debug.WriteLine(secondaryGunAddress.ToString("X"));
             if (materialCheckbox2.Checked)
             {
-                //mem.WriteInt(burstCountAddress, 10);
                 mem.WriteByte(secondaryGunAddress, 1);
             }
             else
             {
                 mem.WriteByte(secondaryGunAddress, 0);
-                //mem.WriteInt(burstCountAddress, 0);
             }
         }
 
 
-       
+
 
         //No clip
         private void materialCheckbox5_CheckedChanged(object sender, EventArgs e)
@@ -897,7 +881,6 @@ namespace Deepcoc
             Debug.WriteLine(secondaryGunAddress.ToString("X"));
             if (materialCheckbox19.Checked)
             {
-                //mem.WriteInt(burstCountAddress, 10);
                 mem.WriteByte(secondaryGunAddress, 1);
             }
             else
@@ -910,7 +893,6 @@ namespace Deepcoc
         //Uncheck all
         private void materialButton33_Click(object sender, EventArgs e)
         {
-            //materialCheckbox1.Checked = false;
             materialCheckbox2.Checked = false;
             materialCheckbox3.Checked = false;
             materialCheckbox4.Checked = false;

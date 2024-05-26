@@ -78,8 +78,7 @@ namespace Deepcoc
 
         public IntPtr ReadAddress(IntPtr address, int offset)
         {
-            byte[] _result = new byte[16];
-            //Debug.WriteLine("in second");      
+            byte[] _result = new byte[16];  
             ReadProcessMemory(_handle, address, _result, _result.Length, IntPtr.Zero);
             IntPtr _nextAddress = IntPtr.Add((IntPtr)BitConverter.ToInt64(_result, 0), offset);
             return _nextAddress;
@@ -200,7 +199,6 @@ namespace Deepcoc
             uint oldProtect = 0;
             if (!SetMemoryProtection(pSource, dwLen, 0x40))
             {
-                // Failed to set the memory protection, handle the error appropriately
                 return IntPtr.Zero;
             }
 
