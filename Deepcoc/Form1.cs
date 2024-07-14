@@ -222,7 +222,6 @@ namespace Deepcoc
                     IntPtr _jumpMaxAddress = mem.ReadAddress(baseAddress, Offsets.jumpMaxCount);
                     float yVal = mem.ReadFloat(yCoord);
                     int _speed = materialSlider2.Value;
-                    int _units = 10;
                     float _firstXVal = mem.ReadFloat(_xCoordAddress);
                     float _firstZVal = mem.ReadFloat(_zCoordAddress);
 
@@ -474,14 +473,14 @@ namespace Deepcoc
             {
                 MemoryReader mem = new MemoryReader(game);
                 SignatureScan signatureScan = new SignatureScan(game, baseAddress, game.MainModule.ModuleMemorySize);
-                var infDepo = signatureScan.FindPattern("F3 0F 11 59 60 48", 0);
+                var infDepo = signatureScan.FindPattern("F3 0F 11 51 60", 0);
                 infDepoAddress = infDepo;
 
                 Debug.WriteLine("infDepo: " + infDepo.ToString("X"));
-                IntPtr trampolineSourceAddr = mem.CreateCodeCave(infDepo + 0x15D6C00, 145);
+                IntPtr trampolineSourceAddr = mem.CreateCodeCave(infDepo + 0x163F5B1, 145);
                 if (trampolineSourceAddr == IntPtr.Zero)
                 {
-                    trampolineSourceAddr = mem.CreateCodeCave(infDepo - 0x15D6C00, 145);
+                    trampolineSourceAddr = mem.CreateCodeCave(infDepo - 0x163F5B1, 145);
                 }
                 Debug.WriteLine(trampolineSourceAddr.ToString("X"));
                 trampolineAddress = trampolineSourceAddr;
@@ -509,7 +508,7 @@ namespace Deepcoc
 
                 if (pTrampoline == IntPtr.Zero)
                 {
-                    listBox1.Items.Insert(0, $"{DateTime.Now.ToString("HH:mm:ss")} Error: Failed to create the detour.");
+                    listBox1.Items.Insert(0, $"{DateTime.Now.ToString("HH:mm:ss")} Error: Failed to create the detour. {infDepo.ToString("X")} -> {trampolineSourceAddr.ToString("X")}");
                     return;
                 }
 
@@ -535,7 +534,7 @@ namespace Deepcoc
         {
             MemoryReader mem = new MemoryReader(game);
             var ppAddress = mem.ReadAddress(baseAddress, Offsets.perkPoints);
-            mem.WriteInt(ppAddress, 999999999);
+            mem.WriteInt(ppAddress, 999999);
         }
 
         //Scrip

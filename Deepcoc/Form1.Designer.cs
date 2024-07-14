@@ -369,7 +369,7 @@
             materialLabel6.FlatStyle = FlatStyle.Popup;
             materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel6.ForeColor = Color.Maroon;
-            materialLabel6.Location = new Point(894, 332);
+            materialLabel6.Location = new Point(683, 330);
             materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
             materialLabel6.Size = new Size(32, 19);
@@ -382,9 +382,9 @@
             listBox1.Font = new Font("Arial", 6.75F, FontStyle.Regular, GraphicsUnit.Point);
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 12;
-            listBox1.Location = new Point(894, 359);
+            listBox1.Location = new Point(683, 357);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(381, 172);
+            listBox1.Size = new Size(585, 172);
             listBox1.TabIndex = 171;
             // 
             // materialCheckbox4
@@ -1215,7 +1215,7 @@
             materialButton8.Depth = 0;
             materialButton8.HighEmphasis = true;
             materialButton8.Icon = null;
-            materialButton8.Location = new Point(685, 415);
+            materialButton8.Location = new Point(474, 413);
             materialButton8.Margin = new Padding(4, 6, 4, 6);
             materialButton8.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton8.Name = "materialButton8";
@@ -1235,7 +1235,7 @@
             materialLabel13.FlatStyle = FlatStyle.Popup;
             materialLabel13.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel13.ForeColor = Color.Maroon;
-            materialLabel13.Location = new Point(685, 332);
+            materialLabel13.Location = new Point(474, 330);
             materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel13.Name = "materialLabel13";
             materialLabel13.Size = new Size(51, 19);
@@ -1250,7 +1250,7 @@
             materialButton7.Depth = 0;
             materialButton7.HighEmphasis = true;
             materialButton7.Icon = null;
-            materialButton7.Location = new Point(685, 367);
+            materialButton7.Location = new Point(474, 365);
             materialButton7.Margin = new Padding(4, 6, 4, 6);
             materialButton7.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton7.Name = "materialButton7";
@@ -2470,7 +2470,7 @@
             Font = new Font("Impact", 24F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(7);
             Name = "Form1";
-            Text = "NEMESIS 1.4.3";
+            Text = "NEMESIS 1.4.5";
             Load += Form1_Load;
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
