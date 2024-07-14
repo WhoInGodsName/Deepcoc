@@ -2368,6 +2368,7 @@
             materialCheckbox10.TabIndex = 74;
             materialCheckbox10.Text = "Lock Firerate";
             materialCheckbox10.UseVisualStyleBackColor = true;
+            materialCheckbox10.CheckedChanged += materialCheckbox10_CheckedChanged;
             // 
             // materialCheckbox8
             // 
@@ -2400,6 +2401,7 @@
             materialCheckbox7.TabIndex = 72;
             materialCheckbox7.Text = "Lock Firerate";
             materialCheckbox7.UseVisualStyleBackColor = true;
+            materialCheckbox7.CheckedChanged += materialCheckbox7_CheckedChanged;
             // 
             // materialLabel7
             // 

@@ -130,8 +130,10 @@ namespace Deepcoc
                     if (materialCheckbox7.Checked)
                     {
                         var firstGunAddress = mem.ReadAddress(baseAddress, Offsets.PrimaryGun);
+                        var fullAutoAddress = mem.ReadAddress(firstGunAddress, Offsets.fullAuto);
                         var cycleAddress = mem.ReadAddress(firstGunAddress, Offsets.cycleTimeLeft);
                         mem.WriteFloat(cycleAddress, 0);
+                        mem.WriteFloat(fullAutoAddress, 1);
                     }
                     if (materialCheckbox22.Checked)
                     {
@@ -153,7 +155,9 @@ namespace Deepcoc
                     {
                         var gun = mem.ReadAddress(baseAddress, Offsets.SecondaryGun);
                         var cycleTimeLeft = mem.ReadAddress(gun, Offsets.cycleTimeLeft);
+                        var fullAutoAddress = mem.ReadAddress(gun, Offsets.fullAuto);
                         mem.WriteFloat(cycleTimeLeft, 0);
+                        mem.WriteFloat(fullAutoAddress, 1);
                     }
                     if (materialCheckbox3.Checked)
                     {
@@ -239,14 +243,13 @@ namespace Deepcoc
                     if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.Space) < 0)
                     {
                         float _yCoordValue = mem.ReadFloat(yCoord);
-                        mem.WriteFloat(yCoord, _yCoordValue + (_units));
-                        mem.WriteFloat(velY, 50);
+                        mem.WriteFloat(velY, 20 * materialSlider3.Value);
 
                     }
                     else if (materialCheckbox15.Checked && GetAsyncKeyState(Keys.LShiftKey) < 0)
                     {
                         float _yCoordValue = mem.ReadFloat(yCoord);
-                        mem.WriteFloat(yCoord, _yCoordValue - (_units));
+                        mem.WriteFloat(velY, -20 * materialSlider3.Value);
 
                     }
 
@@ -1156,6 +1159,16 @@ namespace Deepcoc
             {
                 listBox1.Items.Insert(0, DateTime.Now.ToString("HH:mm:ss") + " Error: Please enter a valid float.");
             }
+        }
+
+        private void materialCheckbox10_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialCheckbox7_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
